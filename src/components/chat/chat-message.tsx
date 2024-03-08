@@ -8,6 +8,7 @@ interface Props {
 }
 
 export const ChatMessage: React.FC<Props> = ({ message }) => {
+  const dateString = new Date(message.timestamp).toDateString();
   return (
     <div className="flex px-4 py-3">
       <div className="relative flex h-10 w-10 items-center justify-center rounded-md border-gray-300 bg-white/70">
@@ -27,7 +28,7 @@ export const ChatMessage: React.FC<Props> = ({ message }) => {
         <div className="-mt-1">
           <span className="text-sm font-semibold">{message.sender}</span>
           <span className="ml-1 text-xs text-gray-500">
-            {message.timestamp}
+            {dateString}
           </span>
         </div>
         <p className="text-sm">{message.message}</p>

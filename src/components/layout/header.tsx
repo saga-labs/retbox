@@ -13,8 +13,8 @@ const supabase = createClient(
 
 // contexts
 // import useSessionStore from "../../contexts/session-store";
-import { Badge } from "../ui/badge";
-import { ThemeToggle } from "../theme-toggle";
+import { Badge } from "@/components/ui/badge";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 // icons
 import { FolderIcon } from "@heroicons/react/24/outline";

@@ -22,7 +22,7 @@ const Dashboard: React.FC = () => {
         className="flex h-screen flex-grow"
       >
         {/* Drive Panel */}
-        <ResizablePanel minSize={25} defaultSize={66}>
+        <ResizablePanel minSize={25} defaultSize={67}>
           <div className="item flex h-full flex-col overflow-scroll px-6 pb-6 @container">
             <DriveMenu />
             <DriveBrowser />
