@@ -33,7 +33,7 @@ const Header: React.FC = () => {
 
         <span className="flex items-center space-x-1">
           <FolderIcon className="w-4 text-gray-400" />
-          <p className="text-sm">Saga Labs</p>
+          <p className="text-sm">drive</p>
         </span>
       </div>
 

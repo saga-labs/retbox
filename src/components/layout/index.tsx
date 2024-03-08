@@ -14,7 +14,7 @@ interface Props {
 const Layout: React.FC<Props> = ({ children }) => {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="retbox-theme">
-      <div className="flex flex-row">
+      <div className="flex flex-row h-screen overflow-hidden">
         <Sidebar />
 
         <section className="flex grow flex-col">
