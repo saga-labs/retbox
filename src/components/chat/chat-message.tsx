@@ -1,14 +1,17 @@
-import React from 'react';
-
+import React from "react";
 
 // interfaces & types
-import { MessageType } from '@/types/chat';
+import { MessageType } from "@/types/chat";
 
-export const ChatMessage = ({ message }: { message: MessageType }) => {
+interface Props {
+  message: MessageType;
+}
+
+export const ChatMessage: React.FC<Props> = ({ message }) => {
   return (
     <div className="flex px-4 py-3">
-      <div className="relative w-10 h-10 rounded-md bg-white/70 border-gray-300 flex items-center justify-center">
-        {message.sender === 'ai' ? (
+      <div className="relative flex h-10 w-10 items-center justify-center rounded-md border-gray-300 bg-white/70">
+        {message.sender === "ai" ? (
           <img src="/openai.png" alt="AI" width={28} height={28} />
         ) : (
           <img
@@ -28,14 +31,13 @@ export const ChatMessage = ({ message }: { message: MessageType }) => {
           </span>
         </div>
         <p className="text-sm">{message.message}</p>
-        
-        {message.sender === 'ai' && (
-          <div className="flex items-center mt-2">
 
-            <a className="text-blue-600 text-xs font-medium ml-1" href="#">
+        {message.sender === "ai" && (
+          <div className="mt-2 flex items-center">
+            <a className="ml-1 text-xs font-medium text-blue-600" href="#">
               3 versions
             </a>
-            <span className="text-xs text-gray-600 ml-1"></span>
+            <span className="ml-1 text-xs text-gray-600"></span>
           </div>
         )}
       </div>

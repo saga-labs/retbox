@@ -7,7 +7,7 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 
-const DriveItem = () => {
+const DriveItem: React.FC = () => {
   return (
     <Card>
       <CardContent>

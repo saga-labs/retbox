@@ -9,7 +9,7 @@ const supabaseKey = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnon = import.meta.env.VITE_SUPABASE_ANON;
 const supabase = createClient(supabaseKey, supabaseAnon);
 
-const Login = () => {
+const Login: React.FC = () => {
   return (
     <>
       <div className="md:hidden">
