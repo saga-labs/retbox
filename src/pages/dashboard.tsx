@@ -27,9 +27,11 @@ const Dashboard: React.FC = () => {
       >
         {/* Drive Panel */}
         <ResizablePanel minSize={25} defaultSize={67}>
-          <div className="item @container flex h-full flex-col overflow-scroll px-6 pb-6">
-            hello
+          <div className='px-4 py-3'>
+
+          <div className="item @container flex h-full flex-col overflow-scroll p-[5px]">
             <Input />
+          </div>
           </div>
         </ResizablePanel>
         <ResizableHandle className="border-l" />

@@ -1,14 +1,9 @@
 import React from 'react';
 
-// supabase
-//import { Auth } from "@supabase/auth-ui-react";
-// import { ThemeSupa } from "@supabase/auth-ui-shared";
-// import { supabase } from '../utils/supabase';
-
 // components
 import { AuthLayout } from '../components/layout/auth-layout';
 
-const Login: React.FC = () => {
+const Register: React.FC = () => {
   return (
     <AuthLayout>
       <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
@@ -45,4 +40,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default Register;

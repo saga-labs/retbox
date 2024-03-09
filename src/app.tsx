@@ -1,17 +1,27 @@
-import React from 'react'
+import React from 'react';
 
 // routing
-import { createBrowserRouter } from "react-router-dom";
-import { RouterProvider } from "react-router-dom";
+import { createBrowserRouter } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
 
 // pages
-import Dashboard from './pages/dashboard'
+import Dashboard from './pages/dashboard';
+import Login from './pages/auth-login';
+import Register from './pages/auth-register';
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Dashboard/>,
-  }
+    path: '/',
+    element: <Dashboard />,
+  },
+  {
+    path: '/auth/login',
+    element: <Login />,
+  },
+  {
+    path: '/auth/register',
+    element: <Register />,
+  },
 ]);
 
 function App() {
@@ -43,4 +53,4 @@ function App() {
   return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;
