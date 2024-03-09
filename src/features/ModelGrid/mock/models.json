@@ -1,0 +1,378 @@
+[
+  {
+    "name": "gpt-3.5-turbo-1106",
+    "description": "The latest GPT-3.5 Turbo model with improved instruction following, JSON mode, reproducible outputs, parallel function calling, and more. Returns a maximum of 4,096 output tokens.",
+    "pulls": 16385,
+    "tags": 0,
+    "lastUpdated": "Up to Sep 2021",
+    "openSource": false
+  },
+  {
+    "name": "gpt-3.5-turbo",
+    "description": "Currently points to gpt-3.5-turbo-0613. Will point to gpt-3.5-turbo-1106 starting Dec 11, 2023. See continuous model upgrades.",
+    "pulls": 4096,
+    "tags": 0,
+    "lastUpdated": "Up to Sep 2021",
+    "openSource": false
+  },
+  {
+    "name": "gpt-3.5-turbo-16k",
+    "description": "Currently points to gpt-3.5-turbo-0613. Will point to gpt-3.5-turbo-1106 starting Dec 11, 2023. See continuous model upgrades.",
+    "pulls": 16385,
+    "tags": 0,
+    "lastUpdated": "Up to Sep 2021",
+    "openSource": false
+  },
+  {
+    "name": "gpt-3.5-turbo-instruct",
+    "description": "Similar capabilities as text-davinci-003 but compatible with legacy Completions endpoint and not Chat Completions.",
+    "pulls": 4096,
+    "tags": 0,
+    "lastUpdated": "Up to Sep 2021",
+    "openSource": false
+  },
+  {
+    "name": "gpt-4",
+    "description": "The next-generation GPT-4 language model.",
+    "pulls": 8192,
+    "tags": 0,
+    "lastUpdated": "Up to Sep 2021",
+    "openSource": false
+  },
+  {
+    "name": "gpt-4-32k",
+    "description": "Currently points to gpt-4-32k-0613. See continuous model upgrades.",
+    "pulls": 32768,
+    "tags": 0,
+    "lastUpdated": "Up to Sep 2021",
+    "openSource": false
+  },
+  {
+    "name": "gpt-4-0613",
+    "description": "Snapshot of gpt-4 from June 13th, 2023, with improved function calling support.",
+    "pulls": 8192,
+    "tags": 0,
+    "lastUpdated": "Up to Sep 2021",
+    "openSource": false
+  },
+  {
+    "name": "gpt-4-32k-0613",
+    "description": "Snapshot of gpt-4-32k from June 13th, 2023, with improved function calling support.",
+    "pulls": 32768,
+    "tags": 0,
+    "lastUpdated": "Up to Sep 2021",
+    "openSource": false
+  },
+  {
+    "name": "gpt-4-1106-preview",
+    "description": "The latest GPT-4 model with improved instruction following, JSON mode, reproducible outputs, parallel function calling, and more. Returns a maximum of 4,096 output tokens. This preview model is not yet suited for production traffic.",
+    "pulls": 128000,
+    "tags": 0,
+    "lastUpdated": "Up to Apr 2023",
+    "openSource": false
+  },
+  {
+    "name": "gpt-4-vision-preview",
+    "description": "GPT-4 Turbo with vision. Ability to understand images, in addition to all other GPT-4 Turbo capabilities. Returns a maximum of 4,096 output tokens. This is a preview model version and not suited yet for production traffic.",
+    "pulls": 128000,
+    "tags": 0,
+    "lastUpdated": "Up to Apr 2023",
+    "openSource": false
+  },
+  {
+    "name": "mistral",
+    "description": "The Mistral 7B model released by Mistral AI",
+    "pulls": 34000,
+    "tags": 36,
+    "lastUpdated": "2 weeks ago",
+    "openSource": true
+  },
+  {
+    "name": "llama2",
+    "description": "The most popular model for general use.",
+    "pulls": 82700,
+    "tags": 98,
+    "lastUpdated": "6 days ago",
+    "openSource": true
+  },
+  {
+    "name": "codellama",
+    "description": "A large language model that can use text prompts to generate and discuss code.",
+    "pulls": 46200,
+    "tags": 150,
+    "lastUpdated": "2 weeks ago",
+    "openSource": true
+  },
+  {
+    "name": "llama2-uncensored",
+    "description": "Uncensored Llama 2 model by George Sung and Jarrad Hope.",
+    "pulls": 19300,
+    "tags": 34,
+    "lastUpdated": "6 days ago",
+    "openSource": true
+  },
+  {
+    "name": "vicuna",
+    "description": "General use chat model based on Llama and Llama 2 with 2K to 16K context sizes.",
+    "pulls": 18900,
+    "tags": 111,
+    "lastUpdated": "6 days ago",
+    "openSource": true
+  },
+  {
+    "name": "orca-mini",
+    "description": "A general-purpose model ranging from 3 billion parameters to 70 billion, suitable for entry-level hardware.",
+    "pulls": 17900,
+    "tags": 119,
+    "lastUpdated": "6 days ago",
+    "openSource": true
+  },
+  {
+    "name": "wizard-vicuna-uncensored",
+    "description": "Wizard Vicuna Uncensored is a 7B, 13B, and 30B parameter model based on Llama 2 uncensored by Eric Hartford.",
+    "pulls": 9350,
+    "tags": 49,
+    "lastUpdated": "6 days ago",
+    "openSource": true
+  },
+  {
+    "name": "phind-codellama",
+    "description": "Code generation model based on CodeLlama.",
+    "pulls": 8082,
+    "tags": 49,
+    "lastUpdated": "13 days ago",
+    "openSource": true
+  },
+  {
+    "name": "nous-hermes",
+    "description": "General use models based on Llama and Llama 2 from Nous Research.",
+    "pulls": 7960,
+    "tags": 63,
+    "lastUpdated": "6 days ago",
+    "openSource": true
+  },
+  {
+    "name": "mistral-openorca",
+    "description": "Mistral OpenOrca is a 7 billion parameter model, fine-tuned on top of the Mistral 7B model using the OpenOrca dataset.",
+    "pulls": 7418,
+    "tags": 17,
+    "lastUpdated": "4 weeks ago",
+    "openSource": true
+  },
+  {
+    "name": "wizardcoder",
+    "description": "Llama based code generation model focused on Python.",
+    "pulls": 7184,
+    "tags": 50,
+    "lastUpdated": "13 days ago",
+    "openSource": true
+  },
+  {
+    "name": "wizard-math",
+    "description": "Model focused on math and logic problems.",
+    "pulls": 6624,
+    "tags": 49,
+    "lastUpdated": "6 days ago",
+    "openSource": true
+  },
+  {
+    "name": "llama2-chinese",
+    "description": "Llama 2 based model fine-tuned to improve Chinese dialogue ability.",
+    "pulls": 6418,
+    "tags": 35,
+    "lastUpdated": "13 days ago",
+    "openSource": true
+  },
+  {
+    "name": "stable-beluga",
+    "description": "Llama 2 based model fine-tuned on an Orca-style dataset. Originally called Free Willy.",
+    "pulls": 5864,
+    "tags": 49,
+    "lastUpdated": "6 days ago",
+    "openSource": true
+  },
+  {
+    "name": "zephyr",
+    "description": "Zephyr beta is a fine-tuned 7B version of mistral that was trained on a mix of publicly available, synthetic datasets.",
+    "pulls": 5083,
+    "tags": 34,
+    "lastUpdated": "2 weeks ago",
+    "openSource": true
+  },
+  {
+    "name": "codeup",
+    "description": "Great code generation model based on Llama2.",
+    "pulls": 4744,
+    "tags": 19,
+    "lastUpdated": "6 days ago",
+    "openSource": true
+  },
+  {
+    "name": "falcon",
+    "description": "A large language model built by the Technology Innovation Institute (TII) for use in summarization, text generation, and chat bots.",
+    "pulls": 4283,
+    "tags": 38,
+    "lastUpdated": "2 weeks ago",
+    "openSource": true
+  },
+  {
+    "name": "everythinglm",
+    "description": "Uncensored Llama2 based model with a 16k context size.",
+    "pulls": 3947,
+    "tags": 18,
+    "lastUpdated": "6 days ago",
+    "openSource": true
+  },
+  {
+    "name": "wizardlm-uncensored",
+    "description": "Uncensored version of Wizard LM model.",
+    "pulls": 3653,
+    "tags": 18,
+    "lastUpdated": "2 weeks ago",
+    "openSource": true
+  },
+  {
+    "name": "medllama2",
+    "description": "Fine-tuned Llama 2 model to answer medical questions based on an open source medical dataset.",
+    "pulls": 3652,
+    "tags": 17,
+    "lastUpdated": "13 days ago",
+    "openSource": true
+  },
+  {
+    "name": "wizard-vicuna",
+    "description": "Wizard Vicuna is a 13B parameter model based on Llama 2 trained by MelodysDreamj.",
+    "pulls": 3061,
+    "tags": 17,
+    "lastUpdated": "2 weeks ago",
+    "openSource": true
+  },
+  {
+    "name": "open-orca-platypus2",
+    "description": "Merge of the Open Orca OpenChat model and the Garage-bAInd Platypus 2 model. Designed for chat and code generation.",
+    "pulls": 2668,
+    "tags": 17,
+    "lastUpdated": "13 days ago",
+    "openSource": true
+  },
+  {
+    "name": "starcoder",
+    "description": "StarCoder is a code generation model trained on 80+ programming languages.",
+    "pulls": 1915,
+    "tags": 100,
+    "lastUpdated": "2 weeks ago",
+    "openSource": true
+  },
+  {
+    "name": "samantha-mistral",
+    "description": "A companion assistant trained in philosophy, psychology, and personal relationships. Based on Mistral.",
+    "pulls": 1320,
+    "tags": 49,
+    "lastUpdated": "3 weeks ago",
+    "openSource": true
+  },
+  {
+    "name": "openhermes2-mistral",
+    "description": "OpenHermes 2 Mistral is a 7B model fine-tuned on Mistral with 900,000 entries of primarily GPT-4 generated data from open datasets.",
+    "pulls": 1274,
+    "tags": 17,
+    "lastUpdated": "3 weeks ago",
+    "openSource": true
+  },
+  {
+    "name": "dolphin2.2-mistral",
+    "description": "An instruct-tuned model based on Mistral. Version 2.2 is fine-tuned for improved conversation and empathy.",
+    "pulls": 1099,
+    "tags": 16,
+    "lastUpdated": "6 days ago",
+    "openSource": true
+  },
+  {
+    "name": "sqlcoder",
+    "description": "SQLCoder is a code completion model fined-tuned on StarCoder for SQL generation tasks.",
+    "pulls": 1034,
+    "tags": 33,
+    "lastUpdated": "6 days ago",
+    "openSource": true
+  },
+  {
+    "name": "wizardlm",
+    "description": "General use 70 billion parameter model based on Llama 2.",
+    "pulls": 1022,
+    "tags": 73,
+    "lastUpdated": "12 days ago",
+    "openSource": true
+  },
+  {
+    "name": "yarn-mistral",
+    "description": "An extension of Mistral to support a context of up to 128k tokens.",
+    "pulls": 870,
+    "tags": 33,
+    "lastUpdated": "6 days ago",
+    "openSource": true
+  },
+  {
+    "name": "dolphin2.1-mistral",
+    "description": "An instruct-tuned model based on Mistral and trained on a dataset filtered to remove alignment and bias.",
+    "pulls": 778,
+    "tags": 17,
+    "lastUpdated": "6 days ago",
+    "openSource": true
+  },
+  {
+    "name": "openhermes2.5-mistral",
+    "description": "OpenHermes 2.5 Mistral 7B is a Mistral 7B fine-tune, a continuation of OpenHermes 2 model, which trained on additional code datasets.",
+    "pulls": 664,
+    "tags": 17,
+    "lastUpdated": "3 days ago",
+    "openSource": true
+  },
+  {
+    "name": "codebooga",
+    "description": "A high-performing code instruct model created by merging two existing code models.",
+    "pulls": 630,
+    "tags": 16,
+    "lastUpdated": "6 days ago",
+    "openSource": true
+  },
+  {
+    "name": "mistrallite",
+    "description": "MistralLite is a fine-tuned model based on Mistral with enhanced capabilities of processing long contexts.",
+    "pulls": 533,
+    "tags": 17,
+    "lastUpdated": "6 days ago",
+    "openSource": true
+  },
+  {
+    "name": "yarn-llama2",
+    "description": "An extension of Llama 2 that supports a context of up to 128k tokens.",
+    "pulls": 434,
+    "tags": 67,
+    "lastUpdated": "6 days ago",
+    "openSource": true
+  },
+  {
+    "name": "nexusraven",
+    "description": "Nexus Raven is a 13B instruction tuned model for function calling tasks.",
+    "pulls": 399,
+    "tags": 17,
+    "lastUpdated": "5 weeks ago",
+    "openSource": true
+  },
+  {
+    "name": "xwinlm",
+    "description": "Conversational model based on Llama 2 that performs competitively on various benchmarks.",
+    "pulls": 253,
+    "tags": 80,
+    "lastUpdated": "6 days ago",
+    "openSource": true
+  },
+  {
+    "name": "yi",
+    "description": "A high-performing, bilingual base model.",
+    "pulls": 220,
+    "tags": 46,
+    "lastUpdated": "yesterday",
+    "openSource": true
+  }
+]

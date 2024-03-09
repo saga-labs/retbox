@@ -15,6 +15,7 @@ import useSessionStore from "./contexts/session-store";
 // Components
 import Dashboard from "./pages/dashboard";
 import Login from "./pages/login";
+import Rebuild from "./pages/rebuild";
 
 const supabaseKey = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnon = import.meta.env.VITE_SUPABASE_ANON;
@@ -23,12 +24,16 @@ const supabase = createClient(supabaseKey, supabaseAnon);
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Dashboard/>,
+    element: <Dashboard />,
   },
   {
     path: "/auth",
-    element: <Login/>
-  }
+    element: <Login />,
+  },
+  {
+    path: "/rebuild",
+    element: <Rebuild />,
+  },
 ]);
 
 export default function App() {
@@ -44,8 +49,9 @@ export default function App() {
     });
 
     // update state on auth change
-    const { data: { subscription }} = supabase.auth.onAuthStateChange(
-      (_event, session) => {
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
     });
 
@@ -54,7 +60,7 @@ export default function App() {
   }, [setSession]);
 
   if (!session && !loading) {
-    return <Login/>; // todo: redirect to /auth and still register on change
+    return <Login />; // todo: redirect to /auth and still register on change
   }
 
   return <RouterProvider router={router} />;

@@ -1,0 +1,31 @@
+{
+  "agents": [
+    {
+      "id": "a1b2c3d4",
+      "name": "Comedian",
+      "description": "An advanced chatbot designed to answer questions and provide assistance.",
+      "avatar": "/avatars/chatbot3000.png",
+      "created_at": "2023-01-01T08:00:00",
+      "updated_at": "2023-01-01T08:00:00",
+      "status": true
+    },
+    {
+      "id": "e5f6g7h8",
+      "name": "CopyWriter",
+      "description": "Your friendly AI assistant ready to help with a wide range of tasks.",
+      "avatar": "/avatars/ai_helper.jpg",
+      "created_at": "2023-01-02T10:30:00",
+      "updated_at": "2023-01-02T10:30:00",
+      "status": false
+    },
+    {
+      "id": "i9j0k1l2",
+      "name": "Consultant",
+      "description": "A knowledgeable bot specializing in technology-related questions and discussions.",
+      "avatar": "/avatars/techsavvybot.png",
+      "created_at": "2023-01-03T15:45:00",
+      "updated_at": "2023-01-03T15:45:00",
+      "status": false
+    }
+  ]
+}
