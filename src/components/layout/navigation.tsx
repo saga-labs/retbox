@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Component2Icon } from '@radix-ui/react-icons';
+
 export const Navigation: React.FC = () => {
   return (
     <nav className="flex w-14 flex-shrink-0 flex-col items-center space-y-2 border-r border-gray-300">
@@ -57,6 +59,11 @@ export const Navigation: React.FC = () => {
 
 const NavItem = () => {
   return (
-    <a className="h-10 w-10 rounded bg-gray-400 hover:bg-gray-500" href="#"></a>
+    <a
+      className="flex h-10 w-10 items-center justify-center rounded hover:bg-gray-300"
+      href="#"
+    >
+      <Component2Icon className="h-5 w-5" />
+    </a>
   );
 };
