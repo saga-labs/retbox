@@ -5,7 +5,7 @@ import { Component2Icon } from '@radix-ui/react-icons';
 export const Navigation: React.FC = () => {
   return (
     <nav className="flex w-14 flex-shrink-0 flex-col items-center space-y-2 border-r border-gray-300">
-      <section className="flex h-14 w-14 items-center justify-center">
+      <section className="flex h-14 w-14 items-center justify-center border-b">
         <svg
           id="logo-88"
           width="32"
