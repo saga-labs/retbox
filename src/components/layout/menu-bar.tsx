@@ -2,6 +2,7 @@ import React from 'react';
 
 // components
 import { Select } from '@/components/common/select';
+import { BellIcon } from '@radix-ui/react-icons';
 
 const values = [
   {
@@ -25,6 +26,7 @@ const MenuBar: React.FC = () => {
         <h1 className="text-sm font-semibold leading-none">
           #council-of-elrond
         </h1>
+        <BellIcon />
       </div>
     </nav>
   );

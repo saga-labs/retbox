@@ -5,29 +5,18 @@ import mockData from '@/features/chat/mock/chat.json';
 
 // common components
 import Layout from '@/components/layout';
-import { Select } from '@/components/common/select';
-import { Input } from '@/components/common/input';
 import { ResizablePanelGroup } from '@/components/common/resizable';
 import { ResizablePanel } from '@/components/common/resizable';
 import { ResizableHandle } from '@/components/common/resizable';
 
 // feature: drive
+import { ToolBar } from '@/features/drive/components/toolbar';
+import { Browser } from '@/features/drive/components/browser';
 
 // feature: chat
 import { ChatMessage } from '@/features/chat/components/chat-message';
 import { ChatContainer } from '@/features/chat/components/chat-container';
 import type { MessageType, ChatType } from '@/features/chat/types/chat';
-
-const values = [
-  {
-    value: '1',
-    text: 'Alphabetically (A-Z)',
-  },
-  {
-    value: '2',
-    text: 'Alphabetically (Z-A)',
-  },
-];
 
 const Dashboard: React.FC = () => {
   const [chat] = React.useState<ChatType>(mockData);
@@ -40,11 +29,9 @@ const Dashboard: React.FC = () => {
         {/* Drive Panel */}
         <ResizablePanel minSize={25} defaultSize={67}>
           <div className="px-3 py-3">
-            <div className="item @container flex h-full flex-col overflow-scroll p-[5px]">
-              <article className="flex flex-row justify-between">
-                <Input />
-                <Select descriptor="sorting" values={values} />
-              </article>
+            <div className="item flex h-full flex-col overflow-scroll p-[5px] space-y-3">
+              <ToolBar />
+              <Browser />
             </div>
           </div>
         </ResizablePanel>

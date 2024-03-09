@@ -9,8 +9,8 @@ export const Navigation: React.FC = () => {
         <article className="flex h-14 w-14 items-center justify-center border-b">
           <svg
             id="logo-88"
-            width="32"
-            height="32"
+            width="28"
+            height="28"
             viewBox="0 0 40 41"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
