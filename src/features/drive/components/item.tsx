@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const Item = () => {
+export const Item: React.FC = () => {
   return (
     <div
-      className="group relative mt-3 flex cursor-pointer flex-col items-start rounded-lg bg-white bg-opacity-90 p-4 hover:bg-opacity-100"
+      className="group relative flex cursor-pointer flex-col items-start rounded-lg bg-white bg-opacity-90 p-4 hover:bg-opacity-100 w-[175px] border"
       draggable="true"
     >
       <button className="absolute right-0 top-0 mr-2 mt-3 flex hidden h-5 w-5 items-center justify-center rounded text-gray-500 hover:bg-gray-200 hover:text-gray-700 group-hover:flex">

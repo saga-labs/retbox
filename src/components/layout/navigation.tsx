@@ -1,11 +1,15 @@
 import React from 'react';
 
-import { Component2Icon } from '@radix-ui/react-icons';
+// utils
+import { supabase } from '@/utils/supabase';
+
+// icons
+import { Component2Icon, ExitIcon } from '@radix-ui/react-icons';
 
 export const Navigation: React.FC = () => {
   return (
     <nav className="flex w-14 flex-shrink-0 flex-col items-center justify-between border-r border-gray-300">
-      <section className='flex flex-col items-center'>
+      <section className="flex flex-col items-center">
         <article className="flex h-14 w-14 items-center justify-center border-b">
           <svg
             id="logo-88"
@@ -34,26 +38,14 @@ export const Navigation: React.FC = () => {
       </section>
 
       {/** actions */}
-      <section className="flex flex-col">
-        <a
-          className="mt-4 flex h-10 w-10 items-center justify-center rounded-lg bg-transparent hover:bg-gray-400"
-          href="#"
+      <section className="flex flex-col mb-2">
+        <button
+          className="flex h-10 w-10 items-center justify-center rounded-lg bg-transparent hover:bg-gray-400"
+          type="button"
+          onClick={async () => supabase.auth.signOut()}
         >
-          <svg
-            className="h-6 w-6 fill-current"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-            ></path>
-          </svg>
-        </a>
+          <ExitIcon className='h-4 w-4'/>
+        </button>
       </section>
     </nav>
   );

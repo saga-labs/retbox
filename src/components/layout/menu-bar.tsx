@@ -6,11 +6,11 @@ import { BellIcon } from '@radix-ui/react-icons';
 
 const values = [
   {
-    value: 'Personal',
+    value: '373d0ca3-6527-4a59-a0ec-36c6a4d1f828',
     text: 'Personal',
   },
   {
-    value: 'asdasda',
+    value: '373d0ca3-6527-4a59-a0ec-36c6a4d1f828',
     text: 'Saga Labs',
   },
 ];
@@ -18,14 +18,12 @@ const values = [
 const MenuBar: React.FC = () => {
   return (
     <nav className="flex h-14 flex-shrink-0 items-center justify-between border-b border-gray-300 bg-white px-4">
-      <div>
+      <section className='flex divide-x'>
         <Select descriptor="Accounts" values={values} />
-      </div>
+        <Select descriptor="Accounts" values={values} />
+      </section>
 
       <div>
-        <h1 className="text-sm font-semibold leading-none">
-          #council-of-elrond
-        </h1>
         <BellIcon />
       </div>
     </nav>
