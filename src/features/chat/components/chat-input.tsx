@@ -1,7 +1,5 @@
-import React from 'react'
+import React from 'react';
 
 export const ChatInput: React.FC = () => {
-  return (
-    <div>chat-input</div>
-  )
-}
+  return <textarea className="chat-input" placeholder="Type a message..." />;
+};

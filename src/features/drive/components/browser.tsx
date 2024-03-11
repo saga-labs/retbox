@@ -28,7 +28,7 @@ export const Browser = () => {
   if (user.isLoading && files.isLoading) return <div>loading...</div>;
 
   return (
-    <div className="grid h-full grow grid-cols-1 gap-5 rounded-md border p-5 font-sans sm:grid-cols-3 md:grid-cols-5">
+    <div className="grid h-full grow grid-cols-1 gap-5 rounded-md border border-neutral-800 p-5 font-sans sm:grid-cols-3 md:grid-cols-5">
       {files.data?.data?.map((file: FileObject, key: React.Key) => (
         <Item file={file} key={key} />
       ))}

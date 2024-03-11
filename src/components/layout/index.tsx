@@ -9,7 +9,7 @@ interface Props {
 
 const Layout: React.FC<Props> = ({ children }) => {
   return (
-    <main className="font-inter dark:bg-slate12 flex h-screen w-screen text-gray-700 dark:text-gray-700">
+    <main className="font-inter flex h-screen w-screen text-gray-700 dark:bg-neutral-900 dark:text-gray-700">
       <Navigation />
 
       {/** menu bar */}

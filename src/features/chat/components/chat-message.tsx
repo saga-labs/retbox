@@ -2,28 +2,25 @@ import React from 'react';
 
 // interfaces & types
 import { MessageType } from '../types/chat';
+import { Avatar } from '@/components/common/avatar';
 
 interface Props {
   message: MessageType;
 }
 
+const image =
+  'https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80';
+
 export const ChatMessage: React.FC<Props> = ({ message }) => {
   const dateString = new Date(message.timestamp).toDateString();
   return (
     <div className="flex px-4 py-3">
-      <div className="relative flex h-10 w-10 items-center justify-center rounded-md border-gray-300 bg-white/70">
-        {message.sender === 'ai' ? (
-          <img src="/openai.png" alt="AI" width={28} height={28} />
-        ) : (
-          <img
-            src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=3280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="User"
-            width={40}
-            height={40}
-            className="rounded-md"
-          />
-        )}
-      </div>
+      {message.sender === 'ai' ? (
+        <Avatar src={image} alt="user" />
+      ) : (
+        <Avatar src={image} alt="ai" />
+      )}
+
       <div className="ml-2">
         <div className="-mt-1">
           <span className="text-sm font-semibold">{message.sender}</span>

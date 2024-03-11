@@ -12,7 +12,7 @@ interface props {
 export const Select: React.FC<props> = ({ descriptor, values }) => (
   <RadixSelect.Root>
     <RadixSelect.Trigger
-      className="text-green-300hover:bg-mauve3 data-[placeholder]:text-violet9 inline-flex h-[35px] items-center justify-center gap-[5px] rounded bg-white px-[15px] text-[13px] leading-none outline-none focus:shadow-black"
+      className="hover:bg-mauve3 data-[placeholder]:text-violet9 inline-flex h-[35px] items-center justify-center gap-[5px] rounded px-[15px] text-[13px] leading-none text-green-300 outline-none focus:shadow-black"
       aria-label="Food"
     >
       <RadixSelect.Value placeholder="Status" />
@@ -22,8 +22,8 @@ export const Select: React.FC<props> = ({ descriptor, values }) => (
     </RadixSelect.Trigger>
 
     <RadixSelect.Portal>
-      <RadixSelect.Content className="overflow-hidden rounded-md bg-white shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)]">
-        <RadixSelect.ScrollUpButton className="text-green-300 flex h-[25px] cursor-default items-center justify-center bg-white">
+      <RadixSelect.Content className="overflow-hidden rounded-md shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)]">
+        <RadixSelect.ScrollUpButton className="flex h-[25px] cursor-default items-center justify-center text-green-300">
           <ChevronUpIcon />
         </RadixSelect.ScrollUpButton>
 
@@ -48,7 +48,7 @@ export const Select: React.FC<props> = ({ descriptor, values }) => (
           </RadixSelect.Group>
         </RadixSelect.Viewport>
 
-        <RadixSelect.ScrollDownButton className="text-green-300flex h-[25px] cursor-default items-center justify-center bg-white">
+        <RadixSelect.ScrollDownButton className="text-green-300flex h-[25px] cursor-default items-center justify-center">
           <ChevronDownIcon />
         </RadixSelect.ScrollDownButton>
       </RadixSelect.Content>
