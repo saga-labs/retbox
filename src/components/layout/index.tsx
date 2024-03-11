@@ -1,5 +1,4 @@
 import React from 'react';
-
 // components
 import { Navigation } from './navigation';
 import MenuBar from './menu-bar';
@@ -10,7 +9,7 @@ interface Props {
 
 const Layout: React.FC<Props> = ({ children }) => {
   return (
-    <main className="flex h-screen w-screen text-gray-700 font-inter">
+    <main className="font-inter dark:bg-slate12 flex h-screen w-screen text-gray-700 dark:text-gray-700">
       <Navigation />
 
       {/** menu bar */}

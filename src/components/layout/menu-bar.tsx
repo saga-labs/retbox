@@ -17,8 +17,8 @@ const values = [
 
 const MenuBar: React.FC = () => {
   return (
-    <nav className="flex h-14 flex-shrink-0 items-center justify-between border-b border-gray-300 bg-white px-4">
-      <section className='flex divide-x'>
+    <nav className="border-slate11 flex h-14 flex-shrink-0 items-center justify-between border-b px-4">
+      <section className="flex divide-x">
         <Select descriptor="Accounts" values={values} />
         <Select descriptor="Accounts" values={values} />
       </section>

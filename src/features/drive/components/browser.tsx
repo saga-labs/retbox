@@ -4,6 +4,9 @@ import type { FileObject } from '@supabase/storage-js';
 
 // utils
 import { supabase } from '@/utils/supabase';
+//import { fileFilter } from '../utils/file';
+
+// components
 import { Item } from './item';
 
 // fetch the current user
@@ -25,9 +28,9 @@ export const Browser = () => {
   if (user.isLoading && files.isLoading) return <div>loading...</div>;
 
   return (
-    <div className="grid grid-cols-1 gap-5 rounded-md border p-5 font-sans sm:grid-cols-3 md:grid-cols-5">
-      {[...Array(8)].map((file: FileObject, key: React.Key) => (
-        <Item key={key} />
+    <div className="grid h-full grow grid-cols-1 gap-5 rounded-md border p-5 font-sans sm:grid-cols-3 md:grid-cols-5">
+      {files.data?.data?.map((file: FileObject, key: React.Key) => (
+        <Item file={file} key={key} />
       ))}
     </div>
   );
