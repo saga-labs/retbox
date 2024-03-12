@@ -18,15 +18,17 @@ export const ChatMessage: React.FC<Props> = ({ message }) => {
       {message.sender === 'ai' ? (
         <Avatar src={image} alt="user" />
       ) : (
-        <Avatar src={image} alt="ai" />
+        <Avatar src={image} alt="Mistral" />
       )}
 
       <div className="ml-2">
         <div className="-mt-1">
-          <span className="text-sm font-semibold">{message.sender}</span>
-          <span className="ml-1 text-xs text-gray-500">{dateString}</span>
+          <span className="text-sm font-semibold text-neutral-200">
+            {message.sender}
+          </span>
+          <span className="ml-1 text-xs text-neutral-300">{dateString}</span>
         </div>
-        <p className="text-sm">{message.message}</p>
+        <p className="text-sm font-light text-zinc-400">{message.message}</p>
 
         {message.sender === 'ai' && (
           <div className="mt-2 flex items-center">

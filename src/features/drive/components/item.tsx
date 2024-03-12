@@ -8,7 +8,7 @@ interface props {
 export const Item: React.FC<props> = ({ file }) => {
   return (
     <div
-      className="min-w-[75px] bg-slate12 group relative flex max-w-[225px] cursor-pointer flex-col items-start rounded-lg border bg-opacity-90 p-0 hover:bg-opacity-100"
+      className="min-w-[75px] group relative flex max-w-[225px] cursor-pointer flex-col items-start rounded-lg border border-neutral-700 bg-neutral-800 bg-opacity-90 p-0 hover:bg-opacity-100"
       draggable="true"
     >
       <img

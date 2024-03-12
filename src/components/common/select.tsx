@@ -12,7 +12,7 @@ interface props {
 export const Select: React.FC<props> = ({ descriptor, values }) => (
   <RadixSelect.Root>
     <RadixSelect.Trigger
-      className="hover:bg-mauve3 data-[placeholder]:text-violet9 inline-flex h-[35px] items-center justify-center gap-[5px] rounded px-[15px] text-[13px] leading-none text-green-300 outline-none focus:shadow-black"
+      className="hover:bg-mauve3 data-[placeholder]:text-violet9 inline-flex h-[35px] items-center justify-center gap-[5px] rounded px-[15px] text-[13px] leading-none text-amber-500 outline-none focus:shadow-black"
       aria-label="Food"
     >
       <RadixSelect.Value placeholder="Status" />

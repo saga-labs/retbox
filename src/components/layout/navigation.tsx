@@ -11,7 +11,11 @@ export const Navigation: React.FC = () => {
     <nav className="flex w-14 flex-shrink-0 flex-col items-center justify-between border-r border-neutral-800">
       <section className="flex flex-col items-center">
         <article className="flex h-14 w-14 items-center justify-center border-b border-neutral-800">
-          <img src="logo.svg" alt="logo" className="h-7 w-7" />
+          <img
+            src="logo.svg"
+            alt="logo"
+            className="h-7 w-7 duration-700 ease-linear hover:animate-spin"
+          />
         </article>
 
         {/** links */}
@@ -46,8 +50,8 @@ interface itemProps {
   exec?: () => void;
 }
 
-const NavItem: React.FC<itemProps> = ({ title, icon, exec, type }) => {
-  if (type == 'link') {
+const NavItem: React.FC<itemProps> = ({ title, icon, exec, variant }) => {
+  if (variant == 'link') {
     return (
       <a
         className="flex h-10 w-10 items-center justify-center rounded text-neutral-700 hover:bg-neutral-800 hover:text-neutral-300"

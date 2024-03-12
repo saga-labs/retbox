@@ -1,8 +1,8 @@
 import React from 'react';
 
 // supabase
-import { Auth } from "@supabase/auth-ui-react";
-import { ThemeSupa } from "@supabase/auth-ui-shared";
+import { Auth } from '@supabase/auth-ui-react';
+import { ThemeSupa } from '@supabase/auth-ui-shared';
 import { supabase } from '@/utils/supabase';
 
 // components
@@ -21,7 +21,11 @@ const Login: React.FC = () => {
           </p>
         </div>
 
-        <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} />
+        <Auth
+          supabaseClient={supabase}
+          appearance={{ theme: ThemeSupa }}
+          providers={['google', 'azure', 'slack']}
+        />
 
         <p className="text-muted-foreground px-8 text-center text-sm">
           By clicking continue, you agree to our{' '}

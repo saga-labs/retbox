@@ -17,7 +17,7 @@ import { Browser } from '@/features/drive/components/browser';
 import { ChatMessage } from '@/features/chat/components/chat-message';
 import { ChatContainer } from '@/features/chat/components/chat-container';
 import type { MessageType, ChatType } from '@/features/chat/types/chat';
-import { ChatInput } from '@/features/chat/components/chat-input';
+// import { ChatInput } from '@/features/chat/components/chat-input';
 
 const Dashboard: React.FC = () => {
   const [chat] = React.useState<ChatType>(mockData);
@@ -41,11 +41,11 @@ const Dashboard: React.FC = () => {
         {/* Chat Panel */}
         <ResizablePanel minSize={25} defaultSize={33}>
           <ChatContainer>
-            <>
+            <div className=" flex flex-col divide-y">
               {chat?.messages.map((message: MessageType, key: React.Key) => (
                 <ChatMessage message={message} key={key} />
               ))}
-            </>
+            </div>
           </ChatContainer>
         </ResizablePanel>
       </ResizablePanelGroup>
