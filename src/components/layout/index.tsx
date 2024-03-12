@@ -1,11 +1,7 @@
-import React from "react";
-
-// local components
-import Header from "./header";
-import Sidebar from "./sidebar";
-
-// ui components
-import { ThemeProvider } from "../theme-provider";
+import React from 'react';
+// components
+import { Navigation } from './navigation';
+import MenuBar from './menu-bar';
 
 interface Props {
   children: React.ReactNode;
@@ -13,16 +9,17 @@ interface Props {
 
 const Layout: React.FC<Props> = ({ children }) => {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="retbox-theme">
-      <div className="flex flex-row h-screen overflow-hidden">
-        <Sidebar />
+    <main className="font-inter flex h-screen w-screen text-gray-700 dark:bg-neutral-900 dark:text-gray-700">
+      <Navigation />
 
-        <section className="flex grow flex-col">
-          <Header />
-          {children}
-        </section>
+      {/** menu bar */}
+      <div className="flex flex-grow flex-col">
+        <MenuBar />
+
+        {/** content */}
+        <div className="flex flex-grow flex-col overflow-auto">{children}</div>
       </div>
-    </ThemeProvider>
+    </main>
   );
 };
 

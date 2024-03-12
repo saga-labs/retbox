@@ -1,20 +1,26 @@
-import React from "react";
+import React from 'react';
 
-// primitives
-import {
-  ResizableHandle,
-  ResizablePanel,
-  ResizablePanelGroup,
-} from "@/components/ui/resizable";
+// data
+import mockData from '@/features/chat/mock/chat.json';
 
-// components
-import Layout from "@/components/layout";
-import { DriveMenu } from "@/components/drive/drive-menu";
-import { DriveBrowser } from "@/components/drive/drive-browser";
-import { ChatMessages } from "@/components/chat/chat-messages";
-import { ChatInput } from "@/components/chat/chat-input";
+// common components
+import Layout from '@/components/layout';
+import { ResizablePanelGroup } from '@/components/common/resizable';
+import { ResizablePanel } from '@/components/common/resizable';
+import { ResizableHandle } from '@/components/common/resizable';
+
+// feature: drive
+import { ToolBar } from '@/features/drive/components/toolbar';
+import { Browser } from '@/features/drive/components/browser';
+
+// feature: chat
+import { ChatMessage } from '@/features/chat/components/chat-message';
+import { ChatContainer } from '@/features/chat/components/chat-container';
+import type { MessageType, ChatType } from '@/features/chat/types/chat';
+// import { ChatInput } from '@/features/chat/components/chat-input';
 
 const Dashboard: React.FC = () => {
+  const [chat] = React.useState<ChatType>(mockData);
   return (
     <Layout>
       <ResizablePanelGroup
@@ -23,19 +29,24 @@ const Dashboard: React.FC = () => {
       >
         {/* Drive Panel */}
         <ResizablePanel minSize={25} defaultSize={67}>
-          <div className="item flex h-full flex-col overflow-scroll px-6 pb-6 @container">
-            <DriveMenu />
-            <DriveBrowser />
+          <div className="px-3 py-3">
+            <div className="item flex h-full grow flex-col space-y-3 overflow-scroll p-[5px]">
+              <ToolBar />
+              <Browser />
+            </div>
           </div>
         </ResizablePanel>
-        <ResizableHandle />
+        <ResizableHandle className="border-l" />
 
         {/* Chat Panel */}
         <ResizablePanel minSize={25} defaultSize={33}>
-          <div className="flex h-full flex-col justify-between p-2">
-            <ChatMessages />
-            <ChatInput />
-          </div>
+          <ChatContainer>
+            <div className=" flex flex-col divide-y">
+              {chat?.messages.map((message: MessageType, key: React.Key) => (
+                <ChatMessage message={message} key={key} />
+              ))}
+            </div>
+          </ChatContainer>
         </ResizablePanel>
       </ResizablePanelGroup>
     </Layout>

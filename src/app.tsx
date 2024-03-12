@@ -1,37 +1,35 @@
-import React from "react";
+import React from 'react';
 
-// Supabase
-import { createClient } from "@supabase/supabase-js";
-// import { Auth } from "@supabase/auth-ui-react";
-// import { ThemeSupa } from "@supabase/auth-ui-shared";
+import { supabase } from './utils/supabase';
 
-// React Router
-import { createBrowserRouter } from "react-router-dom";
-import { RouterProvider } from "react-router-dom";
+// routing
+import { createBrowserRouter } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
 
 // contexts
-import useSessionStore from "./contexts/session-store";
+import useSessionStore from './contexts/use-session';
 
-// Components
-import Dashboard from "./pages/dashboard";
-import Login from "./pages/login";
-
-const supabaseKey = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnon = import.meta.env.VITE_SUPABASE_ANON;
-const supabase = createClient(supabaseKey, supabaseAnon);
+// pages
+import Dashboard from './pages/dashboard';
+import Login from './pages/auth/login';
+import Register from './pages/auth/register';
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Dashboard/>,
+    path: '/',
+    element: <Dashboard />,
   },
   {
-    path: "/auth",
-    element: <Login/>
-  }
+    path: '/auth/login',
+    element: <Login />,
+  },
+  {
+    path: '/auth/register',
+    element: <Register />,
+  },
 ]);
 
-export default function App() {
+function App() {
   const session = useSessionStore((state) => state.session);
   const setSession = useSessionStore((state) => state.setSession);
   const [loading, setLoading] = React.useState<boolean>(true);
@@ -59,3 +57,5 @@ export default function App() {
 
   return <RouterProvider router={router} />;
 }
+
+export default App;
