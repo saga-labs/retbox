@@ -20,11 +20,12 @@ export const Navigation: React.FC = () => {
 
         {/** links */}
         <article className="flex flex-col space-y-2 pt-2">
-          {[...Array(7)].map(() => (
+          {[...Array(7)].map((key: React.Key) => (
             <NavItem
               title="Dashboard"
               icon={<Component2Icon className="h-5 w-5" />}
               variant="link"
+              key={key}
             />
           ))}
         </article>
