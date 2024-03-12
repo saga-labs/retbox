@@ -16,7 +16,7 @@ const values = [
   },
 ];
 
-export const ToolBar = () => {
+export const ToolBar: React.FC = () => {
   return (
     <section className="flex flex-row justify-between">
       <Input />
