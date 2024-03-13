@@ -12,10 +12,10 @@ export const Item: React.FC<props> = ({ file }) => {
       draggable="true"
     >
       <img
-        className="mb-2 h-24 w-full rounded-t-lg"
+        className="h-24 w-full rounded-lg"
         src={`https://images.unsplash.com/photo-1611764553921-437fb44f747a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D`}
       />
-      <div className="p-2">
+      {/* <div className="p-2">
         <span className="flex h-6 items-center rounded-full bg-pink-100 px-3 text-xs font-semibold text-pink-500">
           free
         </span>
@@ -35,7 +35,7 @@ export const Item: React.FC<props> = ({ file }) => {
             src="https://randomuser.me/api/portraits/women/26.jpg"
           />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
