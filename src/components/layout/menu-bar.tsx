@@ -31,7 +31,7 @@ const MenuBar: React.FC = () => {
   const selected = useViewStore((state) => state.selected);
   const setSelected = useViewStore((state) => state.setSelected);
   const toggleStyle =
-    'data-[state=on]:bg- data-[state=on]:text-black inline-block p-3 text-gray-700 hover:bg-gray-50 focus:relative';
+    'data-[state=on]:bg-neutral-800 data-[state=on]:text-black inline-block p-3 hover:bg-gray-300 focus:relative';
   return (
     <nav className="flex h-14 flex-shrink-0 items-center justify-between border-b border-neutral-800 px-4">
       <section className="flex divide-x">
@@ -77,9 +77,9 @@ const MenuBar: React.FC = () => {
 
         <button
           onClick={() => alert('You got mail')}
-          className="ml-8 rounded p-2 hover:bg-neutral-700"
+          className="ml-3 inline-block rounded-md  border border-neutral-700 p-3 hover:bg-gray-50"
         >
-          <BellIcon />
+          <BellIcon className="size-4 text-neutral-200" />
         </button>
       </div>
     </nav>

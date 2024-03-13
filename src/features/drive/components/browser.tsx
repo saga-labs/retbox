@@ -30,10 +30,12 @@ export const Browser = () => {
 
   return (
     <BrowserContext>
-      <div className="grid h-full grow grid-cols-1 gap-5 rounded-md border border-neutral-800 p-5 font-sans sm:grid-cols-3 md:grid-cols-5">
-        {files.data?.data?.map((file: FileObject, key: React.Key) => (
-          <Item file={file} key={key} />
-        ))}
+      <div className="h-full grow rounded-md border border-neutral-800 p-5 font-sans">
+        <div className="grid grid-cols-[minmax(_1fr,120px)] gap-4">
+          {files.data?.data?.map((file: FileObject, key: React.Key) => (
+            <Item file={file} key={key} />
+          ))}
+        </div>
       </div>
     </BrowserContext>
   );

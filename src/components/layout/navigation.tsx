@@ -1,5 +1,8 @@
 import React from 'react';
 
+// contexts
+// import useCommandStore from '@/contexts/use-command';
+
 // utils
 import { supabase } from '@/utils/supabase';
 
@@ -9,6 +12,7 @@ import {
   CubeIcon,
   ChatBubbleIcon,
   GearIcon,
+  MagnifyingGlassIcon,
 } from '@radix-ui/react-icons';
 
 interface Link {
@@ -32,6 +36,8 @@ const links: Link[] = [
 ];
 
 export const Navigation: React.FC = () => {
+  // const setOpen = useCommandStore((state) => state.setOpen);
+
   return (
     <nav className="flex w-14 flex-shrink-0 flex-col items-center justify-between border-r border-neutral-800">
       <section className="flex flex-col items-center">
@@ -57,7 +63,13 @@ export const Navigation: React.FC = () => {
       </section>
 
       {/** actions */}
-      <section className="mb-2 flex flex-col">
+      <section className="flex flex-col space-y-2 pb-2">
+        <NavItem
+          title="Search"
+          icon={<MagnifyingGlassIcon className="h-4 w-4" />}
+          variant="button"
+          exec={async () => console.log('app search')}
+        />
         <NavItem
           title="Sign out"
           icon={<ExitIcon className="h-4 w-4" />}

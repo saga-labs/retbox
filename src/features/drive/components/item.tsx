@@ -1,24 +1,45 @@
-import { FileObject } from '@supabase/storage-js';
 import React from 'react';
+import type { FileObject } from '@supabase/storage-js';
+
+// components
 import { ItemContext } from './item-context';
+import { IconSelector } from './icon-selector';
 
 interface props {
   file: FileObject;
 }
 
 export const Item: React.FC<props> = ({ file }) => {
+  const typeIdentifier = file.metadata.mimetype.split('/')[0];
   return (
     <ItemContext>
-      <div
-        className="min-w-[75px] group relative flex max-w-[225px] cursor-pointer flex-col items-start rounded-lg border border-neutral-700 bg-neutral-800 bg-opacity-90 p-0 hover:bg-opacity-100"
-        draggable="true"
+      <a
+        href="#"
+        className="block w-full rounded-lg border border-neutral-800 p-4"
       >
-        <img
-          className="h-24 w-full rounded-lg"
-          alt={file.name}
-          src={`https://images.unsplash.com/photo-1611764553921-437fb44f747a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D`}
-        />
-      </div>
+        <div>
+          <dl className="mb-2 flex flex-row items-center space-x-1">
+            <div>
+              <dt className="sr-only">file type</dt>
+              <dd className="text-sm font-medium text-neutral-200">
+                <IconSelector type={typeIdentifier} />
+              </dd>
+            </div>
+            <div>
+              <dt className="sr-only">file name</dt>
+              <dd className="text-sm text-neutral-300">
+                {file.name.length > 20
+                  ? `${file.name.slice(0, 20)} ...`
+                  : file.name}
+              </dd>
+            </div>
+          </dl>
+
+          <div className="flex h-32 items-center justify-center rounded-md bg-red-400 object-cover">
+            <IconSelector type={typeIdentifier} classes="size-12 text-white" />
+          </div>
+        </div>
+      </a>
     </ItemContext>
   );
 };
