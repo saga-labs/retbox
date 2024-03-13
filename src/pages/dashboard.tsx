@@ -66,7 +66,7 @@ const Dashboard: React.FC = () => {
           {/* Chat Panel */}
           <ResizablePanel minSize={25} defaultSize={33}>
             <ChatContainer>
-              <div className=" flex flex-col divide-y">
+              <div className=" flex flex-col divide-y divide-neutral-800">
                 {chat?.messages.map((message: MessageType, key: React.Key) => (
                   <ChatMessage message={message} key={key} />
                 ))}

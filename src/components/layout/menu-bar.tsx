@@ -28,8 +28,10 @@ const values = [
 ];
 
 const MenuBar: React.FC = () => {
+  const selected = useViewStore((state) => state.selected);
   const setSelected = useViewStore((state) => state.setSelected);
-  const toggleStyle = 'data-[state=on]:bg-white data-[state=on]:text-black';
+  const toggleStyle =
+    'data-[state=on]:bg- data-[state=on]:text-black inline-block p-3 text-gray-700 hover:bg-gray-50 focus:relative';
   return (
     <nav className="flex h-14 flex-shrink-0 items-center justify-between border-b border-neutral-800 px-4">
       <section className="flex divide-x">
@@ -37,13 +39,13 @@ const MenuBar: React.FC = () => {
         <Select descriptor="Accounts" values={values} />
       </section>
 
-      <div className="flex flex-row space-x-2">
+      <div className="">
         <ToggleGroup.Root
-          className=""
+          className="inline-flex divide-x divide-neutral-800 overflow-hidden rounded-md border border-neutral-700 shadow-sm"
           type="single"
-          defaultValue="center"
-          aria-label="Text alignment"
-          onValueChange={(value: string) => setSelected(value as View)}
+          aria-label="View Selection"
+          value={selected}
+          onValueChange={(value: string) => value && setSelected(value as View)}
         >
           {/* drive exclusive view */}
           <ToggleGroup.Item
@@ -75,7 +77,7 @@ const MenuBar: React.FC = () => {
 
         <button
           onClick={() => alert('You got mail')}
-          className="rounded p-2 hover:bg-neutral-700"
+          className="ml-8 rounded p-2 hover:bg-neutral-700"
         >
           <BellIcon />
         </button>
