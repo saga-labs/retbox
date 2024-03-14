@@ -10,7 +10,7 @@ export const Command = () => {
 
   // Toggle the menu when ⌘K is pressed
   React.useEffect(() => {
-    const down = (e) => {
+    const down = (e: KeyboardEvent) => {
       if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
         setOpen(!open);
