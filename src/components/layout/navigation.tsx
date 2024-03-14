@@ -1,12 +1,43 @@
 import React from 'react';
 
+// contexts
+// import useCommandStore from '@/contexts/use-command';
+
 // utils
 import { supabase } from '@/utils/supabase';
 
 // icons
-import { Component2Icon, ExitIcon } from '@radix-ui/react-icons';
+import {
+  ExitIcon,
+  CubeIcon,
+  ChatBubbleIcon,
+  GearIcon,
+  MagnifyingGlassIcon,
+} from '@radix-ui/react-icons';
+
+interface Link {
+  title: string;
+  icon: React.ReactNode;
+}
+
+const links: Link[] = [
+  {
+    title: 'Dashboard',
+    icon: <ChatBubbleIcon className="size-5" />,
+  },
+  {
+    title: 'Hub',
+    icon: <CubeIcon className="size-5" />,
+  },
+  {
+    title: 'Settings',
+    icon: <GearIcon className="size-5" />,
+  },
+];
 
 export const Navigation: React.FC = () => {
+  // const setOpen = useCommandStore((state) => state.setOpen);
+
   return (
     <nav className="flex w-14 flex-shrink-0 flex-col items-center justify-between border-r border-neutral-800">
       <section className="flex flex-col items-center">
@@ -20,10 +51,10 @@ export const Navigation: React.FC = () => {
 
         {/** links */}
         <article className="flex flex-col space-y-2 pt-2">
-          {[...Array(7)].map((key: React.Key) => (
+          {links.map((item: Link, key: React.Key) => (
             <NavItem
-              title="Dashboard"
-              icon={<Component2Icon className="h-5 w-5" />}
+              title={item.title}
+              icon={item.icon}
               variant="link"
               key={key}
             />
@@ -32,7 +63,13 @@ export const Navigation: React.FC = () => {
       </section>
 
       {/** actions */}
-      <section className="mb-2 flex flex-col">
+      <section className="flex flex-col space-y-2 pb-2">
+        <NavItem
+          title="Search"
+          icon={<MagnifyingGlassIcon className="h-4 w-4" />}
+          variant="button"
+          exec={async () => console.log('app search')}
+        />
         <NavItem
           title="Sign out"
           icon={<ExitIcon className="h-4 w-4" />}
@@ -55,7 +92,7 @@ const NavItem: React.FC<itemProps> = ({ title, icon, exec, variant }) => {
   if (variant == 'link') {
     return (
       <a
-        className="flex h-10 w-10 items-center justify-center rounded text-neutral-700 hover:bg-neutral-800 hover:text-neutral-300"
+        className="flex h-10 w-10 items-center justify-center rounded text-neutral-600 hover:bg-neutral-800 hover:text-neutral-300"
         href="#"
       >
         {icon}
@@ -66,7 +103,7 @@ const NavItem: React.FC<itemProps> = ({ title, icon, exec, variant }) => {
 
   return (
     <button
-      className="flex h-10 w-10 items-center justify-center rounded text-neutral-700 hover:bg-neutral-800 hover:text-neutral-300"
+      className="flex h-10 w-10 items-center justify-center rounded text-neutral-600 hover:bg-neutral-800 hover:text-neutral-300"
       type="button"
       onClick={exec}
     >

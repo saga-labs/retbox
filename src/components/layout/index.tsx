@@ -2,6 +2,7 @@ import React from 'react';
 // components
 import { Navigation } from './navigation';
 import MenuBar from './menu-bar';
+import { Command } from '@/features/command/components/command';
 
 interface Props {
   children: React.ReactNode;
@@ -9,7 +10,8 @@ interface Props {
 
 const Layout: React.FC<Props> = ({ children }) => {
   return (
-    <main className="font-inter flex h-screen w-screen text-gray-700 dark:bg-neutral-900 dark:text-gray-700">
+    <main className="flex h-screen w-screen font-inter text-gray-700 dark:bg-neutral-900 dark:text-gray-700">
+      <Command />
       <Navigation />
 
       {/** menu bar */}
