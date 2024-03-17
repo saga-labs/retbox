@@ -24,6 +24,7 @@ const Login: React.FC = () => {
         <Auth
           supabaseClient={supabase}
           appearance={{ theme: ThemeSupa }}
+          view="sign_in"
           providers={['google', 'azure', 'slack']}
         />
 
