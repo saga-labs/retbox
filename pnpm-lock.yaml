@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@cerebase/lang':
+    specifier: ^0.0.2
+    version: 0.0.2
   '@radix-ui/colors':
     specifier: ^3.0.0
     version: 3.0.0
@@ -1459,6 +1462,10 @@ packages:
   /@base2/pretty-print-object@1.0.1:
     resolution: {integrity: sha512-4iri8i1AqYHJE2DstZYkyEprg6Pq6sKx3xn5FpySk9sNhH7qN2LLlHJCfDTZRILNwQNPD7mATWM0TBui7uC1pA==}
     dev: true
+
+  /@cerebase/lang@0.0.2:
+    resolution: {integrity: sha512-nAVspGhb7RxLn0s6TrR8FmRdhHr+bw7v6vO5h8cbKeuXwBMtXa6ziDzuCRArP7Kt6Mm5MBy+ai9I2B3Xln62yQ==}
+    dev: false
 
   /@chromatic-com/storybook@1.2.18(react@18.2.0):
     resolution: {integrity: sha512-Fi3T4gO1zIRr77mz6tqRZRusFneA6MtJxQT38Csizez2ZViOmTUd81sHVC4MDHvhnwDaksqnDKvNUYcl1m3nIA==}

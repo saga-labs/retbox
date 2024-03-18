@@ -1,6 +1,15 @@
-import React from 'react';
+import SayHello from '@cerebase/lang';
+// import type DemoType from '@cerebase/lang';
+
+const user = {
+  firstname: 'John Doe',
+  lastname: 'Doe',
+};
 
 export const Input: React.FC = () => {
+  const hello = SayHello();
+  console.log(user, hello);
+
   return (
     <input
       type="text"
