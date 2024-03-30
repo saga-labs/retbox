@@ -1,4 +1,4 @@
-import SayHello from '@cerebase/lang';
+// import SayHello from '@cerebase/lang';
 // import type DemoType from '@cerebase/lang';
 
 const user = {
@@ -7,8 +7,8 @@ const user = {
 };
 
 export const Input: React.FC = () => {
-  const hello = SayHello();
-  console.log(user, hello);
+  // const hello = SayHello();
+  // console.log(user, hello);
 
   return (
     <input

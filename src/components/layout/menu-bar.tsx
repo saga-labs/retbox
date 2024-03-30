@@ -15,6 +15,7 @@ import {
   BorderLeftIcon,
   BorderRightIcon,
 } from '@radix-ui/react-icons';
+import { AlertsPopover } from '../common/popover';
 
 const values = [
   {
@@ -75,12 +76,9 @@ const MenuBar: React.FC = () => {
           </ToggleGroup.Item>
         </ToggleGroup.Root>
 
-        <button
-          onClick={() => alert('You got mail')}
-          className="ml-3 inline-block rounded-md  border border-neutral-700 p-3 hover:bg-gray-50"
-        >
+        <AlertsPopover>
           <BellIcon className="size-4 text-neutral-200" />
-        </button>
+        </AlertsPopover>
       </div>
     </nav>
   );
