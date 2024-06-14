@@ -13,24 +13,34 @@ import {
   ChatBubbleIcon,
   GearIcon,
   MagnifyingGlassIcon,
+  LayoutIcon
 } from '@radix-ui/react-icons';
 
 interface Link {
   title: string;
+  goto: string;
   icon: React.ReactNode;
 }
 
 const links: Link[] = [
   {
     title: 'Dashboard',
+    goto: "/",
     icon: <ChatBubbleIcon className="size-5" />,
   },
   {
     title: 'Hub',
+    goto: "/hub",
     icon: <CubeIcon className="size-5" />,
   },
   {
+    title: 'Tasks',
+    goto: "/tasks",
+    icon: <LayoutIcon className="size-5" />,
+  },
+  {
     title: 'Settings',
+    goto: "/settings",
     icon: <GearIcon className="size-5" />,
   },
 ];
@@ -54,6 +64,7 @@ export const Navigation: React.FC = () => {
           {links.map((item: Link, key: React.Key) => (
             <NavItem
               title={item.title}
+              goto={item.goto}
               icon={item.icon}
               variant="link"
               key={key}
@@ -85,15 +96,16 @@ interface itemProps {
   title: string;
   icon: React.ReactNode;
   variant: 'link' | 'button';
+  goto?: string;
   exec?: () => void;
 }
 
-const NavItem: React.FC<itemProps> = ({ title, icon, exec, variant }) => {
+const NavItem: React.FC<itemProps> = ({ title, icon, goto, exec, variant }) => {
   if (variant == 'link') {
     return (
       <a
         className="flex h-10 w-10 items-center justify-center rounded text-neutral-600 hover:bg-neutral-800 hover:text-neutral-300"
-        href="#"
+        href={goto}
       >
         {icon}
         <p className="hidden">{title}</p>

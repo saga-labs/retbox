@@ -13,6 +13,7 @@ import useSessionStore from './contexts/use-session';
 import Dashboard from './pages/dashboard';
 import Login from './pages/auth/login';
 import Register from './pages/auth/register';
+import TasksPage from './pages/tasks';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
     path: '/auth/register',
     element: <Register />,
   },
+  {
+    path: '/tasks',
+    element: <TasksPage/>
+  }
 ]);
 
 function App() {
@@ -51,9 +56,9 @@ function App() {
     return () => subscription.unsubscribe();
   }, [setSession]);
 
-  if (!session && !loading) {
-    return <Login/>; // todo: redirect to /auth and still register on change
-  }
+  // if (!session && !loading) {
+  //   return <Login/>; // todo: redirect to /auth and still register on change
+  // }
 
   return <RouterProvider router={router} />;
 }
