@@ -10,7 +10,7 @@ export const AlertsPopover: React.FC<Props> = ({ children }) => (
   <Popover.Root>
     <Popover.Trigger asChild>
       <button
-        className="ml-3 inline-block rounded-md  border border-neutral-700 p-3 hover:bg-gray-50"
+        className="ml-3 inline-block rounded-md  border  p-3 hover:bg-gray-50"
         aria-label="Update dimensions"
       >
         {children}

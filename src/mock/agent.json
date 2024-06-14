@@ -1,0 +1,18 @@
+{
+  "name": "Kya",
+  "role": "Marketing",
+  "description": "Kya is your go-to marketing guru, embodying creativity and strategic brilliance. With a vibrant personality and a knack for understanding the pulse of the market, Kya crafts captivating campaigns that resonate with audiences. She's a social media maven, always on top of the latest trends, and knows just how to engage followers with compelling content. Kya's analytical mind ensures every strategy is backed by data, turning insights into impactful actions. Whether it's through storytelling, brand building, or driving customer engagement, Kya brings a human touch to marketing that truly connects and inspires.",
+  "skills": [
+    "Digital Marketing",
+    "Content Creation",
+    "Social Media Strategy",
+    "Customer Relationship Management",
+    "Market Analysis",
+    "Brand Building"
+  ],
+  "experience": "5+ years",
+  "jobs": 18,
+  "availability": "Monday to Friday, 9 AM - 5 PM",
+  "location": "Virtual",
+  "languages": ["English", "Spanish"]
+}

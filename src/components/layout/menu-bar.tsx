@@ -1,12 +1,12 @@
 import React from 'react';
 import * as ToggleGroup from '@radix-ui/react-toggle-group';
 
-// contexts
-import useViewStore from '@/contexts/use-view';
-import { View } from '@/contexts/use-view';
-
 // components
-import { Select } from '@/components/common/select';
+import { AlertsPopover } from '../common/popover';
+import { Breadcrumbs } from '../common/breadcrumbs';
+
+// contexts
+import useViewStore, { View } from '@/contexts/use-view';
 
 // icons
 import {
@@ -15,24 +15,6 @@ import {
   BorderLeftIcon,
   BorderRightIcon,
 } from '@radix-ui/react-icons';
-import { AlertsPopover } from '../common/popover';
-
-
-interface Domain {
-  value: string;
-  text: string;
-}
-
-const values: Domain[] = [
-  {
-    value: '373d0ca3-6527-4a59-a0ec-36c6a4d1f828',
-    text: 'Personal',
-  },
-  {
-    value: '373d0ca3-6527-4a59-a0ec-36c6a4d1f828',
-    text: 'Saga Labs',
-  },
-];
 
 const MenuBar: React.FC = () => {
   const selected = useViewStore((state) => state.selected);
@@ -40,13 +22,14 @@ const MenuBar: React.FC = () => {
   const toggleStyle =
     'data-[state=on]:bg-neutral-800 data-[state=on]:text-black inline-block p-3 hover:bg-gray-300 focus:relative';
   return (
-    <nav className="flex h-14 flex-shrink-0 items-center justify-between border-b border-neutral-800 px-4">
+    <nav className="flex h-14 flex-shrink-0 items-center justify-between border-b  px-4">
       <section className="flex divide-x">
+        <Breadcrumbs />
       </section>
 
       <div className="">
         <ToggleGroup.Root
-          className="inline-flex divide-x divide-neutral-800 overflow-hidden rounded-md border border-neutral-700 shadow-sm"
+          className="inline-flex divide-x divide-neutral-800 overflow-hidden rounded-md border shadow-sm"
           type="single"
           aria-label="View Selection"
           value={selected}

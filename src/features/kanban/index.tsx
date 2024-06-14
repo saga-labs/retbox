@@ -11,35 +11,30 @@ const Kanban: React.FC = () => {
   const done = useTaskList((state) => state.done);
 
   return (
-    <div className="flex flex-col overflow-auto">
-      <div className="mt-4">
-        <h1 className="text-2xl font-bold">Task Board</h1>
-      </div>
-      <div className="mt-4 flex flex-grow space-x-2 overflow-auto">
-        <Pane title="Backlog">
-          {tasks.map((task, index) => (
-            <Card key={index} task={task} index={index} />
-          ))}
-        </Pane>
+    <div className="mt-4 grid grid-cols-4 space-x-2 overflow-auto">
+      <Pane title="Backlog" amount={tasks.length}>
+        {tasks.map((task, index) => (
+          <Card key={index} task={task} index={index} />
+        ))}
+      </Pane>
 
-        <Pane title="In progress">
-          {inProgress.map((task, index) => (
-            <Card key={index} task={task} index={index} />
-          ))}
-        </Pane>
+      <Pane title="In progress" amount={inProgress.length}>
+        {inProgress.map((task, index) => (
+          <Card key={index} task={task} index={index} />
+        ))}
+      </Pane>
 
-        <Pane title="Done">
-          {done.map((task, index) => (
-            <Card key={index} task={task} index={index} />
-          ))}
-        </Pane>
+      <Pane title="Done" amount={done.length}>
+        {done.map((task, index) => (
+          <Card key={index} task={task} index={index} />
+        ))}
+      </Pane>
 
-        <Pane title="Blocking">
-          {tasks.map((task, index) => (
-            <Card key={index} task={task} index={index} />
-          ))}
-        </Pane>
-      </div>
+      <Pane title="Blocking" amount={tasks.length}>
+        {tasks.map((task, index) => (
+          <Card key={index} task={task} index={index} />
+        ))}
+      </Pane>
     </div>
   );
 };

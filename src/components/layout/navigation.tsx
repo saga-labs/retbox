@@ -7,14 +7,13 @@ import React from 'react';
 import { supabase } from '@/utils/supabase';
 
 // icons
+import { ExitIcon, GearIcon, MagnifyingGlassIcon } from '@radix-ui/react-icons';
+
 import {
-  ExitIcon,
-  CubeIcon,
-  ChatBubbleIcon,
-  GearIcon,
-  MagnifyingGlassIcon,
-  LayoutIcon
-} from '@radix-ui/react-icons';
+  BeakerIcon,
+  UserGroupIcon,
+  FlagIcon,
+} from '@heroicons/react/24/outline';
 
 interface Link {
   title: string;
@@ -25,22 +24,22 @@ interface Link {
 const links: Link[] = [
   {
     title: 'Dashboard',
-    goto: "/",
-    icon: <ChatBubbleIcon className="size-5" />,
+    goto: '/',
+    icon: <BeakerIcon className="size-5" />,
   },
   {
-    title: 'Hub',
-    goto: "/hub",
-    icon: <CubeIcon className="size-5" />,
+    title: 'Projects',
+    goto: '/projects',
+    icon: <FlagIcon className="size-5" />,
   },
   {
-    title: 'Tasks',
-    goto: "/tasks",
-    icon: <LayoutIcon className="size-5" />,
+    title: 'Teams',
+    goto: '/teams',
+    icon: <UserGroupIcon className="size-5" />,
   },
   {
     title: 'Settings',
-    goto: "/settings",
+    goto: '/settings',
     icon: <GearIcon className="size-5" />,
   },
 ];
@@ -49,9 +48,9 @@ export const Navigation: React.FC = () => {
   // const setOpen = useCommandStore((state) => state.setOpen);
 
   return (
-    <nav className="flex w-14 flex-shrink-0 flex-col items-center justify-between border-r border-neutral-800">
+    <nav className="flex w-14 flex-shrink-0 flex-col items-center justify-between border-r">
       <section className="flex flex-col items-center">
-        <article className="flex h-14 w-14 items-center justify-center border-b border-neutral-800">
+        <article className="flex h-14 w-14 items-center justify-center border-b">
           <img
             src="logo.svg"
             alt="logo"
@@ -104,7 +103,7 @@ const NavItem: React.FC<itemProps> = ({ title, icon, goto, exec, variant }) => {
   if (variant == 'link') {
     return (
       <a
-        className="flex h-10 w-10 items-center justify-center rounded text-neutral-600 hover:bg-neutral-800 hover:text-neutral-300"
+        className="flex h-10 w-10 items-center justify-center rounded text-neutral-500 hover:bg-neutral-800 hover:text-neutral-300"
         href={goto}
       >
         {icon}
@@ -115,7 +114,7 @@ const NavItem: React.FC<itemProps> = ({ title, icon, goto, exec, variant }) => {
 
   return (
     <button
-      className="flex h-10 w-10 items-center justify-center rounded text-neutral-600 hover:bg-neutral-800 hover:text-neutral-300"
+      className="flex h-10 w-10 items-center justify-center rounded text-neutral-500 hover:bg-neutral-800 hover:text-neutral-300"
       type="button"
       onClick={exec}
     >
