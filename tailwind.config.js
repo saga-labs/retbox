@@ -11,7 +11,6 @@ export default {
         ...iris,
         ...ruby,
         ...indigo,
-        'primary-dark': '#1c1c1c', // Background color for dark mode
         light: '#ffffff', // Background color for light mode
       },
       fontFamily: {
