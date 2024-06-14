@@ -12,25 +12,31 @@ const Kanban: React.FC = () => {
 
   return (
     <div className="flex flex-col overflow-auto">
-      <div className="mt-4 px-10">
+      <div className="mt-4">
         <h1 className="text-2xl font-bold">Task Board</h1>
       </div>
-      <div className="mt-4 flex flex-grow space-x-6 overflow-auto px-10">
-      <Pane title="Backlog">
+      <div className="mt-4 flex flex-grow space-x-2 overflow-auto">
+        <Pane title="Backlog">
           {tasks.map((task, index) => (
-            <Card key={index} task={task} />
+            <Card key={index} task={task} index={index} />
           ))}
         </Pane>
 
         <Pane title="In progress">
           {inProgress.map((task, index) => (
-            <Card key={index} task={task} />
+            <Card key={index} task={task} index={index} />
           ))}
         </Pane>
 
         <Pane title="Done">
           {done.map((task, index) => (
-            <Card key={index} task={task} />
+            <Card key={index} task={task} index={index} />
+          ))}
+        </Pane>
+
+        <Pane title="Blocking">
+          {tasks.map((task, index) => (
+            <Card key={index} task={task} index={index} />
           ))}
         </Pane>
       </div>

@@ -7,7 +7,7 @@ interface Props {
 
 export const Pane: React.FC<Props> = ({ title, children }) => {
   return (
-    <div className="flex w-72 flex-shrink-0 flex-col border border-gray-700 p-2 rounded-md">
+    <div className="flex w-72 flex-shrink-0 flex-col border p-2 rounded-md">
       {/* Header */}
       <div className="flex h-10 flex-shrink-0 items-center px-2">
         <span className="block text-sm font-semibold">{title}</span>

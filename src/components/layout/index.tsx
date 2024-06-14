@@ -7,12 +7,13 @@ import { Command } from '@/features/command/components/command';
 import { Input } from '../common/input';
 
 interface Props {
+  search?: boolean;
   children: React.ReactNode;
 }
 
-const Layout: React.FC<Props> = ({ children }) => {
+const Layout: React.FC<Props> = ({ children, search = false }) => {
   return (
-    <main className="flex h-screen w-screen font-inter text-gray-700 dark:bg-neutral-900 dark:text-gray-700">
+    <main className="flex h-screen w-screen font-inter bg-neutral-50 text-gray-700">
       <Command />
       <Navigation />
 
@@ -22,7 +23,7 @@ const Layout: React.FC<Props> = ({ children }) => {
 
           {/** content */}
           <div className="flex flex-grow flex-col overflow-auto">
-            <Input />
+            {search && <Input />}
             {children}
           </div>
         </div>
