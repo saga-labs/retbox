@@ -10,6 +10,7 @@ import { RouterProvider } from 'react-router-dom';
 // authenticated
 import TasksPage from './pages/tasks';
 import Projects from './pages/projects';
+import ProjectsDetail from './pages/projects-detail';
 import Teams from './pages/teams';
 import Agents from './pages/agents';
 import Settings from './pages/settings';
@@ -26,6 +27,14 @@ const router = createBrowserRouter([
   {
     path: '/projects',
     element: <Projects />,
+  },
+  {
+    path: '/projects/:id',
+    element: <ProjectsDetail />,
+  },
+  {
+    path: '/projects/:id/tasks',
+    element: <TasksPage />,
   },
   {
     path: '/teams',

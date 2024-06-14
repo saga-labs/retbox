@@ -6,6 +6,8 @@ import { AgentCard } from '@/components/common/citizen';
 import { AgentHero } from '@/components/common/hero';
 
 import agents from '../mock/agents.json';
+
+// types & interfaces
 import { Agent } from '@/types/agent';
 
 export default function Agents(): React.ReactNode {
@@ -13,7 +15,7 @@ export default function Agents(): React.ReactNode {
     <Layout>
       <AgentHero />
 
-      <section className="grid grid-cols-4 gap-4 py-8 px-8">
+      <section className="grid grid-cols-4 gap-4 px-8 py-8">
         {agents.map((agent: Agent, index: number) => (
           <AgentCard agent={agent} key={index} />
         ))}

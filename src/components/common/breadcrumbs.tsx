@@ -5,7 +5,7 @@ export const Breadcrumbs: React.FC = () => {
     <nav aria-label="Breadcrumb">
       <ol className="flex items-center gap-1 text-sm text-gray-600">
         <li>
-          <a href="#" className="block transition hover:text-gray-700">
+          <a href="/projects" className="block transition hover:text-gray-700">
             projects
           </a>
         </li>
@@ -26,7 +26,7 @@ export const Breadcrumbs: React.FC = () => {
         </li>
 
         <li>
-          <a href="#" className="block transition hover:text-gray-700">
+          <a href="/projects/01j0c82ay5pmhk09vxw61s12np" className="block transition hover:text-gray-700">
             spring-webshop-2024
           </a>
         </li>
@@ -47,7 +47,7 @@ export const Breadcrumbs: React.FC = () => {
         </li>
 
         <li>
-          <a href="#" className="block transition hover:text-gray-700">
+          <a href="/projects/01j0c82ay5pmhk09vxw61s12np/tasks" className="block transition hover:text-gray-700">
             tasks
           </a>
         </li>

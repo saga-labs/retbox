@@ -1,14 +1,14 @@
 import React from 'react';
 
 // supabase
-import { Auth } from '@supabase/auth-ui-react';
-import { ThemeSupa } from '@supabase/auth-ui-shared';
-import { supabase } from '@/utils/supabase';
+import { useAuth0 } from '@auth0/auth0-react';
 
 // components
 import { AuthLayout } from '@/components/layout/auth-layout';
 
 const Login: React.FC = () => {
+  const { loginWithRedirect } = useAuth0();
+
   return (
     <AuthLayout>
       <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
@@ -21,12 +21,7 @@ const Login: React.FC = () => {
           </p>
         </div>
 
-        <Auth
-          supabaseClient={supabase}
-          appearance={{ theme: ThemeSupa }}
-          view="sign_in"
-          providers={['google', 'azure', 'slack']}
-        />
+        <button onClick={() => loginWithRedirect()}>Login</button>
 
         <p className="text-muted-foreground px-8 text-center text-sm">
           By clicking continue, you agree to our{' '}

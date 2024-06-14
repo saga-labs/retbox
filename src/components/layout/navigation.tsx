@@ -4,7 +4,7 @@ import React from 'react';
 // import useCommandStore from '@/contexts/use-command';
 
 // utils
-import { supabase } from '@/utils/supabase';
+import { useAuth0 } from '@auth0/auth0-react';
 
 // icons
 import { ExitIcon, GearIcon, MagnifyingGlassIcon } from '@radix-ui/react-icons';
@@ -33,8 +33,8 @@ const links: Link[] = [
     icon: <FlagIcon className="size-5" />,
   },
   {
-    title: 'Teams',
-    goto: '/teams',
+    title: 'Agents',
+    goto: '/agents',
     icon: <UserGroupIcon className="size-5" />,
   },
   {
@@ -46,6 +46,7 @@ const links: Link[] = [
 
 export const Navigation: React.FC = () => {
   // const setOpen = useCommandStore((state) => state.setOpen);
+  const { logout } = useAuth0();
 
   return (
     <nav className="flex w-14 flex-shrink-0 flex-col items-center justify-between border-r">
@@ -84,7 +85,9 @@ export const Navigation: React.FC = () => {
           title="Sign out"
           icon={<ExitIcon className="h-4 w-4" />}
           variant="button"
-          exec={async () => supabase.auth.signOut()}
+          exec={() =>
+            logout({ logoutParams: { returnTo: window.location.origin } })
+          }
         />
       </section>
     </nav>
@@ -103,7 +106,7 @@ const NavItem: React.FC<itemProps> = ({ title, icon, goto, exec, variant }) => {
   if (variant == 'link') {
     return (
       <a
-        className="flex h-10 w-10 items-center justify-center rounded text-neutral-500 hover:bg-neutral-800 hover:text-neutral-300"
+        className="flex h-10 w-10 items-center justify-center rounded text-neutral-500 hover:bg-neutral-400 hover:text-neutral-50"
         href={goto}
       >
         {icon}
@@ -114,7 +117,7 @@ const NavItem: React.FC<itemProps> = ({ title, icon, goto, exec, variant }) => {
 
   return (
     <button
-      className="flex h-10 w-10 items-center justify-center rounded text-neutral-500 hover:bg-neutral-800 hover:text-neutral-300"
+      className="flex h-10 w-10 items-center justify-center rounded text-neutral-500 hover:bg-neutral-300 hover:text-neutral-50"
       type="button"
       onClick={exec}
     >
