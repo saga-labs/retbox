@@ -53,6 +53,33 @@ export const AgentCard: React.FC<{ agent: Agent }> = ({ agent }) => {
   );
 };
 
+export const AgentCardDense: React.FC<{ agent: Agent }> = ({ agent }) => {
+  return (
+    <div className="group flex w-full cursor-pointer flex-col items-start rounded-lg border bg-opacity-90 p-4 hover:bg-opacity-100 hover:shadow">
+      <section className="flex flex-row justify-between">
+        <div className="size-16 overflow-hidden rounded-full border-4 border-white">
+          <img
+            className="h-16 object-cover object-center"
+            src="pixel.png"
+            alt="Woman looking front"
+          />
+        </div>
+
+        <div className="ml-4 flex flex-col space-y-0">
+          <p className="text-md">{agent.name}</p>
+          <p className="text-sm">{agent.role}</p>
+        </div>
+      </section>
+
+      <section>
+        <small className="hidden text-xs">
+          {agent.description.slice(0, 150)}
+        </small>
+      </section>
+    </div>
+  );
+};
+
 export const AgentTaskCard: React.FC<{ agent: Agent }> = ({ agent }) => {
   const [progress] = React.useState<number>(Math.random()*100);
 

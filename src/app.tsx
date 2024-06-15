@@ -33,7 +33,7 @@ const router = createBrowserRouter([
     element: <ProjectsDetail />,
   },
   {
-    path: '/projects/:id/tasks',
+    path: '/projects/:pid/epic/:eid',
     element: <TasksPage />,
   },
   {
@@ -46,7 +46,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/settings',
-    element: <Settings/>
+    element: <Settings />,
   },
   {
     path: '/auth/login',
@@ -59,9 +59,9 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const [loading, ] = React.useState<boolean>(false);
+  const [loading] = React.useState<boolean>(false);
 
-  if (loading) return <p>loading</p>
+  if (loading) return <p>loading</p>;
   return <RouterProvider router={router} />;
 }
 
