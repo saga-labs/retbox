@@ -39,7 +39,7 @@ export default function Tasks() {
     <Layout>
       <div className="flex flex-col h-screen justify-between space-x-2 px-8 py-8 xl:flex-row">
         {/** Task Workers */}
-        <section className="flex flex-col 3xl:w-1/5">
+        <section className="flex flex-col 2xl:w-1/5">
           {/** Title */}
           <div className="flex">
             <h1 className="mr-2 text-3xl font-bold">Team</h1>
@@ -68,13 +68,13 @@ export default function Tasks() {
             <div className="flex flex-col overflow-auto pb-2">
               {/** List */}
               {showMoreTeam ? (
-                <section className="mt-0 grid grid-cols-4 gap-2 3xl:grid-cols-1">
+                <section className="mt-0 grid grid-cols-4 gap-2 2xl:grid-cols-1">
                   {agents.slice(0, 8).map((agent: Agent, index: number) => (
                     <AgentTaskCard agent={agent} key={index} />
                   ))}
                 </section>
               ) : (
-                <section className="mt-0 grid grid-cols-4 gap-2 3xl:grid-cols-1">
+                <section className="mt-0 grid grid-cols-4 gap-2 2xl:grid-cols-1">
                   {agents.slice(0, 4).map((agent: Agent, index: number) => (
                     <AgentTaskCard agent={agent} key={index} />
                   ))}
@@ -85,7 +85,7 @@ export default function Tasks() {
         </section>
 
         {/** Task Board*/}
-        <section className="mt-0 flex flex-col overflow-auto 3xl:mt-0 3xl:w-4/5">
+        <section className="mt-0 flex flex-col overflow-auto 2xl:mt-0 2xl:w-4/5">
           <div className="flex">
             <h1 className="mr-2 text-3xl font-bold">Project Tasks</h1>
             {showProject ? (

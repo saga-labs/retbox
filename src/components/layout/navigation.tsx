@@ -122,9 +122,13 @@ export const Navigation: React.FC = () => {
           icon={<ExitIcon className="h-4 w-4" />}
           variant="button"
           wide={wide}
-          exec={() =>
-            logout({ logoutParams: { returnTo: window.location.origin } })
-          }
+          exec={() => {
+            logout({
+              logoutParams: {
+                returnTo: window.location.origin,
+              },
+            });
+          }}
         />
       </section>
     </nav>

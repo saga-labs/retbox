@@ -1,20 +1,16 @@
 import React from 'react';
 import { withAuthenticationRequired } from '@auth0/auth0-react';
 
-// layout
-import Layout from '.';
+// loading
+import Loading from '@/pages/static/loading';
 
 interface Props {
-  component: React.ComponentType<any>;
+  component: React.ComponentType<unknown>;
 }
 
 export const AuthenticationGuard: React.FC<Props> = ({ component }) => {
   const Component = withAuthenticationRequired(component, {
-    onRedirecting: () => (
-      <Layout>
-        <p>loader</p>
-      </Layout>
-    ),
+    onRedirecting: () => <Loading />,
   });
 
   return <Component />;
