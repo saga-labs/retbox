@@ -1,52 +1,48 @@
-import React from 'react';
-
-// routing
-import { createBrowserRouter } from 'react-router-dom';
-import { RouterProvider } from 'react-router-dom';
-
-// contexts
-// import useSessionStore from './contexts/use-session';
-
-// authenticated
-import TasksPage from './pages/tasks';
-import Projects from './pages/projects';
-import ProjectsDetail from './pages/projects-detail';
-import Teams from './pages/teams';
-import Agents from './pages/agents';
-import Settings from './pages/settings';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 
 // unauthenticated
 import Login from './pages/auth/login';
 import Register from './pages/auth/register';
 
+// authenticated
+import Tasks from './pages/tasks';
+import Projects from './pages/projects';
+import ProjectsDetail from './pages/projects-detail';
+import Teams from './pages/teams';
+import Agents from './pages/agents';
+import Settings from './pages/settings';
+import { AuthenticationGuard } from './components/layout/auth-guard';
+
+
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <TasksPage />,
+    element: <AuthenticationGuard component={Projects} />,
   },
   {
     path: '/projects',
-    element: <Projects />,
+    element: <AuthenticationGuard component={Projects} />,
   },
   {
     path: '/projects/:id',
-    element: <ProjectsDetail />,
+    element: <AuthenticationGuard component={ProjectsDetail} />,
   },
   {
     path: '/projects/:pid/epic/:eid',
-    element: <TasksPage />,
+    element: <AuthenticationGuard component={Tasks} />,
   },
   {
     path: '/teams',
-    element: <Teams />,
+    element: <AuthenticationGuard component={Teams} />,
   },
   {
     path: '/agents',
-    element: <Agents />,
+    element: <AuthenticationGuard component={Agents} />,
   },
   {
     path: '/settings',
-    element: <Settings />,
+    element: <AuthenticationGuard component={Settings} />,
   },
   {
     path: '/auth/login',
@@ -56,13 +52,21 @@ const router = createBrowserRouter([
     path: '/auth/register',
     element: <Register />,
   },
+  {
+    path: "*",
+    element: <>Gone</>
+  }
 ]);
 
+// Main App component
 function App() {
-  const [loading] = React.useState<boolean>(false);
+  const { isLoading } = useAuth0();
 
-  if (loading) return <p>loading</p>;
-  return <RouterProvider router={router} />;
+  if (isLoading) return <>loading...</>
+
+  return (
+    <RouterProvider router={router} fallbackElement={<p>Initial Load...</p>} />
+  );
 }
 
 export default App;

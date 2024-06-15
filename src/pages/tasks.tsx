@@ -22,7 +22,7 @@ import { Agent } from '@/types/agent';
 const fetcher = () =>
   fetch('http://localhost:8787/agents').then((res) => res.json());
 
-export default function TasksPage() {
+export default function Tasks() {
   const tasks = useTaskList((state) => state.tasks);
   const inProgress = useTaskList((state) => state.inProgress);
   const done = useTaskList((state) => state.done);

@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom/client';
 import App from './app.tsx';
 import './index.css';
 
+// auth0
 import { Auth0Provider } from '@auth0/auth0-react';
 
-// env
+// load environment variables
 const AUTH0_DOMAIN = import.meta.env.VITE_AUTH0_DOMAIN;
 const AUTH0_CLIENT = import.meta.env.VITE_AUTH0_CLIENT;
 
