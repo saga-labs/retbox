@@ -9,7 +9,7 @@ interface Props {
 
 export const Pane: React.FC<Props> = ({ title, amount, children }) => {
   return (
-    <div className="flex flex-shrink-0 flex-col border p-2 rounded-md">
+    <div className="flex flex-shrink-0 grow flex-col rounded-md border p-2">
       {/* Header */}
       <div className="flex h-10 flex-shrink-0 items-center px-2">
         <span className="block text-sm font-semibold">{title}</span>
@@ -17,12 +17,14 @@ export const Pane: React.FC<Props> = ({ title, amount, children }) => {
           {amount}
         </span>
         <button className="ml-auto flex h-6 w-6 items-center justify-center rounded text-indigo-500 hover:bg-indigo-500 hover:text-indigo-100">
-            <Link1Icon className='size-4'/>
+          <Link1Icon className="size-4" />
         </button>
       </div>
 
       {/* Body */}
-      <div className="flex flex-col overflow-auto pb-2">{children}</div>
+      <div className="flex flex-col space-y-2 overflow-auto pb-2">
+        {children}
+      </div>
     </div>
   );
 };

@@ -5,8 +5,8 @@ import MenuBar from './menu-bar';
 import { Command } from '@/features/command/components/command';
 import { Input } from '../common/input';
 
-import { useAuth0 } from '@auth0/auth0-react';
-import { useNavigate } from 'react-router-dom';
+// import { useAuth0 } from '@auth0/auth0-react';
+// import { useNavigate } from 'react-router-dom';
 
 interface Props {
   search?: boolean;

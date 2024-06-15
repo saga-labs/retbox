@@ -16,7 +16,7 @@ export const Card: React.FC<Props> = ({ task, index }) => {
   const moveTaskToDone = useTaskList((state) => state.moveTaskToDone);
   return (
     <div
-      className="group relative mt-3 flex cursor-pointer flex-col items-start bg-neutral-100 rounded-lg border bg-opacity-90 p-4 hover:bg-opacity-100"
+      className="group relative flex cursor-pointer flex-col items-start bg-neutral-100 rounded-lg border bg-opacity-90 p-4 hover:bg-opacity-100"
       draggable="true"
       onClick={() => moveTaskToDone(index)}
     >

@@ -54,10 +54,10 @@ export const AgentCard: React.FC<{ agent: Agent }> = ({ agent }) => {
 };
 
 export const AgentTaskCard: React.FC<{ agent: Agent }> = ({ agent }) => {
-  const [progress, _] = React.useState<number>(Math.random()*100);
+  const [progress] = React.useState<number>(Math.random()*100);
 
   return (
-    <div className="group flex w-full cursor-pointer flex-col items-start rounded-lg border bg-opacity-90 p-4 hover:bg-opacity-100 hover:shadow">
+    <div className="group flex w-full cursor-pointer flex-col items-start rounded-lg border bg-opacity-90 p-4 hover:bg-opacity-100 hover:shadow bg-neutral-100">
       <section className="flex flex-row justify-between">
         <div className="size-16 overflow-hidden rounded-full border-4 border-white">
           <img

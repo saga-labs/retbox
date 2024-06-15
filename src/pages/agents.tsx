@@ -2,7 +2,7 @@ import React from 'react';
 
 // components
 import Layout from '@/components/layout';
-import { AgentCard } from '@/components/common/citizen';
+import { AgentCard } from '@/components/common/agent-card';
 import { AgentHero } from '@/components/common/hero';
 
 import agents from '../mock/agents.json';

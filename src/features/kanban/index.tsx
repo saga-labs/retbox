@@ -11,7 +11,7 @@ const Kanban: React.FC = () => {
   const done = useTaskList((state) => state.done);
 
   return (
-    <div className="mt-4 grid grid-cols-4 space-x-2 overflow-auto">
+    <div className="mt-4 grid grid-cols-4 space-x-2 overflow-auto grow">
       <Pane title="Backlog" amount={tasks.length}>
         {tasks.map((task, index) => (
           <Card key={index} task={task} index={index} />
