@@ -28,43 +28,8 @@ const MenuBar: React.FC = () => {
       </section>
 
       <div className="">
-        <ToggleGroup.Root
-          className="inline-flex divide-x divide-neutral-800 overflow-hidden rounded-md border shadow-sm"
-          type="single"
-          aria-label="View Selection"
-          value={selected}
-          onValueChange={(value: string) => value && setSelected(value as View)}
-        >
-          {/* drive exclusive view */}
-          <ToggleGroup.Item
-            className={toggleStyle}
-            value={View.drive}
-            aria-label="Drive View"
-          >
-            <BorderLeftIcon className="size-4 text-neutral-200" />
-          </ToggleGroup.Item>
-
-          {/* split view */}
-          <ToggleGroup.Item
-            className={toggleStyle}
-            value={View.split}
-            aria-label="Split View"
-          >
-            <BorderAllIcon className="size-4 text-neutral-200" />
-          </ToggleGroup.Item>
-
-          {/* chat exclusive view */}
-          <ToggleGroup.Item
-            className={toggleStyle}
-            value={View.chat}
-            aria-label="Chat View"
-          >
-            <BorderRightIcon className="size-4 text-neutral-200" />
-          </ToggleGroup.Item>
-        </ToggleGroup.Root>
-
         <AlertsPopover>
-          <BellIcon className="size-4 text-neutral-200" />
+          <BellIcon className="size-4 text-neutral-400" />
         </AlertsPopover>
       </div>
     </nav>
