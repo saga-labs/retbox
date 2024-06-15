@@ -5,11 +5,15 @@ import './index.css';
 
 import { Auth0Provider } from '@auth0/auth0-react';
 
+// env
+const AUTH0_DOMAIN = import.meta.env.VITE_AUTH0_DOMAIN;
+const AUTH0_CLIENT = import.meta.env.VITE_AUTH0_CLIENT;
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Auth0Provider
-      domain="cerebase.eu.auth0.com"
-      clientId="0XTzUp8c4QR1SKH9rF9pgxSrRcIEc0ps"
+      domain={AUTH0_DOMAIN}
+      clientId={AUTH0_CLIENT}
       authorizationParams={{
         redirect_uri: window.location.origin,
       }}

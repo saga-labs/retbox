@@ -62,19 +62,17 @@ export default function ProjectBlock({ project }: { project: Objective }) {
                         <span
                           role="progressbar"
                           aria-labelledby="ProgressLabel"
-                          aria-valuenow="75"
+                          aria-valuenow={75}
                           className="relative block rounded-full bg-gray-200"
                         >
                           <span className="absolute inset-0 flex items-center justify-center text-[10px]/4">
-                            <span className="font-bold text-white"> 75% </span>
+                            <span className="font-bold text-white">75%</span>
                           </span>
 
                           <span
                             className="block h-3 rounded-full bg-indigo-600 text-center"
                             style={{ width: '75%' }}
-                          >
-                            {' '}
-                          </span>
+                          ></span>
                         </span>
                       </div>
                     </td>
