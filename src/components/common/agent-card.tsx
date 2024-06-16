@@ -11,7 +11,7 @@ export const AgentCard: React.FC<{ agent: Agent }> = ({ agent }) => {
         <div className="size-16 overflow-hidden rounded-full border-4 border-white">
           <img
             className="h-16 object-cover object-center"
-            src="pixel.png"
+            src="https://storage.cerebase.com/128x128/pixel.webp"
             alt="Woman looking front"
           />
         </div>
@@ -60,7 +60,7 @@ export const AgentCardDense: React.FC<{ agent: Agent }> = ({ agent }) => {
         <div className="size-16 overflow-hidden rounded-full border-4 border-white">
           <img
             className="h-16 object-cover object-center"
-            src="pixel.png"
+            src="https://storage.cerebase.com/128x128/pixel.webp"
             alt="Woman looking front"
           />
         </div>
@@ -89,7 +89,7 @@ export const AgentTaskCard: React.FC<{ agent: Agent }> = ({ agent }) => {
         <div className="size-16 overflow-hidden rounded-full border-4 border-white">
           <img
             className="h-16 object-cover object-center hover:object-scale-down"
-            src="pixel.png"
+            src="https://storage.cerebase.com/128x128/pixel.webp"
             alt="Woman looking front"
           />
         </div>

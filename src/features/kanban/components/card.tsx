@@ -75,7 +75,7 @@ export const Card: React.FC<Props> = ({ task, index }) => {
           </svg> 
           <span className="ml-1 leading-none">1</span>
         </div>*/}
-        <img className="ml-auto h-6 w-6 rounded-full" src="pixel.png" />
+        <img className="ml-auto h-6 w-6 rounded-full" src="https://storage.cerebase.com/128x128/pixel.webp" />
       </div>
     </div>
   );
