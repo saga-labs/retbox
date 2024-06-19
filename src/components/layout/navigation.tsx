@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
-
+import React from "react";
 import Link from "next/link";
 
 // icons
@@ -14,13 +13,9 @@ import {
 } from "@heroicons/react/24/outline";
 import { cn } from "@/utils/cn";
 
-interface Link {
-  title: string;
-  goto: string;
-  icon: React.ReactNode;
-}
+import type { Link as LinkType } from "@/types/nav-link";
 
-const links: Link[] = [
+const links: LinkType[] = [
   {
     title: "Dashboard",
     goto: "/",
@@ -46,7 +41,7 @@ const links: Link[] = [
 export const Navigation: React.FC = () => {
   // const setOpen = useCommandStore((state) => state.setOpen);
   // const { logout } = useAuth0();
-  const [wide, setWide] = useState(false);
+  const [wide, setWide] = React.useState(false);
 
   return (
     <nav
@@ -93,7 +88,7 @@ export const Navigation: React.FC = () => {
 
         {/** links */}
         <article className="flex flex-col space-y-2 pt-2">
-          {links.map((item: Link, key: React.Key) => (
+          {links.map((item: LinkType, key: React.Key) => (
             <Link
               key={key}
               className="flex h-10 w-full items-center justify-center rounded text-neutral-500 hover:bg-neutral-400 hover:text-neutral-50"

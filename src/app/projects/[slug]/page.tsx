@@ -1,16 +1,30 @@
 "use client";
 
 import React from "react";
+import useSWR from "swr";
+
+// services
+import ProjectsService from "@/services/projects.service";
 
 // mock data
 import project from "@/mock/project.json";
 import { Task } from "@/types/objective";
+import Link from "next/link"
 
 interface Props {
   params: { slug: string };
 }
 
 export default function ProjectsDetail({ params }: Props) {
+  const eid = "01J0S3E69Y36YXXSG2JFCSATEF";
+
+  const { data, error, isLoading } = useSWR("/projects", ProjectsService.getProjects);
+
+  if (error) return <div>failed to load</div>;
+  if (isLoading) return <div>loading...</div>;
+
+  console.log(data);
+
   return (
     <>
       <div>teams-detail {params.slug}</div>
@@ -48,18 +62,22 @@ export default function ProjectsDetail({ params }: Props) {
         </div>
 
         <ul className="mt-4 space-y-2">
-          {project.tasks.map((task: Task, key: React.Key) => {
+          {project.tasks.map((epic: Task, key: React.Key) => {
             return (
               <li
                 key={key}
                 className="block h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600"
               >
                 <strong className="font-medium text-gray-900">
-                  {task.task}
+                  {epic.task}
                 </strong>
                 <p className="mt-1 text-xs font-medium text-gray-600">
-                  {task.description}
+                  {epic.description}
                 </p>
+
+                <Link href={`/projects/${params.slug}/epic/${eid}`}>
+                  See more
+                </Link>
               </li>
             );
           })}
