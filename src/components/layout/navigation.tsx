@@ -1,6 +1,8 @@
 "use client";
 
-// import React, { useState } from "react";
+import React, { useState } from "react";
+
+import Link from "next/link";
 
 // icons
 import { ExitIcon, GearIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
@@ -44,9 +46,7 @@ const links: Link[] = [
 export const Navigation: React.FC = () => {
   // const setOpen = useCommandStore((state) => state.setOpen);
   // const { logout } = useAuth0();
-  // const [wide, setWide] = useState(false);
-  const wide = false;
-  const setWide = (w: boolean) => console.log(w); 
+  const [wide, setWide] = useState(false);
 
   return (
     <nav
@@ -94,75 +94,36 @@ export const Navigation: React.FC = () => {
         {/** links */}
         <article className="flex flex-col space-y-2 pt-2">
           {links.map((item: Link, key: React.Key) => (
-            <NavItem
-              title={item.title}
-              goto={item.goto}
-              icon={item.icon}
-              wide={wide}
-              variant="link"
+            <Link
               key={key}
-            />
+              className="flex h-10 w-full items-center justify-center rounded text-neutral-500 hover:bg-neutral-400 hover:text-neutral-50"
+              href={item.goto}
+            >
+              {item.icon}
+              <p className={cn("ml-2", !wide && "hidden")}>{item.title}</p>
+            </Link>
           ))}
         </article>
       </section>
 
       {/** actions */}
       <section className="flex flex-col space-y-2 pb-2">
-        <NavItem
-          title="Search"
-          icon={<MagnifyingGlassIcon className="h-4 w-4" />}
-          variant="button"
-          wide={wide}
-          exec={async () => console.log("app search")}
-        />
-        <NavItem
-          title="Sign out"
-          icon={<ExitIcon className="h-4 w-4" />}
-          variant="button"
-          wide={wide}
-          exec={() => console.log("hello")}
-        />
+        <button
+          className="flex h-10 w-10 items-center justify-center rounded text-neutral-500 hover:bg-neutral-300 hover:text-neutral-50"
+          type="button"
+          onClick={async () => console.log("app search")}
+        >
+          <MagnifyingGlassIcon className="h-4 w-4" />
+        </button>
+
+        <button
+          className="flex h-10 w-10 items-center justify-center rounded text-neutral-500 hover:bg-neutral-300 hover:text-neutral-50"
+          type="button"
+          onClick={() => console.log("hello")}
+        >
+          <ExitIcon className="h-4 w-4" />
+        </button>
       </section>
     </nav>
-  );
-};
-
-interface itemProps {
-  title: string;
-  icon: React.ReactNode;
-  variant: "link" | "button";
-  wide: boolean;
-  goto?: string;
-  exec?: () => void;
-}
-
-const NavItem: React.FC<itemProps> = ({
-  title,
-  icon,
-  goto,
-  wide,
-  exec,
-  variant,
-}) => {
-  if (variant == "link") {
-    return (
-      <a
-        className="flex h-10 w-full items-center justify-center rounded text-neutral-500 hover:bg-neutral-400 hover:text-neutral-50"
-        href={goto}
-      >
-        {icon}
-        <p className={cn("ml-2", !wide && "hidden")}>{title}</p>
-      </a>
-    );
-  }
-
-  return (
-    <button
-      className="flex h-10 w-10 items-center justify-center rounded text-neutral-500 hover:bg-neutral-300 hover:text-neutral-50"
-      type="button"
-      onClick={exec}
-    >
-      {icon}
-    </button>
   );
 };
