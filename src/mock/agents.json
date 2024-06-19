@@ -1,0 +1,230 @@
+[
+  {
+    "name": "Alice",
+    "role": "Software Developer",
+    "description": "Alice is a skilled full-stack developer with a passion for creating dynamic web applications.",
+    "skills": ["JavaScript", "TypeScript", "React", "Node.js", "GraphQL"],
+    "experience": "5 years",
+    "jobs": 15,
+    "contact": {
+      "email": "alice.johnson@example.com",
+      "phone": "123-456-7890"
+    },
+    "availability": "Full-time",
+    "location": "New York, NY",
+    "languages": ["English", "Spanish"]
+  },
+  {
+    "name": "Bob",
+    "role": "Data Scientist",
+    "description": "Bob specializes in machine learning and data analysis, with a focus on predictive modeling.",
+    "skills": ["Python", "R", "SQL", "TensorFlow", "Pandas"],
+    "experience": "7 years",
+    "jobs": 20,
+    "contact": {
+      "email": "bob.smith@example.com",
+      "phone": "234-567-8901"
+    },
+    "availability": "Part-time",
+    "location": "San Francisco, CA",
+    "languages": ["English", "Chinese"]
+  },
+  {
+    "name": "Kya",
+    "role": "UI/UX Designer",
+    "description": "Carol is a creative designer dedicated to enhancing user experiences through intuitive design.",
+    "skills": ["Sketch", "Figma", "Adobe XD", "HTML", "CSS"],
+    "experience": "4 years",
+    "jobs": 12,
+    "contact": {
+      "email": "carol.lee@example.com",
+      "phone": "345-678-9012"
+    },
+    "availability": "Freelance",
+    "location": "Los Angeles, CA",
+    "languages": ["English", "Korean"]
+  },
+  {
+    "name": "David",
+    "role": "Project Manager",
+    "description": "David excels in managing complex projects and ensuring timely delivery of high-quality results.",
+    "skills": ["Agile", "Scrum", "JIRA", "Risk Management", "Team Leadership"],
+    "experience": "10 years",
+    "jobs": 30,
+    "contact": {
+      "email": "david.brown@example.com",
+      "phone": "456-789-0123"
+    },
+    "availability": "Full-time",
+    "location": "Chicago, IL",
+    "languages": ["English", "French"]
+  },
+  {
+    "name": "Eve",
+    "role": "Cybersecurity Expert",
+    "description": "Eve is proficient in securing networks and systems against a wide range of cyber threats.",
+    "skills": [
+      "Network Security",
+      "Penetration Testing",
+      "Cryptography",
+      "SIEM",
+      "Incident Response"
+    ],
+    "experience": "8 years",
+    "jobs": 25,
+    "contact": {
+      "email": "eve.davis@example.com",
+      "phone": "567-890-1234"
+    },
+    "availability": "Contract",
+    "location": "Austin, TX",
+    "languages": ["English", "German"]
+  },
+  {
+    "name": "Fiona White",
+    "role": "Scrum Master",
+    "description": "Fiona is adept at leading agile teams and facilitating Scrum ceremonies to ensure project success.",
+    "skills": [
+      "Scrum",
+      "Agile",
+      "Team Facilitation",
+      "Conflict Resolution",
+      "JIRA"
+    ],
+    "experience": "6 years",
+    "jobs": 18,
+    "contact": {
+      "email": "fiona.white@example.com",
+      "phone": "678-901-2345"
+    },
+    "availability": "Full-time",
+    "location": "Denver, CO",
+    "languages": ["English", "Spanish"]
+  },
+  {
+    "name": "George",
+    "role": "Business Analyst",
+    "description": "George specializes in identifying business needs and developing solutions to business problems.",
+    "skills": [
+      "Business Analysis",
+      "Requirements Gathering",
+      "Process Improvement",
+      "Stakeholder Management",
+      "Data Analysis"
+    ],
+    "experience": "9 years",
+    "jobs": 22,
+    "contact": {
+      "email": "george.harris@example.com",
+      "phone": "789-012-3456"
+    },
+    "availability": "Part-time",
+    "location": "Seattle, WA",
+    "languages": ["English", "French"]
+  },
+  {
+    "name": "Hannah",
+    "role": "Project Coordinator",
+    "description": "Hannah is skilled at coordinating project activities, ensuring project documentation is up to date, and supporting project managers.",
+    "skills": [
+      "Project Coordination",
+      "Documentation",
+      "Communication",
+      "Time Management",
+      "Microsoft Office"
+    ],
+    "experience": "3 years",
+    "jobs": 10,
+    "contact": {
+      "email": "hannah.taylor@example.com",
+      "phone": "890-123-4567"
+    },
+    "availability": "Full-time",
+    "location": "Miami, FL",
+    "languages": ["English", "Portuguese"]
+  },
+  {
+    "name": "Ian",
+    "role": "Change Manager",
+    "description": "Ian helps organizations manage and adapt to change effectively through structured methodologies.",
+    "skills": [
+      "Change Management",
+      "Communication",
+      "Stakeholder Engagement",
+      "Training",
+      "Leadership"
+    ],
+    "experience": "8 years",
+    "jobs": 17,
+    "contact": {
+      "email": "ian.martinez@example.com",
+      "phone": "901-234-5678"
+    },
+    "availability": "Freelance",
+    "location": "Boston, MA",
+    "languages": ["English", "Spanish"]
+  },
+  {
+    "name": "Jasmine",
+    "role": "Operations Manager",
+    "description": "Jasmine excels in streamlining operations to improve efficiency and effectiveness across teams.",
+    "skills": [
+      "Operations Management",
+      "Process Improvement",
+      "Team Leadership",
+      "Budgeting",
+      "Strategic Planning"
+    ],
+    "experience": "11 years",
+    "jobs": 25,
+    "contact": {
+      "email": "jasmine.patel@example.com",
+      "phone": "012-345-6789"
+    },
+    "availability": "Full-time",
+    "location": "Atlanta, GA",
+    "languages": ["English", "Hindi"]
+  },
+  {
+    "name": "Karen",
+    "role": "Human Resources Manager",
+    "description": "Karen is an experienced HR manager skilled in talent acquisition, employee relations, and performance management.",
+    "skills": [
+      "Talent Acquisition",
+      "Employee Relations",
+      "Performance Management",
+      "HR Policy",
+      "Conflict Resolution"
+    ],
+    "experience": "12 years",
+    "jobs": 30,
+    "contact": {
+      "email": "karen.brown@example.com",
+      "phone": "123-456-7890"
+    },
+    "availability": "Full-time",
+    "location": "Houston, TX",
+    "languages": ["English", "French"]
+  },
+  {
+    "name": "Liam",
+    "role": "Customer Success Manager",
+    "description": "Liam excels in ensuring customer satisfaction and retention by providing exceptional support and service.",
+    "skills": [
+      "Customer Service",
+      "Account Management",
+      "CRM",
+      "Communication",
+      "Problem Solving"
+    ],
+    "experience": "5 years",
+    "jobs": 20,
+    "contact": {
+      "email": "liam.nguyen@example.com",
+      "phone": "234-567-8901"
+    },
+    "availability": "Part-time",
+    "location": "Portland, OR",
+    "languages": ["English", "Vietnamese"]
+  }
+]
