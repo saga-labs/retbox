@@ -1,13 +1,15 @@
-import React from 'react';
+"use client";
+
+import React from "react";
 
 // components
-import { AlertsPopover } from '@/components/common/popover';
-import { Breadcrumbs } from '@/components/common/breadcrumbs';
+import { AlertsPopover } from "@/components/common/popover";
+import { Breadcrumbs } from "@/components/common/breadcrumbs";
 
 // contexts
 
 // icons
-import { BellIcon } from '@radix-ui/react-icons';
+import { BellIcon } from "@radix-ui/react-icons";
 
 const MenuBar: React.FC = () => {
   return (

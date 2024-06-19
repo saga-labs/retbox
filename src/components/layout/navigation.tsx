@@ -1,10 +1,6 @@
-import React, { useState } from "react";
+"use client";
 
-// contexts
-// import useCommandStore from '@/contexts/use-command';
-
-// utils
-// import { useAuth0 } from '@auth0/auth0-react';
+// import React, { useState } from "react";
 
 // icons
 import { ExitIcon, GearIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
@@ -48,7 +44,9 @@ const links: Link[] = [
 export const Navigation: React.FC = () => {
   // const setOpen = useCommandStore((state) => state.setOpen);
   // const { logout } = useAuth0();
-  const [wide, setWide] = useState(false);
+  // const [wide, setWide] = useState(false);
+  const wide = false;
+  const setWide = (w: boolean) => console.log(w); 
 
   return (
     <nav
