@@ -18,7 +18,7 @@ import type { Link as LinkType } from "@/types/nav-link";
 const links: LinkType[] = [
   {
     title: "Dashboard",
-    goto: "/",
+    goto: "/dashboard",
     icon: <BeakerIcon className="size-5" />,
   },
   {

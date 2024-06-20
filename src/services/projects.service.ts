@@ -4,11 +4,12 @@ import axios from 'axios';
 
 // set correct edge worker url
 const instance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_PROJECTS_WORKER,
+  baseURL: process.env.MEXT_PUBLIC_PROJECTS_API,
 });
 
 const getProjects = async () => {
-  const result = await axios.get('https://edge.cerebase.com/');
+  console.log(process.env.MEXT_PUBLIC_PROJECTS_API)
+  const result = await axios.get('http://localhost:3001/v1/projects');
   return result.data;
 };
 

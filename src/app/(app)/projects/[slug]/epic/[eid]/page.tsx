@@ -36,10 +36,6 @@ export default function ProjectsEpicDetail({ params }: Props) {
 
   const [showMoreTeam, setShowMoreTeam] = React.useState(false);
   const [showProject, setShowProject] = React.useState(true);
-  const { data, error, isLoading } = useSWR("", fetcher);
-
-  if (error) return <div>failed to load</div>;
-  if (isLoading) return <div>loading...</div>;
 
   return (
     <div className="flex flex-col h-screen justify-between space-x-2 px-8 py-8 xl:flex-row">

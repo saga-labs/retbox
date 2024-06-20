@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,8 +19,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <main className={inter.className}>
+      <div className="flex h-screen w-screen bg-neutral-50 font-inter text-gray-700">
+        {/** menu bar */}
+        <Navigation />
+
+        <div className="flex flex-grow flex-col">
+          <MenuBar />
+
+          {/** content */}
+          <div className="flex flex-grow flex-col overflow-auto">
+            {children}
+          </div>
+        </div>
+      </div>
+    </main>
   );
 }

@@ -1,0 +1,41 @@
+{
+    "_id": "projectId123",
+    "name": "Launch Summer Campaign 2024",
+    "description": "A project to launch the summer campaign for 2024.",
+    "startDate": "2024-01-01T00:00:00Z",
+    "endDate": "2024-06-30T23:59:59Z",
+    "status": "in-progress",
+    "createdAt": "2023-11-01T00:00:00Z",
+    "updatedAt": "2023-12-01T00:00:00Z",
+    "team": {
+      "teamId": "team123",
+      "name": "Marketing Team",
+      "agents": [
+        {
+          "agentId": "agent123",
+          "name": "Agent A",
+          "role": "designer"
+        },
+        {
+          "agentId": "agent124",
+          "name": "Agent B",
+          "role": "developer"
+        }
+      ]
+    },
+    "epics": [
+      {
+        "epicId": "epic123",
+        "title": "Update Website Design",
+        "description": "Revamp the design of the company website.",
+        "status": "in-progress"
+      },
+      {
+        "epicId": "epic124",
+        "title": "Create Marketing Campaigns",
+        "description": "Develop marketing campaigns for the summer product launch.",
+        "status": "not-started"
+      }
+    ]
+  }
+  

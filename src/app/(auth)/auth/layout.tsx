@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 interface props {
   children: React.ReactNode;
@@ -12,14 +13,14 @@ export default function AuthLayout({
   return (
     <main>
       <div className="md:hidden">
-        <img
+        <Image
           src="/examples/authentication-light.png"
           width={1280}
           height={843}
           alt="Authentication"
           className="block dark:hidden"
         />
-        <img
+        <Image
           src="/examples/authentication-dark.png"
           width={1280}
           height={843}
@@ -31,7 +32,7 @@ export default function AuthLayout({
         <div className="bg-muted relative hidden h-full flex-col p-10 text-white lg:flex dark:border-r">
           <div className="absolute inset-0 bg-zinc-900" />
           <div className="relative z-20 flex items-center text-lg font-medium">
-            <img
+            <Image
               src="/logo.svg"
               alt="Cerebase"
               className="mr-2"

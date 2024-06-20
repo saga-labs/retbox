@@ -1,8 +1,8 @@
 "use client";
 
-import React from 'react';
+import React from "react";
 
-import { Objective } from '@/types/objective';
+import { Objective } from "@/types/objective";
 
 interface Props {
   project: Objective;
@@ -34,7 +34,7 @@ export const View: React.FC<Props> = ({ project, status }) => {
             </strong>
 
             <h3 className="mt-4 text-lg font-medium sm:text-xl">
-              <a href="#" className="hover:underline"></a>
+              <p className="hover:underline"></p>
             </h3>
 
             <p className="mt-1 text-md text-gray-700">spring-webshop-2024</p>
@@ -67,18 +67,7 @@ export const View: React.FC<Props> = ({ project, status }) => {
               </span>
 
               <p className="mt-2 text-xs font-medium text-gray-500 sm:mt-0">
-                Featuring{' '}
-                <a href="#" className="underline hover:text-gray-700">
-                  Barry
-                </a>
-                ,
-                <a href="#" className="underline hover:text-gray-700">
-                  Sandra
-                </a>{' '}
-                and
-                <a href="#" className="underline hover:text-gray-700">
-                  August
-                </a>
+                Featuring Barry, Sandra and August
               </p>
             </div>
           </div>
@@ -87,7 +76,6 @@ export const View: React.FC<Props> = ({ project, status }) => {
     </a>
   );
 };
-
 
 // projects overview:               https://app.cerebase.com/projects
 // projct detail (need id):         https://app.cerebase.com/projects/01j0c82ay5pmhk09vxw61s12np
