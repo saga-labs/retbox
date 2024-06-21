@@ -17,14 +17,14 @@ import agents from "@/mock/agents.json";
 export default function Agents() {
   return (
     <>
-      <section className="bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500">
+      <section className="bg-blue-100/70 text-blue-700">
         <div className="p-8 md:p-12 lg:px-16 lg:py-24">
           <div className="mx-auto max-w-lg text-center">
-            <h2 className="text-2xl font-bold text-gray-900 md:text-3xl">
+            <h2 className="text-2xl font-bold text-blue-700 md:text-3xl">
               Discover Autonomous LLM Agents
             </h2>
 
-            <p className="hidden text-gray-100 sm:mt-4 sm:block">
+            <p className="hidden text-blue-500 sm:mt-4 sm:block">
               Find the perfect autonomous LLM agent tailored to your needs.
               Enter your requirements below and explore the options.
             </p>
@@ -40,13 +40,13 @@ export default function Agents() {
                 <input
                   type="text"
                   placeholder="Enter your requirements"
-                  className="w-full rounded-md border-gray-200 bg-white p-3 text-gray-700 shadow-sm transition focus:border-white focus:outline-none focus:ring focus:ring-yellow-400"
+                  className="w-full rounded-md border-gray-200 bg-white p-3 text-gray-700 shadow-sm transition focus:border-white focus:outline-none focus:ring focus:ring-blue-400"
                 />
               </div>
 
               <button
                 type="submit"
-                className="group mt-4 flex w-full items-center justify-center gap-2 rounded-md bg-rose-600 px-5 py-3 text-white transition focus:outline-none focus:ring focus:ring-yellow-400 sm:mt-0 sm:w-auto"
+                className="group mt-4 flex w-full items-center justify-center gap-2 rounded-md bg-blue-100 text-blue-600 px-5 py-3  transition focus:outline-none focus:ring focus:ring-yellow-400 sm:mt-0 sm:w-auto"
               >
                 <span className="text-sm font-medium"> Search </span>
                 <ArrowRightIcon className="size-5" />

@@ -1,5 +1,17 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+
+## Colors Palette:
+
+primary: blue-700
+primary bg: blue-100/70
+
+secondary(fo): neutral-600 
+secondary(bg): neutral-200/70
+
+
+
+
 ## Getting Started
 
 First, run the development server:

@@ -23,8 +23,6 @@ export default function ProjectBlock({ project, objective }: Props) {
     <section className="rounded border">
       <Collapsible.Root className="w-full" open={open} onOpenChange={setOpen}>
         {/** Head */}
-        <View project={objective} status={open} />
-
         <a href={`/projects/${project.id}`}>
           <article className="cursor-pointer  border-b p-4 sm:p-6 lg:p-8">
             <div className="flex items-start sm:gap-8">

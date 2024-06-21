@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import * as Collapsible from "@radix-ui/react-collapsible";
 
 // icons
@@ -43,7 +43,9 @@ const links: LinkType[] = [
 
 export const Navigation: React.FC = () => {
   const [wide, setWide] = React.useState(true);
-  // const router = useRouter();
+  const pathname = usePathname();
+
+  console.log(pathname);
 
   return (
     <nav
@@ -94,13 +96,16 @@ export const Navigation: React.FC = () => {
             <Link
               key={key}
               className={cn(
-                "flex h-10 w-full items-center rounded text-neutral-500  hover:bg-neutral-400 hover:text-neutral-50",
-                wide ? "justify-start px-2" : "justify-center"
+                "flex h-10 w-full items-center rounded ",
+                wide ? "justify-start px-4" : "justify-center",
+                pathname == item.goto
+                  ? "bg-blue-100/70 text-blue-700"
+                  : "text-neutral-600 bg-neutral-200/70 hover:bg-neutral-400 hover:text-neutral-50"
               )}
               href={item.goto}
             >
               {item.icon}
-              <p className={cn("ml-2 text-sm", !wide && "hidden")}>
+              <p className={cn("ml-3 text-sm", !wide && "hidden")}>
                 {item.title}
               </p>
             </Link>
