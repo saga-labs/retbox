@@ -44,7 +44,7 @@ export default function Settings() {
             </select>
           </div>
 
-          <div className="hidden sm:block">
+          <div className="hidden sm:block my-4">
             <nav className="flex gap-6" aria-label="Tabs">
               <a
                 href="#"
@@ -69,7 +69,7 @@ export default function Settings() {
 
               <a
                 href="#"
-                className="shrink-0 rounded-lg bg-blue-100/70 px-4 py-2 text-sm font-medium text-blue-700"
+                className="shrink-0 rounded-lg bg-blue-100/70 px-4 py-2 text-sm font-medium text-blue-700 hover:underline hover:underline-offset-4"
                 aria-current="page"
               >
                 Notifications
@@ -83,7 +83,7 @@ export default function Settings() {
             return (
               <div className="grid grid-cols-5 gap-4 py-4" key={i}>
                 <div className="col-span-2 flex flex-col -space-y-0.5">
-                  <h3 className="font-medium">Interface theme</h3>
+                  <h3 className="font-medium text-blue-700">Interface theme</h3>
                   <small className="text-xs">
                     Select or Customize your UI theme.
                   </small>
@@ -103,13 +103,13 @@ export default function Settings() {
 
 const OptionCard = ({ title }: { title: string }) => (
   <div className="group block overflow-hidden">
-    <div className="relative">
+    <div className="relative p-2">
       <Image
-        src="https://storage.cerebase.com/integrations/slack.webp"
+        src="https://storage.cerebase.com/app/mode.png"
         alt=""
         width={258}
         height={258}
-        className="object-cover aspect-square rounded-md border"
+        className="object-cover aspect-square rounded-md ring-2"
       />
     </div>
 

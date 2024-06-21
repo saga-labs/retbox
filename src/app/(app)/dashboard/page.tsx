@@ -13,6 +13,8 @@ import ProjectBlock from "@/features/project-block";
 import { project } from "@/mock/project.ts";
 import { Project } from "@/types/project";
 import { StatsCard } from "@/components/common/stats-card";
+import { Button } from "@/components/common/button";
+import { IntegrationCard } from "@/components/common/integration-card";
 
 export default function Dashboard() {
   const betaFlag = false;
@@ -69,6 +71,12 @@ export default function Dashboard() {
       </section>
 
       {/** Recent Projects */}
+      <div className="col-span-12 flex flex-row justify-between">
+        <h3 className="text-lg text-blue-700">Projects</h3>
+        <Button size="sm" func={() => console.log("japan")}>
+          Create
+        </Button>
+      </div>
 
       <section className="col-span-4">
         <ProjectBlock objective={project} project={data.data[0]} />
@@ -80,6 +88,46 @@ export default function Dashboard() {
 
       <section className="col-span-4">
         <ProjectBlock objective={project} project={data.data[0]} />
+      </section>
+
+      {/** Integrations */}
+      <div className="col-span-12 flex flex-row justify-between">
+        <h3 className="text-lg text-blue-700">Integrations</h3>
+        <Button size="sm" func={() => console.log("japan")}>
+          See more
+        </Button>
+      </div>
+
+      <section className="col-span-3">
+        <IntegrationCard />
+      </section>
+
+      <section className="col-span-3">
+        <IntegrationCard />
+      </section>
+
+      <section className="col-span-3">
+        <IntegrationCard />
+      </section>
+
+      <section className="col-span-3">
+        <IntegrationCard />
+      </section>
+
+      <section className="col-span-3">
+        <IntegrationCard />
+      </section>
+
+      <section className="col-span-3">
+        <IntegrationCard />
+      </section>
+
+      <section className="col-span-3">
+        <IntegrationCard />
+      </section>
+
+      <section className="col-span-3">
+        <IntegrationCard />
       </section>
     </div>
   );

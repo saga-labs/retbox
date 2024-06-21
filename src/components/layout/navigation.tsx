@@ -45,8 +45,6 @@ export const Navigation: React.FC = () => {
   const [wide, setWide] = React.useState(true);
   const pathname = usePathname();
 
-  console.log(pathname);
-
   return (
     <nav
       className={cn(
