@@ -4,11 +4,12 @@ import axios from 'axios';
 
 // set correct edge worker url
 const instance = axios.create({
-  baseURL: import.meta.env.VITE_TASKS_WORKER_URL,
+  baseURL: process.env.MEXT_PUBLIC_PROJECTS_API,
 });
 
 const getProjects = async () => {
-  const result = await instance.get('/');
+  console.log(process.env.MEXT_PUBLIC_PROJECTS_API)
+  const result = await axios.get('http://localhost:3001/v1/projects');
   return result.data;
 };
 

@@ -4,7 +4,7 @@ import axios from 'axios';
 
 // set correct edge worker url
 const instance = axios.create({
-  baseURL: import.meta.env.VITE_TASKS_WORKER_URL,
+  baseURL: process.env.MEXT_PUBLIC_PROJECTS_API,
 });
 
 //! todo: impl

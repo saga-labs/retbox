@@ -1,18 +1,24 @@
-import React from 'react';
+"use client";
+
+import React from "react";
+
+import Image from "next/image";
 
 // types & interfaces
-import { Agent } from '@/types/agent';
-import { cn } from '@/utils/cn';
+import { Agent } from "@/types/agent";
+import { cn } from "@/utils/cn";
 
 export const AgentCard: React.FC<{ agent: Agent }> = ({ agent }) => {
   return (
     <div className="group flex w-full cursor-pointer flex-col items-start rounded-lg border bg-opacity-90 p-4 hover:bg-opacity-100 hover:shadow">
       <section className="flex flex-row justify-between">
         <div className="size-16 overflow-hidden rounded-full border-4 border-white">
-          <img
+          <Image
             className="h-16 object-cover object-center"
             src="https://storage.cerebase.com/128x128/pixel.webp"
             alt="Woman looking front"
+            width={64}
+            height={64}
           />
         </div>
 
@@ -58,10 +64,12 @@ export const AgentCardDense: React.FC<{ agent: Agent }> = ({ agent }) => {
     <div className="group flex w-full cursor-pointer flex-col items-start rounded-lg border bg-opacity-90 p-4 hover:bg-opacity-100 hover:shadow">
       <section className="flex flex-row justify-between">
         <div className="size-16 overflow-hidden rounded-full border-4 border-white">
-          <img
+          <Image
             className="h-16 object-cover object-center"
             src="https://storage.cerebase.com/128x128/pixel.webp"
             alt="Woman looking front"
+            width={64}
+            height={64}
           />
         </div>
 
@@ -81,21 +89,23 @@ export const AgentCardDense: React.FC<{ agent: Agent }> = ({ agent }) => {
 };
 
 export const AgentTaskCard: React.FC<{ agent: Agent }> = ({ agent }) => {
-  const [progress] = React.useState<number>(Math.random()*100);
+  const [progress] = React.useState<number>(Math.random() * 100);
 
   return (
-    <div className="group flex w-full cursor-pointer flex-col items-start rounded-lg border bg-opacity-90 p-4 hover:bg-opacity-100 hover:shadow bg-neutral-100">
+    <div className="group flex w-full cursor-pointer flex-col items-start rounded-lg border bg-opacity-90 p-4 bg-neutral-100/70 text-neutral-600">
       <section className="flex flex-row justify-between">
         <div className="size-16 overflow-hidden rounded-full border-4 border-white">
-          <img
-            className="h-16 object-cover object-center hover:object-scale-down"
+          <Image
+            className="object-cover object-center hover:object-scale-down"
             src="https://storage.cerebase.com/128x128/pixel.webp"
             alt="Woman looking front"
+            width={64}
+            height={64}
           />
         </div>
 
         <div className="ml-4 flex flex-col space-y-0">
-          <p className="text-md">{agent.name}</p>
+          <p className="text-md font-semibold">{agent.name}</p>
           <p className="text-sm">{agent.role}</p>
         </div>
       </section>
@@ -136,12 +146,12 @@ export const AgentTaskCard: React.FC<{ agent: Agent }> = ({ agent }) => {
           >
             <span
               className={cn(
-                'block h-2 rounded-full',
-                progress >= 0 && progress < 10 && 'bg-red-500',  // Applied when 0 <= progress < 10
-                progress >= 10 && progress < 30 && 'bg-yellow-500',  // Applied when 10 <= progress < 30
-                progress >= 30 && progress < 60 && 'bg-blue-500',  // Applied when 30 <= progress < 60
-                progress >= 60 && progress < 90 && 'bg-indigo-600',  // Applied when 60 <= progress < 90
-                progress >= 90 && 'bg-green-500',  // Applied when progress >= 90
+                "block h-2 rounded-full",
+                progress >= 0 && progress < 10 && "bg-red-500", // Applied when 0 <= progress < 10
+                progress >= 10 && progress < 30 && "bg-yellow-500", // Applied when 10 <= progress < 30
+                progress >= 30 && progress < 60 && "bg-blue-500", // Applied when 30 <= progress < 60
+                progress >= 60 && progress < 90 && "bg-indigo-600", // Applied when 60 <= progress < 90
+                progress >= 90 && "bg-green-500" // Applied when progress >= 90
               )}
               style={{ width: `${progress}%` }}
             ></span>

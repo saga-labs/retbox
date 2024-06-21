@@ -1,60 +1,55 @@
-import React, { useState } from 'react';
+"use client";
 
-// contexts
-// import useCommandStore from '@/contexts/use-command';
-
-// utils
-import { useAuth0 } from '@auth0/auth0-react';
+import React from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import * as Collapsible from "@radix-ui/react-collapsible";
 
 // icons
-import { ExitIcon, GearIcon, MagnifyingGlassIcon } from '@radix-ui/react-icons';
+import { ExitIcon, GearIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
 
 import {
   BeakerIcon,
   UserGroupIcon,
   FlagIcon,
-} from '@heroicons/react/24/outline';
-import { cn } from '@/utils/cn';
+} from "@heroicons/react/24/outline";
+import { cn } from "@/utils/cn";
 
-interface Link {
-  title: string;
-  goto: string;
-  icon: React.ReactNode;
-}
+import type { Link as LinkType } from "@/types/nav-link";
+import { ChevronUpDownIcon, XMarkIcon } from "@heroicons/react/24/solid";
 
-const links: Link[] = [
+const links: LinkType[] = [
   {
-    title: 'Dashboard',
-    goto: '/',
+    title: "Dashboard",
+    goto: "/dashboard",
     icon: <BeakerIcon className="size-5" />,
   },
   {
-    title: 'Projects',
-    goto: '/projects',
+    title: "Projects",
+    goto: "/projects",
     icon: <FlagIcon className="size-5" />,
   },
   {
-    title: 'Agents',
-    goto: '/agents',
+    title: "Agents",
+    goto: "/agents",
     icon: <UserGroupIcon className="size-5" />,
   },
   {
-    title: 'Settings',
-    goto: '/settings',
+    title: "Settings",
+    goto: "/settings",
     icon: <GearIcon className="size-5" />,
   },
 ];
 
 export const Navigation: React.FC = () => {
-  // const setOpen = useCommandStore((state) => state.setOpen);
-  const { logout } = useAuth0();
-  const [wide, setWide] = useState(false);
+  const [wide, setWide] = React.useState(true);
+  const pathname = usePathname();
 
   return (
     <nav
       className={cn(
-        'group flex flex-shrink-0 flex-col items-center justify-between border-r transition',
-        wide ? 'w-48' : 'w-14',
+        "group flex flex-shrink-0 flex-col items-center justify-between border-r transition",
+        wide ? "w-48" : "w-14"
       )}
     >
       <section className="flex w-full flex-col items-center group-hover:justify-start">
@@ -90,87 +85,123 @@ export const Navigation: React.FC = () => {
               ></path>
             </svg>
           </div>
-          <h1 className={cn('ml-2', !wide && 'hidden')}>cerebase</h1>
+          <h1 className={cn("ml-2", !wide && "hidden")}>cerebase</h1>
         </article>
 
         {/** links */}
-        <article className="flex flex-col space-y-2 pt-2">
-          {links.map((item: Link, key: React.Key) => (
-            <NavItem
-              title={item.title}
-              goto={item.goto}
-              icon={item.icon}
-              wide={wide}
-              variant="link"
+        <article className="flex flex-col space-y-2 pt-2 px-2 w-full">
+          {links.map((item: LinkType, key: React.Key) => (
+            <Link
               key={key}
-            />
+              className={cn(
+                "flex h-10 w-full items-center rounded ",
+                wide ? "justify-start px-4" : "justify-center",
+                pathname == item.goto
+                  ? "bg-blue-100/70 text-blue-700"
+                  : "text-neutral-600 bg-neutral-200/70 hover:bg-neutral-400 hover:text-neutral-50"
+              )}
+              href={item.goto}
+            >
+              {item.icon}
+              <p className={cn("ml-3 text-sm", !wide && "hidden")}>
+                {item.title}
+              </p>
+            </Link>
           ))}
         </article>
       </section>
 
       {/** actions */}
-      <section className="flex flex-col space-y-2 pb-2">
-        <NavItem
-          title="Search"
-          icon={<MagnifyingGlassIcon className="h-4 w-4" />}
-          variant="button"
-          wide={wide}
-          exec={async () => console.log('app search')}
-        />
-        <NavItem
-          title="Sign out"
-          icon={<ExitIcon className="h-4 w-4" />}
-          variant="button"
-          wide={wide}
-          exec={() => {
-            logout({
-              logoutParams: {
-                returnTo: window.location.origin,
-              },
-            });
-          }}
-        />
+      <section className="flex flex-col space-y-2 pb-2 w-full px-2">
+        <button
+          type="button"
+          onClick={async () => console.log("app search")}
+          className={cn(
+            "flex h-10 w-full items-center rounded text-neutral-600 bg-neutral-200/60 hover:bg-neutral-400 hover:text-neutral-50",
+            wide ? "justify-start px-2" : "justify-center",
+
+          )}
+        >
+          <MagnifyingGlassIcon className="h-4 w-4" />
+          <p className={cn("ml-2 text-sm", !wide && "hidden")}>Search</p>
+        </button>
+
+        <Collapsible.Root className="w-full">
+          <Collapsible.Trigger className="w-full">
+            <div
+              className={cn(
+                "flex h-10 w-full items-center rounded text-neutral-600 bg-neutral-200/60 hover:bg-neutral-400 hover:text-neutral-50",
+                wide ? "justify-start px-2" : "justify-center"
+              )}
+              onClick={() => console.log("hello")}
+            >
+              <ExitIcon className="h-4 w-4" />
+              <p className={cn("ml-2 text-sm", !wide && "hidden")}>User</p>
+            </div>
+          </Collapsible.Trigger>
+
+          <Collapsible.Content>
+            <div className="bg-white rounded my-[10px] p-[10px] shadow-[0_2px_10px] shadow-blackA4">
+              <span className="text-violet11 text-[15px] leading-[25px]">
+                @radix-ui/primitives
+              </span>
+            </div>
+            <div className="bg-white rounded my-[10px] p-[10px] shadow-[0_2px_10px] shadow-blackA4">
+              <span className="text-violet11 text-[15px] leading-[25px]">
+                @radix-ui/primitives
+              </span>
+            </div>
+            <div className="bg-white rounded my-[10px] p-[10px] shadow-[0_2px_10px] shadow-blackA4">
+              <span className="text-violet11 text-[15px] leading-[25px]">
+                @radix-ui/primitives
+              </span>
+            </div>
+          </Collapsible.Content>
+        </Collapsible.Root>
       </section>
     </nav>
   );
 };
 
-interface itemProps {
-  title: string;
-  icon: React.ReactNode;
-  variant: 'link' | 'button';
-  wide: boolean;
-  goto?: string;
-  exec?: () => void;
-}
-
-const NavItem: React.FC<itemProps> = ({
-  title,
-  icon,
-  goto,
-  wide,
-  exec,
-  variant,
-}) => {
-  if (variant == 'link') {
-    return (
-      <a
-        className="flex h-10 w-full items-center justify-center rounded text-neutral-500 hover:bg-neutral-400 hover:text-neutral-50"
-        href={goto}
-      >
-        {icon}
-        <p className={cn('ml-2', !wide && 'hidden')}>{title}</p>
-      </a>
-    );
-  }
-
+const UserMenu = () => {
+  const [open, setOpen] = React.useState(false);
   return (
-    <button
-      className="flex h-10 w-10 items-center justify-center rounded text-neutral-500 hover:bg-neutral-300 hover:text-neutral-50"
-      type="button"
-      onClick={exec}
-    >
-      {icon}
-    </button>
+    <Collapsible.Root className="w-full" open={open} onOpenChange={setOpen}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <span className="text-green-400 text-[15px] leading-[25px]">
+          @peduarte starred 3 repositories
+        </span>
+        <Collapsible.Trigger asChild>
+          <button className="rounded-full h-[25px] w-[25px] inline-flex items-center justify-center text-violet11 shadow-[0_2px_10px] shadow-blackA4 outline-none data-[state=closed]:bg-white data-[state=open]:bg-violet3 hover:bg-violet3 focus:shadow-[0_0_0_2px] focus:shadow-black">
+            {open ? <XMarkIcon /> : <ChevronUpDownIcon />}
+          </button>
+        </Collapsible.Trigger>
+      </div>
+
+      <div className="bg-white rounded my-[10px] p-[10px] shadow-[0_2px_10px] shadow-blackA4">
+        <span className="text-violet11 text-[15px] leading-[25px]">
+          @radix-ui/primitives
+        </span>
+      </div>
+
+      <Collapsible.Content>
+        <div className="bg-white rounded my-[10px] p-[10px] shadow-[0_2px_10px] shadow-blackA4">
+          <span className="text-violet11 text-[15px] leading-[25px]">
+            @radix-ui/colors
+          </span>
+        </div>
+        <div className="bg-white rounded my-[10px] p-[10px] shadow-[0_2px_10px] shadow-blackA4">
+          <span className="text-violet11 text-[15px] leading-[25px]">
+            @stitches/react
+          </span>
+        </div>
+      </Collapsible.Content>
+    </Collapsible.Root>
   );
 };

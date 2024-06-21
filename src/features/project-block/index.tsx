@@ -1,21 +1,95 @@
-import React from 'react';
+"use client";
 
-import * as Collapsible from '@radix-ui/react-collapsible';
+import React from "react";
+
+import * as Collapsible from "@radix-ui/react-collapsible";
 // import { RowSpacingIcon, Cross2Icon } from '@radix-ui/react-icons';
 
 // components
-import { View } from './view';
+import { View } from "./components/view";
 
 // types & interfaces
-import { Objective, Task } from '@/types/objective';
+import { Objective, Task } from "@/types/objective";
+import { Project } from "@/types/project";
 
-export default function ProjectBlock({ project }: { project: Objective }) {
+interface Props {
+  project: Project;
+  objective: Objective;
+}
+
+export default function ProjectBlock({ project, objective }: Props) {
   const [open, setOpen] = React.useState(false);
   return (
     <section className="rounded border">
       <Collapsible.Root className="w-full" open={open} onOpenChange={setOpen}>
         {/** Head */}
-        <View project={project} status={open} />
+        <a href={`/projects/${project.id}`}>
+          <article className="cursor-pointer  border-b p-4 sm:p-6 lg:p-8">
+            <div className="flex items-start sm:gap-8">
+              <div
+                className="hidden sm:grid sm:size-20 sm:shrink-0 sm:place-content-center sm:rounded-full sm:border-2 sm:border-indigo-500"
+                aria-hidden="true"
+              >
+                <div className="flex items-center gap-1">
+                  <span className="h-8 w-0.5 rounded-full bg-indigo-500"></span>
+                  <span className="h-6 w-0.5 rounded-full bg-indigo-500"></span>
+                  <span className="h-4 w-0.5 rounded-full bg-indigo-500"></span>
+                  <span className="h-6 w-0.5 rounded-full bg-indigo-500"></span>
+                  <span className="h-8 w-0.5 rounded-full bg-indigo-500"></span>
+                </div>
+              </div>
+
+              <div>
+                <strong className="rounded border border-indigo-500 bg-indigo-500 px-3 py-1.5 text-[10px] font-medium text-white">
+                  Active
+                </strong>
+
+                <h3 className="mt-4 text-lg font-medium sm:text-xl">
+                  <p className="hover:underline"></p>
+                </h3>
+
+                <p className="mt-1 text-md text-gray-700">
+                  spring-webshop-2024
+                </p>
+                <p className="mt-1 text-sm text-gray-700">
+                  {objective.objective}
+                </p>
+
+                <div className="mt-4 sm:flex sm:items-center sm:gap-2">
+                  <div className="flex items-center gap-1 text-gray-500">
+                    <svg
+                      className="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      ></path>
+                    </svg>
+
+                    <p className="text-xs font-medium">
+                      {objective.timeline.start_date} -{" "}
+                      {objective.timeline.end_date}
+                    </p>
+                  </div>
+
+                  <span className="hidden sm:block" aria-hidden="true">
+                    &middot;
+                  </span>
+
+                  <p className="mt-2 text-xs font-medium text-gray-500 sm:mt-0">
+                    Featuring Barry, Sandra and August
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </a>
 
         {/** peak */}
         <Collapsible.Trigger asChild>
@@ -48,7 +122,7 @@ export default function ProjectBlock({ project }: { project: Objective }) {
               </thead>
 
               <tbody className="divide-y divide-gray-200">
-                {project.tasks.map((t: Task, k: React.Key) => {
+                {objective.tasks.map((t: Task, k: React.Key) => {
                   return <Epic t={t} key={k} />;
                 })}
               </tbody>
@@ -93,7 +167,7 @@ const Epic: React.FC<{ t: Task }> = ({ t }) => (
 
           <span
             className="block h-3 rounded-full bg-indigo-600 text-center"
-            style={{ width: '75%' }}
+            style={{ width: "75%" }}
           ></span>
         </span>
       </div>

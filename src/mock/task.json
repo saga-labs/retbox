@@ -1,0 +1,15 @@
+{
+  "_id": "task123",
+  "projectId": "projectId123",
+  "epicId": "epic123",
+  "title": "Create New Homepage Layout",
+  "description": "Design a new layout for the homepage.",
+  "assignee": {
+    "agentId": "agent123",
+    "name": "Agent A"
+  },
+  "status": "in-progress",
+  "startDate": "2024-01-05T00:00:00Z",
+  "endDate": "2024-02-01T23:59:59Z",
+  "kanbanPane": "Working"
+}
