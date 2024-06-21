@@ -1,0 +1,2 @@
+[worker]
+nodejs_compat = true
