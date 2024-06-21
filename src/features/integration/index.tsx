@@ -21,8 +21,8 @@ export const Integration = () => {
 
   return (
     <div className="fixed inset-0 z-50 backdrop-blur-sm bg-neutral-900/70 flex items-center justify-center">
-      <article className="relative shadow-xl rounded-xl">
-        <div className="flex items-start gap-4 rounded-xl border bg-white w-[640px]">
+      <article className="relative">
+        <div className="flex items-start gap-4 rounded-md border bg-white w-[640px]">
           <div className="flex flex-col space-y-2 grow">
             {/** Info and Timeline  Slot */}
             <section className="flex flex-row justify-between pt-4 px-6">
@@ -47,7 +47,7 @@ export const Integration = () => {
                 {/** show integration */}
                 <div className="flex flex-row py-2 pb-4 space-x-3">
                   <Image
-                    src="https://storage.cerebase.com/integrations/slack.webp"
+                    src="https://storage.cerebase.com/integrations/slack/logo.webp"
                     alt="Slack Logo"
                     width={45}
                     height={45}
