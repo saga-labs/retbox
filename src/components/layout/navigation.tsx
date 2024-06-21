@@ -117,8 +117,9 @@ export const Navigation: React.FC = () => {
           type="button"
           onClick={async () => console.log("app search")}
           className={cn(
-            "flex h-10 w-full items-center rounded text-neutral-500  hover:bg-neutral-400 hover:text-neutral-50",
-            wide ? "justify-start px-2" : "justify-center"
+            "flex h-10 w-full items-center rounded text-neutral-600 bg-neutral-200/60 hover:bg-neutral-400 hover:text-neutral-50",
+            wide ? "justify-start px-2" : "justify-center",
+
           )}
         >
           <MagnifyingGlassIcon className="h-4 w-4" />
@@ -129,7 +130,7 @@ export const Navigation: React.FC = () => {
           <Collapsible.Trigger className="w-full">
             <div
               className={cn(
-                "flex h-10 w-full items-center rounded text-neutral-500  hover:bg-neutral-400 hover:text-neutral-50",
+                "flex h-10 w-full items-center rounded text-neutral-600 bg-neutral-200/60 hover:bg-neutral-400 hover:text-neutral-50",
                 wide ? "justify-start px-2" : "justify-center"
               )}
               onClick={() => console.log("hello")}
