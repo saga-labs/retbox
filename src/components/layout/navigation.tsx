@@ -2,6 +2,8 @@
 
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import * as Collapsible from "@radix-ui/react-collapsible";
 
 // icons
 import { ExitIcon, GearIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
@@ -14,6 +16,7 @@ import {
 import { cn } from "@/utils/cn";
 
 import type { Link as LinkType } from "@/types/nav-link";
+import { ChevronUpDownIcon, XMarkIcon } from "@heroicons/react/24/solid";
 
 const links: LinkType[] = [
   {
@@ -39,9 +42,8 @@ const links: LinkType[] = [
 ];
 
 export const Navigation: React.FC = () => {
-  // const setOpen = useCommandStore((state) => state.setOpen);
-  // const { logout } = useAuth0();
-  const [wide, setWide] = React.useState(false);
+  const [wide, setWide] = React.useState(true);
+  // const router = useRouter();
 
   return (
     <nav
@@ -87,38 +89,115 @@ export const Navigation: React.FC = () => {
         </article>
 
         {/** links */}
-        <article className="flex flex-col space-y-2 pt-2">
+        <article className="flex flex-col space-y-2 pt-2 px-2 w-full">
           {links.map((item: LinkType, key: React.Key) => (
             <Link
               key={key}
-              className="flex h-10 w-full items-center justify-center rounded text-neutral-500 hover:bg-neutral-400 hover:text-neutral-50"
+              className={cn(
+                "flex h-10 w-full items-center rounded text-neutral-500  hover:bg-neutral-400 hover:text-neutral-50",
+                wide ? "justify-start px-2" : "justify-center"
+              )}
               href={item.goto}
             >
               {item.icon}
-              <p className={cn("ml-2", !wide && "hidden")}>{item.title}</p>
+              <p className={cn("ml-2 text-sm", !wide && "hidden")}>
+                {item.title}
+              </p>
             </Link>
           ))}
         </article>
       </section>
 
       {/** actions */}
-      <section className="flex flex-col space-y-2 pb-2">
+      <section className="flex flex-col space-y-2 pb-2 w-full px-2">
         <button
-          className="flex h-10 w-10 items-center justify-center rounded text-neutral-500 hover:bg-neutral-300 hover:text-neutral-50"
           type="button"
           onClick={async () => console.log("app search")}
+          className={cn(
+            "flex h-10 w-full items-center rounded text-neutral-500  hover:bg-neutral-400 hover:text-neutral-50",
+            wide ? "justify-start px-2" : "justify-center"
+          )}
         >
           <MagnifyingGlassIcon className="h-4 w-4" />
+          <p className={cn("ml-2 text-sm", !wide && "hidden")}>Search</p>
         </button>
 
-        <button
-          className="flex h-10 w-10 items-center justify-center rounded text-neutral-500 hover:bg-neutral-300 hover:text-neutral-50"
-          type="button"
-          onClick={() => console.log("hello")}
-        >
-          <ExitIcon className="h-4 w-4" />
-        </button>
+        <Collapsible.Root className="w-full">
+          <Collapsible.Trigger className="w-full">
+            <div
+              className={cn(
+                "flex h-10 w-full items-center rounded text-neutral-500  hover:bg-neutral-400 hover:text-neutral-50",
+                wide ? "justify-start px-2" : "justify-center"
+              )}
+              onClick={() => console.log("hello")}
+            >
+              <ExitIcon className="h-4 w-4" />
+              <p className={cn("ml-2 text-sm", !wide && "hidden")}>User</p>
+            </div>
+          </Collapsible.Trigger>
+
+          <Collapsible.Content>
+            <div className="bg-white rounded my-[10px] p-[10px] shadow-[0_2px_10px] shadow-blackA4">
+              <span className="text-violet11 text-[15px] leading-[25px]">
+                @radix-ui/primitives
+              </span>
+            </div>
+            <div className="bg-white rounded my-[10px] p-[10px] shadow-[0_2px_10px] shadow-blackA4">
+              <span className="text-violet11 text-[15px] leading-[25px]">
+                @radix-ui/primitives
+              </span>
+            </div>
+            <div className="bg-white rounded my-[10px] p-[10px] shadow-[0_2px_10px] shadow-blackA4">
+              <span className="text-violet11 text-[15px] leading-[25px]">
+                @radix-ui/primitives
+              </span>
+            </div>
+          </Collapsible.Content>
+        </Collapsible.Root>
       </section>
     </nav>
+  );
+};
+
+const UserMenu = () => {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <Collapsible.Root className="w-full" open={open} onOpenChange={setOpen}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <span className="text-green-400 text-[15px] leading-[25px]">
+          @peduarte starred 3 repositories
+        </span>
+        <Collapsible.Trigger asChild>
+          <button className="rounded-full h-[25px] w-[25px] inline-flex items-center justify-center text-violet11 shadow-[0_2px_10px] shadow-blackA4 outline-none data-[state=closed]:bg-white data-[state=open]:bg-violet3 hover:bg-violet3 focus:shadow-[0_0_0_2px] focus:shadow-black">
+            {open ? <XMarkIcon /> : <ChevronUpDownIcon />}
+          </button>
+        </Collapsible.Trigger>
+      </div>
+
+      <div className="bg-white rounded my-[10px] p-[10px] shadow-[0_2px_10px] shadow-blackA4">
+        <span className="text-violet11 text-[15px] leading-[25px]">
+          @radix-ui/primitives
+        </span>
+      </div>
+
+      <Collapsible.Content>
+        <div className="bg-white rounded my-[10px] p-[10px] shadow-[0_2px_10px] shadow-blackA4">
+          <span className="text-violet11 text-[15px] leading-[25px]">
+            @radix-ui/colors
+          </span>
+        </div>
+        <div className="bg-white rounded my-[10px] p-[10px] shadow-[0_2px_10px] shadow-blackA4">
+          <span className="text-violet11 text-[15px] leading-[25px]">
+            @stitches/react
+          </span>
+        </div>
+      </Collapsible.Content>
+    </Collapsible.Root>
   );
 };
