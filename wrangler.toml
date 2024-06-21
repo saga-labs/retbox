@@ -1,2 +1,1 @@
-[worker]
-nodejs_compat = true
+compatibility_flags = [ "nodejs_compat" ]
