@@ -1,15 +1,16 @@
-// services/projects.service.ts
+// src/services/projects.service.ts
 
 import axios from 'axios';
 
 // set correct edge worker url
 const instance = axios.create({
-  baseURL: process.env.MEXT_PUBLIC_PROJECTS_API,
+  baseURL: process.env.NEXT_PUBLIC_PROJECTS_API,
 });
 
+const URL = process.env.NEXT_PUBLIC_PROJECTS_API;
+
 const getProjects = async () => {
-  console.log(process.env.MEXT_PUBLIC_PROJECTS_API)
-  const result = await axios.get('http://localhost:3001/v1/projects');
+  const result = await axios.get(`${URL}/projects`);
   return result.data;
 };
 

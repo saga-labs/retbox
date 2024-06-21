@@ -22,9 +22,6 @@ import type { Agent } from "@/types/agent";
 import project from "@/mock/project.json";
 import agents from "@/mock/agents.json";
 
-const fetcher = () =>
-  fetch("http://localhost:8787/agents").then((res) => res.json());
-
 interface Props {
   params: { slug: string; eid: string };
 }
