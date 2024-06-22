@@ -83,9 +83,11 @@ export default function ProjectsEpicDetail({ params }: Props) {
       </section>
 
       {/** Task Board*/}
-      <section className="mt-0 flex flex-col overflow-auto 2xl:mt-0 2xl:w-4/5">
+      <section className="mt-0 flex flex-col grow overflow-auto 2xl:mt-0 2xl:w-4/5">
         <div className="flex">
-          <h1 className="mr-2 text-3xl font-bold text-blue-700">Project Tasks</h1>
+          <h1 className="mr-2 text-3xl font-bold text-blue-700">
+            Project Tasks
+          </h1>
           {showProject ? (
             <button onClick={() => setShowProject(!showProject)}>
               <ChevronUpIcon className="size-4" />

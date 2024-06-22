@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Google Drive",
+    "description": "Store and manage your files securely in Google Drive.",
+    "icon_url": "https://example.com/icons/google_drive.png"
+  },
+  {
+    "id": 2,
+    "name": "Dropbox",
+    "description": "Sync and share your files effortlessly with Dropbox.",
+    "icon_url": "https://example.com/icons/dropbox.png"
+  },
+  {
+    "id": 3,
+    "name": "Slack",
+    "description": "Communicate and collaborate with your team using Slack.",
+    "icon_url": "https://example.com/icons/slack.png"
+  },
+  {
+    "id": 5,
+    "name": "GitHub",
+    "description": "Manage your code repositories and collaborate on projects with GitHub.",
+    "icon_url": "https://example.com/icons/github.png"
+  },
+  {
+    "id": 6,
+    "name": "Salesforce",
+    "description": "Handle your customer relationships and sales data with Salesforce.",
+    "icon_url": "https://example.com/icons/salesforce.png"
+  },
+  {
+    "id": 7,
+    "name": "Mailchimp",
+    "description": "Create and manage your email marketing campaigns with Mailchimp.",
+    "icon_url": "https://example.com/icons/mailchimp.png"
+  },
+  {
+    "id": 8,
+    "name": "Zoom",
+    "description": "Host and join video meetings with Zoom.",
+    "icon_url": "https://example.com/icons/zoom.png"
+  },
+  {
+    "id": 10,
+    "name": "OneDrive",
+    "description": "Store and share files securely in Microsoft OneDrive.",
+    "icon_url": "https://example.com/icons/onedrive.png"
+  }
+]

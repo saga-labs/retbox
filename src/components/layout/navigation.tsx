@@ -41,8 +41,9 @@ const links: LinkType[] = [
   },
 ];
 
+
 export const Navigation: React.FC = () => {
-  const [wide, setWide] = React.useState(true);
+  const [wide, setWide] = React.useState(false);
   const pathname = usePathname();
 
   return (

@@ -2,22 +2,42 @@
 
 import React from "react";
 import useSWR from "swr";
+import { useLocalStorage } from "usehooks-ts";
 
-// Services
+// contexts
+import useFlagStore from "@/contexts/use-flags";
+
+// services
 import ProjectsService from "@/services/projects.service";
 
-// components
+// components:features
 import ProjectBlock from "@/features/project-block";
 
-// mock
-import { project } from "@/mock/project.ts";
-import { Project } from "@/types/project";
+// components:common
 import { StatsCard } from "@/components/common/stats-card";
 import { Button } from "@/components/common/button";
 import { IntegrationCard } from "@/components/common/integration-card";
 
+// mock
+import { project } from "@/mock/project.ts";
+import { Project } from "@/types/project";
+import integrations from "@/mock/integrations.json";
+import { ProjectCard } from "@/components/dashboard/project-card";
+
+const TAVILY = process.env.NEXT_PUBLIC_TAVILY_SEARCH;
+
+export type Integration = {
+  id: number;
+  name: string;
+  description: string;
+  icon_url: string;
+};
+
 export default function Dashboard() {
-  const betaFlag = false;
+  const { flags } = useFlagStore();
+  const [value, setValue] = useLocalStorage("integration-tavily", "");
+  const [beta, setBeta] = useLocalStorage("beta_notification", true);
+
   const { data, error, isLoading } = useSWR(
     "/api/dashboard",
     ProjectsService.getProjects
@@ -28,19 +48,22 @@ export default function Dashboard() {
 
   return (
     <div className="grid grid-cols-12 p-4 gap-4">
-      {betaFlag && (
+      {flags.featureBeta && beta && (
         <div className="col-span-12">
           <div className="relative flex items-center justify-between gap-4 rounded-lg bg-neutral-200/70 px-4 py-3 text-neutral-600">
             <p className="text-sm font-medium">
-              Welcome to Cerebese, please remember this is
+              Thank you for joining our{" "}
               <a href="#" className="inline-block underline">
-                Early Beta
-              </a>
+                early beta!
+              </a>{" "}
+              We&apos;re helping good people do good things, and we appreciate
+              your patience as we grow.
             </p>
 
             <button
               aria-label="Close"
               className="shrink-0 rounded-lg bg-blue-100 p-1 transition"
+              onClick={() => setBeta(false)}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -79,56 +102,36 @@ export default function Dashboard() {
       </div>
 
       <section className="col-span-4">
-        <ProjectBlock objective={project} project={data.data[0]} />
+        <ProjectCard />
       </section>
 
       <section className="col-span-4">
-        <ProjectBlock objective={project} project={data.data[0]} />
+        <ProjectCard />
       </section>
 
       <section className="col-span-4">
-        <ProjectBlock objective={project} project={data.data[0]} />
+        <ProjectCard />
       </section>
 
       {/** Integrations */}
       <div className="col-span-12 flex flex-row justify-between">
         <h3 className="text-lg text-blue-700">Integrations</h3>
-        <Button size="sm" func={() => console.log("japan")}>
+        <Button size="sm" func={() => setValue(btoa(TAVILY!))}>
           See more
         </Button>
       </div>
 
-      <section className="col-span-3">
-        <IntegrationCard />
-      </section>
-
-      <section className="col-span-3">
-        <IntegrationCard />
-      </section>
-
-      <section className="col-span-3">
-        <IntegrationCard />
-      </section>
-
-      <section className="col-span-3">
-        <IntegrationCard />
-      </section>
-
-      <section className="col-span-3">
-        <IntegrationCard />
-      </section>
-
-      <section className="col-span-3">
-        <IntegrationCard />
-      </section>
-
-      <section className="col-span-3">
-        <IntegrationCard />
-      </section>
-
-      <section className="col-span-3">
-        <IntegrationCard />
-      </section>
+      {integrations.map((int: Integration, i: React.Key) => {
+        return (
+          <section className="col-span-3" key={i}>
+            {value !== "" ? (
+              <IntegrationCard data={int} connected />
+            ) : (
+              <IntegrationCard data={int} />
+            )}
+          </section>
+        );
+      })}
     </div>
   );
 }
