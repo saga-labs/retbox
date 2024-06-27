@@ -36,3 +36,9 @@ docker compose up
 * secondary-bg: neutral-200/70
 
 
+
+## Guides
+
+* [dnd-kit todo](https://codesandbox.io/s/react-drag-drop-todo-rwn8d3?file=/src/components/BoardSectionList.tsx:2637-2667)
+
+

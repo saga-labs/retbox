@@ -17,12 +17,10 @@ import ProjectBlock from "@/features/project-block";
 import { StatsCard } from "@/components/common/stats-card";
 import { Button } from "@/components/common/button";
 import { IntegrationCard } from "@/components/common/integration-card";
+import { ProjectCard } from "@/components/dashboard/project-card";
 
 // mock
-import { project } from "@/mock/project.ts";
-import { Project } from "@/types/project";
 import integrations from "@/mock/integrations.json";
-import { ProjectCard } from "@/components/dashboard/project-card";
 
 const TAVILY = process.env.NEXT_PUBLIC_TAVILY_SEARCH;
 
