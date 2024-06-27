@@ -84,13 +84,13 @@ export default function Dashboard() {
 
       {/** Stat Cards */}
       <section className="col-span-4">
-        <StatsCard />
+        <StatsCard stats={{ desc: "Completed", amount: 45, change: 43.23 }} />
       </section>
       <section className="col-span-4">
-        <StatsCard />
+        <StatsCard stats={{ desc: "Backlog", amount: 75, change: 43.23 }} />
       </section>
       <section className="col-span-4">
-        <StatsCard />
+        <StatsCard stats={{ desc: "Retention", amount: 8, change: 43.23 }} />
       </section>
 
       {/** Recent Projects */}

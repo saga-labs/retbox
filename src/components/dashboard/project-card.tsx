@@ -8,7 +8,7 @@ import { FingerPrintIcon, FireIcon } from "@heroicons/react/24/solid";
 
 import { cn } from "@/utils/cn";
 
-export const ProjectCard = () => {
+export const ProjectCard = ({}) => {
   const progress = Math.round(Math.random() * 100);
   const connected = true;
   return (

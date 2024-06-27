@@ -1,5 +1,7 @@
 import { Link1Icon } from "@radix-ui/react-icons";
+import { useDroppable } from "@dnd-kit/core";
 import React from "react";
+import { cn } from "@/utils/cn";
 
 interface Props {
   title: string;
@@ -8,8 +10,15 @@ interface Props {
 }
 
 export const Pane: React.FC<Props> = ({ title, amount, children }) => {
+  const { isOver, setNodeRef } = useDroppable({ id: "droppable" });
   return (
-    <div className="flex flex-shrink-0 grow flex-col rounded-md border p-2">
+    <div
+      ref={setNodeRef}
+      className={cn(
+        "flex flex-shrink-0 grow flex-col rounded-md border p-2",
+        isOver && "animate-bounce"
+      )}
+    >
       {/* Header */}
       <div className="flex h-10 flex-shrink-0 items-center px-2 justify-between">
         <div className="flex">
