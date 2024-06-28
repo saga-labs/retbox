@@ -14,11 +14,11 @@ import Kanban from "@/features/kanban";
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 
 // types
-import type { Task } from "@/types/objective";
-import type { Agent } from "@/types/agent";
+import { Task } from "@/types/objective";
+import { Agent } from "@/types/agent";
 
 // mock data
-import project from "@/mock/project.json";
+// import project from "@/mock/project.json";
 import agents from "@/mock/agents.json";
 
 interface Props {
@@ -32,7 +32,7 @@ export default function ProjectsEpicDetail({ params }: Props) {
 
   const [showMoreTeam, setShowMoreTeam] = React.useState(false);
   const [showProject, setShowProject] = React.useState(true);
-  const [featWorker] = React.useState(true);
+  const [featWorker] = React.useState(false);
 
   return (
     <div className="flex flex-col h-screen justify-between space-x-2 px-8 py-8 2xl:flex-row">

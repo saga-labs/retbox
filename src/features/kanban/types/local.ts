@@ -10,3 +10,8 @@ export type Task = {
 export type BoardSections = {
   [name: string]: Task[];
 };
+
+
+export type Pane = {
+  [name: string]: Task[];
+};

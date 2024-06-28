@@ -11,7 +11,6 @@ import {
   DragStartEvent,
   DragOverEvent,
   DragOverlay,
-  DropAnimation,
   defaultDropAnimation,
 } from "@dnd-kit/core";
 
@@ -31,8 +30,8 @@ import { Pane } from "./components/pane";
 import { Task } from "./components/task";
 
 export default function Kanban() {
-  const tasks = INITIAL_TASKS;
-  const initialBoardSections = initializeBoard(INITIAL_TASKS);
+  const tasks = INITIAL_TASKS; 
+  const initialBoardSections = initializeBoard(INITIAL_TASKS); //? load tasks from mongodb
   const [boardSections, setBoardSections] =
     React.useState<BoardSectionsType>(initialBoardSections);
 
@@ -45,18 +44,11 @@ export default function Kanban() {
   const sensors = useSensors(pointerSensor, keyboardSensor);
 
   // handle drag start behaviour
-  // const handleDragStart = ({ active }: DragStartEvent) => {};
-
-  // handle drag over behaviour
-  // const handleDragOver = ({ active, over }: DragOverEvent) => {};
-
-  // handle drag end behaviour
-  // const handleDragEnd = ({ active, over }: DragEndEvent) => {};
-
   const handleDragStart = ({ active }: DragStartEvent) => {
     setActiveTaskId(active.id as string);
   };
 
+  // handle drag over behaviour
   const handleDragOver = ({ active, over }: DragOverEvent) => {
     // Find the containers
     const activeContainer = findBoardSectionContainer(
@@ -105,6 +97,7 @@ export default function Kanban() {
     });
   };
 
+  // handle drag end behaviour
   const handleDragEnd = ({ active, over }: DragEndEvent) => {
     const activeContainer = findBoardSectionContainer(
       boardSections,
@@ -142,10 +135,6 @@ export default function Kanban() {
     }
 
     setActiveTaskId(null);
-  };
-
-  const dropAnimation: DropAnimation = {
-    ...defaultDropAnimation,
   };
 
   const task = activeTaskId ? getTaskById(tasks, activeTaskId) : null;
@@ -192,7 +181,7 @@ export default function Kanban() {
           ))}
         </Pane> */}
 
-        <DragOverlay dropAnimation={dropAnimation}>
+        <DragOverlay dropAnimation={{ ...defaultDropAnimation }}>
           {task ? <Task task={task} /> : null}
         </DragOverlay>
       </div>
