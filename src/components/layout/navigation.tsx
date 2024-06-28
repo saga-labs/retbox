@@ -45,7 +45,8 @@ export const Navigation: React.FC = () => {
   const [wide, setWide] = React.useState(false);
   const pathname = usePathname();
 
-  const handleKeyDown = React.useCallback((event) => {
+  const handleKeyDown = React.useCallback(
+    (event: KeyboardEvent) => {
       if ((event.metaKey || event.ctrlKey) && event.key === "b") {
         event.preventDefault();
         setWide(!wide);
@@ -62,12 +63,12 @@ export const Navigation: React.FC = () => {
   return (
     <nav
       className={cn(
-        "group flex flex-shrink-0 flex-col items-center justify-between border-r transition",
+        "group flex flex-shrink-0 flex-col items-center justify-between border-r transition dark:border-neutral-700",
         wide ? "w-48" : "w-14"
       )}
     >
       <section className="flex w-full flex-col items-center group-hover:justify-start">
-        <article className="indigo flex h-14 w-full items-center justify-center border-b ">
+        <article className="flex h-14 w-full items-center justify-center border-b dark:border-neutral-700">
           <div className="w-7" onClick={() => setWide(!wide)}>
             <svg
               id="logo-15"
@@ -111,8 +112,8 @@ export const Navigation: React.FC = () => {
                 "flex h-10 w-full items-center rounded ",
                 wide ? "justify-start px-4" : "justify-center",
                 pathname == item.goto
-                  ? "bg-blue-100/70 text-blue-700"
-                  : "text-neutral-600 bg-neutral-200/70 hover:bg-neutral-400 hover:text-neutral-50"
+                  ? "bg-blue-100/70 text-blue-700 dark:bg-neutral-700 dark:text-blue-200"
+                  : "text-neutral-600 bg-neutral-200/70 dark:text-neutral-500 dark:bg-neutral-800/70 hover:bg-neutral-400 hover:text-neutral-50"
               )}
               href={item.goto}
             >
@@ -131,7 +132,7 @@ export const Navigation: React.FC = () => {
           type="button"
           onClick={async () => console.log("app search")}
           className={cn(
-            "flex h-10 w-full items-center rounded text-neutral-600 bg-neutral-200/60 hover:bg-neutral-400 hover:text-neutral-50",
+            "flex h-10 w-full items-center rounded text-neutral-600 bg-neutral-200/70 dark:text-neutral-500 dark:bg-neutral-800/70 hover:bg-neutral-400 hover:text-neutral-50",
             wide ? "justify-start px-2" : "justify-center"
           )}
         >
@@ -143,7 +144,7 @@ export const Navigation: React.FC = () => {
           <Collapsible.Trigger className="w-full">
             <div
               className={cn(
-                "flex h-10 w-full items-center rounded text-neutral-600 bg-neutral-200/60 hover:bg-neutral-400 hover:text-neutral-50",
+                "flex h-10 w-full items-center rounded text-neutral-600 bg-neutral-200/70 dark:text-neutral-500 dark:bg-neutral-800/70 hover:bg-neutral-400 hover:text-neutral-50",
                 wide ? "justify-start px-2" : "justify-center"
               )}
               onClick={() => console.log("hello")}

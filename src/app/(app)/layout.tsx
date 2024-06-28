@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <main className={inter.className}>
-      <div className="flex h-screen w-screen bg-neutral-50 font-inter text-gray-700">
+      <div className="flex h-screen w-screen bg-neutral-50 dark:bg-neutral-900 font-inter text-gray-700">
         {/** menu bar */}
         <Navigation />
 

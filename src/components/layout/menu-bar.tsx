@@ -13,7 +13,7 @@ import { ChevronRightIcon } from "@heroicons/react/24/solid";
 
 const MenuBar: React.FC = () => {
   return (
-    <nav className="flex h-14 flex-shrink-0 items-center justify-between border-b  px-4">
+    <nav className="flex h-14 flex-shrink-0 items-center justify-between border-b dark:border-neutral-700 px-4">
       <section className="flex divide-x">
         <nav aria-label="Breadcrumb">
           <ol className="flex items-center gap-1 text-sm text-gray-600">

@@ -12,15 +12,15 @@ export const ProjectCard = ({}) => {
   const progress = Math.round(Math.random() * 100);
   const connected = true;
   return (
-    <article className="flex flex-col space-y-6  rounded-lg border bg-neutral-100 p-6">
+    <article className="flex flex-col space-y-6 rounded-lg border dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 p-6">
       {/** Header */}
       <div className="flex flex-col justify-between">
         <div className="flex flex-row items-center justify-between mb-4">
-          <p className="text-xl font-medium text-neutral-700 mb-2">Project</p>
+          <p className="text-xl font-medium text-neutral-700 dark:text-blue-100 mb-2">Project</p>
           <Avatars />
         </div>
 
-        <p className="text-xs text-blue-700 font-normal line-clamp-2">
+        <p className="text-xs text-blue-700 dark:text-blue-400 font-normal line-clamp-2">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore
           sit rerum quis laborum, impedit porro, atque quos dicta officia quo,
           deserunt cumque consequuntur dolores laudantium fugit minima vitae
@@ -30,7 +30,7 @@ export const ProjectCard = ({}) => {
 
       {/** Project Stats */}
       <div className="flex justify-between align-top">
-        <div className="inline-flex gap-1 rounded bg-blue-100 py-1 px-2 text-blue-600">
+        <div className="inline-flex gap-1 rounded bg-blue-100 dark:bg-blue-700 py-1 px-2 text-blue-600 dark:text-blue-100">
           <FireIcon className="size-4" />
           <span className="text-xs font-medium">13 Epics</span>
         </div>
@@ -63,7 +63,7 @@ export const ProjectCard = ({}) => {
           </span>
         </div>
 
-        <div className="flex justify-between font-light text-sm mt-2">
+        <div className="flex justify-between font-light text-sm mt-2 dark:text-blue-200">
           <span>Progress</span>
           <span>{progress} %</span>
         </div>

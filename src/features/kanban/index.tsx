@@ -31,7 +31,7 @@ import { Task } from "./components/task";
 
 export default function Kanban() {
   const tasks = INITIAL_TASKS; 
-  const initialBoardSections = initializeBoard(INITIAL_TASKS); //? load tasks from mongodb
+  const initialBoardSections = initializeBoard(INITIAL_TASKS, []); //? load tasks from mongodb
   const [boardSections, setBoardSections] =
     React.useState<BoardSectionsType>(initialBoardSections);
 
