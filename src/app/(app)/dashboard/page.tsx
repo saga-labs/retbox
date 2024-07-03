@@ -21,6 +21,8 @@ import { ProjectCard } from "@/components/dashboard/project-card";
 
 // mock
 import integrations from "@/mock/integrations.json";
+import { Project } from "@/features/project-block/types/request";
+import { Empty } from "@/features/project-block/components/empty";
 
 const TAVILY = process.env.NEXT_PUBLIC_TAVILY_SEARCH;
 
@@ -36,13 +38,14 @@ export default function Dashboard() {
   const [value, setValue] = useLocalStorage("integration-tavily", "");
   const [beta, setBeta] = useLocalStorage("beta_notification", true);
 
-  const { data, error, isLoading } = useSWR(
-    "/api/dashboard",
-    ProjectsService.getProjects
-  );
+  const {
+    data: projects,
+    error: projectsError,
+    isLoading: projectsLoading,
+  } = useSWR("/api/dashboard", ProjectsService.getDashboardProjects);
 
-  if (error) return <div>failed to load</div>;
-  if (isLoading) return <div>loading...</div>;
+  if (projectsError) return <div>failed to load</div>;
+  if (projectsLoading) return <div>loading...</div>;
 
   return (
     <div className="grid grid-cols-12 p-4 gap-4">
@@ -99,19 +102,21 @@ export default function Dashboard() {
         </Button>
       </div>
 
-      {/** Query Project Documents by User sorted recently updated */}
+      {/** Projects: sorted by updated_at & limited to three */}
 
-      <section className="col-span-4">
-        <ProjectCard />
-      </section>
+      {projects.data.map((project: Project) => (
+        <section className="col-span-4" key={project._id}>
+          <ProjectCard />
+        </section>
+      ))}
 
-      <section className="col-span-4">
-        <ProjectCard />
-      </section>
+      {/** Projects: display empty state for remainders */}
 
-      <section className="col-span-4">
-        <ProjectCard />
-      </section>
+      {[...Array(3 - projects.data.length)].map((i: React.Key) => (
+        <section className="col-span-4" key={i}>
+          <Empty />
+        </section>
+      ))}
 
       {/** Integrations */}
       <div className="col-span-12 flex flex-row justify-between">

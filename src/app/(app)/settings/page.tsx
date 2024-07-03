@@ -10,12 +10,12 @@ import useIntegrationStore from "@/features/integration/contexts/use-integration
 // components
 import { Integration } from "@/features/integration";
 import { Button } from "@/components/common/button";
+import { cn } from "@/utils/cn";
 
 export default function Settings() {
   const open = useIntegrationStore((s) => s.open);
   const setOpen = useIntegrationStore((s) => s.setOpen);
-  const [theme, setTheme, removeTheme] = useLocalStorage("theme", "light");
-
+  const [theme, setTheme, removeTheme] = useLocalStorage("theme", "");
 
   return (
     <>
@@ -34,7 +34,11 @@ export default function Settings() {
               Tab
             </label>
 
-            <select id="Tab" className="w-full rounded-md border-gray-200" defaultValue={"noti"}>
+            <select
+              id="Tab"
+              className="w-full rounded-md border-gray-200"
+              defaultValue={"noti"}
+            >
               <option value={"sett"}>Settings</option>
               <option value={"msgs"}>Messages</option>
               <option value={"arch"}>Archive</option>
@@ -87,9 +91,21 @@ export default function Settings() {
                   </small>
                 </div>
 
-                <OptionCard title={"System Preference"} func={removeTheme} />
-                <OptionCard title={"Light Mode"} func={() => setTheme("light")}/>
-                <OptionCard title={"Dark Mode"} func={() => setTheme("dark")}/>
+                <OptionCard
+                  title={"System Preference"}
+                  func={removeTheme}
+                  active={theme == ""}
+                />
+                <OptionCard
+                  title={"Light Mode"}
+                  func={() => setTheme("light")}
+                  active={theme == "light"}
+                />
+                <OptionCard
+                  title={"Dark Mode"}
+                  func={() => setTheme("dark")}
+                  active={theme == "dark"}
+                />
               </div>
             );
           })}
@@ -99,9 +115,15 @@ export default function Settings() {
   );
 }
 
-const OptionCard = ({ title, func }: { title: string, func: () => void }) => (
-  <div className="group block overflow-hidden" onClick={func}>
-    <div className="relative p-2">
+interface Props {
+  title: string;
+  func: () => void;
+  active: boolean;
+}
+
+const OptionCard: React.FC<Props> = ({ title, func, active }) => (
+  <div className={"group block overflow-hidden"} onClick={func}>
+    <div className={cn("relative p-2", active && "border border-blue-700")}>
       <Image
         src="https://storage.cerebase.com/app/mode.png"
         alt=""
