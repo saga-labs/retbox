@@ -10,7 +10,8 @@ import { View } from "./components/view";
 
 // types & interfaces
 import { Objective, Task } from "@/types/objective";
-import { Project } from "@/types/project";
+// import { Project } from "@/types/project";
+import { Project } from "./types/request";
 
 interface Props {
   project: Project;
@@ -23,36 +24,34 @@ export default function ProjectBlock({ project, objective }: Props) {
     <section className="rounded border">
       <Collapsible.Root className="w-full" open={open} onOpenChange={setOpen}>
         {/** Head */}
-        <a href={`/projects/${project.id}`}>
+        <a href={`/projects/${project._id}`}>
           <article className="cursor-pointer  border-b p-4 sm:p-6 lg:p-8">
             <div className="flex items-start sm:gap-8">
               <div
-                className="hidden sm:grid sm:size-20 sm:shrink-0 sm:place-content-center sm:rounded-full sm:border-2 sm:border-indigo-500"
+                className="hidden sm:grid sm:size-20 sm:shrink-0 sm:place-content-center sm:rounded-full sm:border-2 sm:border-blue-700"
                 aria-hidden="true"
               >
                 <div className="flex items-center gap-1">
-                  <span className="h-8 w-0.5 rounded-full bg-indigo-500"></span>
-                  <span className="h-6 w-0.5 rounded-full bg-indigo-500"></span>
-                  <span className="h-4 w-0.5 rounded-full bg-indigo-500"></span>
-                  <span className="h-6 w-0.5 rounded-full bg-indigo-500"></span>
-                  <span className="h-8 w-0.5 rounded-full bg-indigo-500"></span>
+                  <span className="h-8 w-0.5 rounded-full bg-blue-700"></span>
+                  <span className="h-6 w-0.5 rounded-full bg-blue-700"></span>
+                  <span className="h-4 w-0.5 rounded-full bg-blue-700"></span>
+                  <span className="h-6 w-0.5 rounded-full bg-blue-700"></span>
+                  <span className="h-8 w-0.5 rounded-full bg-blue-700"></span>
                 </div>
               </div>
 
               <div>
-                <strong className="rounded border border-indigo-500 bg-indigo-500 px-3 py-1.5 text-[10px] font-medium text-white">
-                  Active
+                <strong className="rounded border border-blue-700 bg-blue-700 px-3 py-1.5 text-[10px] font-medium text-white">
+                  {project.status}
                 </strong>
 
                 <h3 className="mt-4 text-lg font-medium sm:text-xl">
                   <p className="hover:underline"></p>
                 </h3>
 
-                <p className="mt-1 text-md text-gray-700">
-                  spring-webshop-2024
-                </p>
+                <p className="mt-1 text-md text-gray-700">{project.title}</p>
                 <p className="mt-1 text-sm text-gray-700">
-                  {objective.objective}
+                  {project.description}
                 </p>
 
                 <div className="mt-4 sm:flex sm:items-center sm:gap-2">
@@ -73,8 +72,8 @@ export default function ProjectBlock({ project, objective }: Props) {
                     </svg>
 
                     <p className="text-xs font-medium">
-                      {objective.timeline.start_date} -{" "}
-                      {objective.timeline.end_date}
+                      {project.timeline.start_date} -{" "}
+                      {project.timeline.end_date}
                     </p>
                   </div>
 
@@ -122,6 +121,8 @@ export default function ProjectBlock({ project, objective }: Props) {
               </thead>
 
               <tbody className="divide-y divide-gray-200">
+                {" "}
+                {/** Todo Update Render Epics */}
                 {objective.tasks.map((t: Task, k: React.Key) => {
                   return <Epic t={t} key={k} />;
                 })}
@@ -166,7 +167,7 @@ const Epic: React.FC<{ t: Task }> = ({ t }) => (
           </span>
 
           <span
-            className="block h-3 rounded-full bg-indigo-600 text-center"
+            className="block h-3 rounded-full bg-blue-600 text-center"
             style={{ width: "75%" }}
           ></span>
         </span>
@@ -175,7 +176,7 @@ const Epic: React.FC<{ t: Task }> = ({ t }) => (
     <td className="whitespace-nowrap px-4 py-2">
       <a
         href="/projects/01j0c82ay5pmhk09vxw61s12np/epic/01j0c82ay5pmhk09vxw61s12np"
-        className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
+        className="inline-block rounded bg-blue-600 px-4 py-2 text-xs font-medium text-white hover:bg-blue-700"
       >
         View
       </a>

@@ -37,4 +37,4 @@ export default function RootLayout({
   );
 }
 
-export const runtime = 'edge' // 'nodejs' (default) | 'edge'
+export const runtime = "edge"; // 'nodejs' (default) | 'edge'

@@ -1,4 +1,4 @@
-export type Status = 'backlog' | 'in progress' | 'done';
+export type Status = "Backlog" | "In progress" | "Done" | "Review";
 
 export type Task = {
   id: string;
@@ -10,7 +10,6 @@ export type Task = {
 export type BoardSections = {
   [name: string]: Task[];
 };
-
 
 export type Pane = {
   [name: string]: Task[];

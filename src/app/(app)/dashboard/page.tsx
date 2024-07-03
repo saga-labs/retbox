@@ -99,6 +99,8 @@ export default function Dashboard() {
         </Button>
       </div>
 
+      {/** Query Project Documents by User sorted recently updated */}
+
       <section className="col-span-4">
         <ProjectCard />
       </section>

@@ -17,12 +17,10 @@ export const Task: React.FC<{ task: TaskType }> = ({ task }) => {
       <a className="absolute right-0 top-0 mr-2 mt-3 flex h-5 w-5 items-center justify-center rounded text-gray-500 hover:bg-gray-200 hover:text-gray-700 group-hover:flex">
         <RowSpacingIcon className="size-3" />
       </a>
-      <span className="flex h-6 items-center rounded-full bg-pink-100 px-3 text-xs font-semibold text-pink-500">
+      <span className="flex items-center rounded py-1 px-2 text-xs font-semibold  bg-blue-100 dark:bg-blue-700 text-blue-700 dark:text-blue-100">
         {task.title}
       </span>
-      <h4 className="mt-3 text-sm font-medium">
-        {task.description}
-      </h4>
+      <h4 className="mt-3 text-sm font-medium">{task.description}</h4>
       <div className="mt-3 flex w-full items-center text-xs font-medium text-gray-400 justify-between">
         <div className="flex items-center">
           <span className="ml-1 font-normal leading-none">Dec 12</span>

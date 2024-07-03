@@ -61,7 +61,7 @@ export const AgentCard: React.FC<{ agent: Agent }> = ({ agent }) => {
 
 export const AgentCardDense: React.FC<{ agent: Agent }> = ({ agent }) => {
   return (
-    <div className="group flex w-full cursor-pointer flex-col items-start rounded-lg border bg-opacity-90 p-4 hover:bg-opacity-100 hover:shadow">
+    <div className="group flex w-full cursor-pointer flex-col items-start rounded-lg border dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 bg-opacity-90 p-4 hover:bg-opacity-100 hover:shadow">
       <section className="flex flex-row justify-between">
         <div className="size-16 overflow-hidden rounded-full border-4 border-white">
           <Image

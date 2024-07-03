@@ -11,8 +11,7 @@ import ProjectBlock from "@/features/project-block";
 
 // mock
 import { project } from "@/mock/project.ts";
-
-import { Project } from "@/types/project";
+import { Project } from "@/features/project-block/types/request";
 
 export default function Projects() {
   const { data, error, isLoading } = useSWR(
@@ -29,7 +28,7 @@ export default function Projects() {
     return (
       <section className="flex flex-col space-y-8 p-8">
         {data.data.map((d: Project, i: React.Key) => {
-          return <ProjectBlock objective={project} project={d}  key={i} />;
+          return <ProjectBlock objective={project} project={d} key={i} />;
         })}
       </section>
     );

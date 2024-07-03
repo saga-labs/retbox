@@ -1,16 +1,21 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
+import { useLocalStorage } from "usehooks-ts";
+
+// contexts
+import useIntegrationStore from "@/features/integration/contexts/use-integration";
 
 // components
 import { Integration } from "@/features/integration";
-import useIntegrationStore from "@/features/integration/contexts/use-integration";
-import Image from "next/image";
 import { Button } from "@/components/common/button";
 
 export default function Settings() {
   const open = useIntegrationStore((s) => s.open);
   const setOpen = useIntegrationStore((s) => s.setOpen);
+  const [theme, setTheme, removeTheme] = useLocalStorage("theme", "light");
+
 
   return (
     <>
@@ -23,24 +28,17 @@ export default function Settings() {
           </Button>
         </div>
 
-        {/*
-  Heads up! 👋
-
-  Plugins:
-    - @tailwindcss/forms
-*/}
-
         <div>
           <div className="sm:hidden">
             <label htmlFor="Tab" className="sr-only">
               Tab
             </label>
 
-            <select id="Tab" className="w-full rounded-md border-gray-200">
-              <option>Settings</option>
-              <option>Messages</option>
-              <option>Archive</option>
-              <option selected>Notifications</option>
+            <select id="Tab" className="w-full rounded-md border-gray-200" defaultValue={"noti"}>
+              <option value={"sett"}>Settings</option>
+              <option value={"msgs"}>Messages</option>
+              <option value={"arch"}>Archive</option>
+              <option value={"noti"}>Notifications</option>
             </select>
           </div>
 
@@ -89,9 +87,9 @@ export default function Settings() {
                   </small>
                 </div>
 
-                <OptionCard title={"System Preference"} />
-                <OptionCard title={"Light Mode"} />
-                <OptionCard title={"Dark Mode"} />
+                <OptionCard title={"System Preference"} func={removeTheme} />
+                <OptionCard title={"Light Mode"} func={() => setTheme("light")}/>
+                <OptionCard title={"Dark Mode"} func={() => setTheme("dark")}/>
               </div>
             );
           })}
@@ -101,8 +99,8 @@ export default function Settings() {
   );
 }
 
-const OptionCard = ({ title }: { title: string }) => (
-  <div className="group block overflow-hidden">
+const OptionCard = ({ title, func }: { title: string, func: () => void }) => (
+  <div className="group block overflow-hidden" onClick={func}>
     <div className="relative p-2">
       <Image
         src="https://storage.cerebase.com/app/mode.png"
@@ -114,7 +112,7 @@ const OptionCard = ({ title }: { title: string }) => (
     </div>
 
     <div className="relative pt-3">
-      <h3 className="text-sm tracking-wide text-gray-900 group-hover:underline group-hover:underline-offset-4">
+      <h3 className="text-sm tracking-wide text-gray-900 dark:text-neutral-400 group-hover:underline group-hover:underline-offset-4">
         {title}
       </h3>
     </div>

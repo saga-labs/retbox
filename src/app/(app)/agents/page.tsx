@@ -59,7 +59,7 @@ export default function Agents() {
       <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-8 py-8">
         {agents.map((agent: Agent, index: number) => (
           <div className="relative grayscale" key={index}>
-            <span className="absolute right-0 top-0 whitespace-nowrap rounded-bl-sm rounded-tr-md bg-purple-100 px-2.5 py-0.5 text-sm text-purple-700">
+            <span className="absolute right-0 top-0 whitespace-nowrap rounded-bl-sm rounded-tr-md bg-purple-100 dark:bg-neutral-600 px-2.5 py-0.5 text-sm text-purple-700 dark:text-blue-700">
               waiting
             </span>
 

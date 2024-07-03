@@ -9,7 +9,6 @@ const instance = axios.create({
 
 const URL = process.env.NEXT_PUBLIC_PROJECTS_API;
 
-
 const getProjects = async () => {
   try {
     const result = await axios.get(`${URL}/v1/projects`);
