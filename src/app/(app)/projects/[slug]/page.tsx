@@ -6,21 +6,15 @@ import useSWR from "swr";
 // services
 import ProjectsService from "@/services/projects.service";
 
-// mock data
-import project from "@/mock/project.json";
-import { Task } from "@/types/objective";
-import Link from "next/link";
+// components & features
 import Kanban from "@/features/kanban";
 import { StatsCard } from "@/components/common/stats-card";
-
 
 interface Props {
   params: { slug: string };
 }
 
 export default function ProjectsDetail({ params }: Props) {
-  const eid = "01J0S3E69Y36YXXSG2JFCSATEF";
-
   const { data, error, isLoading } = useSWR(
     "/projects",
     ProjectsService.getProjects

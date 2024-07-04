@@ -11,10 +11,12 @@ import ProjectBlock from "@/features/project-block";
 import { Button } from "@/components/common/button";
 
 // mock
+import { StatsCard } from "@/components/common/stats-card";
 import { project } from "@/mock/project.ts";
 import { Project } from "@/features/project-block/types/request";
 import ProjectModal from "@/features/project-modal";
 import useProjectStore from "@/features/project-modal/contexts/use-store";
+import { ProjectSinkCard } from "@/components/dashboard/project-card";
 
 export default function Projects() {
   const open = useProjectStore((s) => s.open);
@@ -33,6 +35,10 @@ export default function Projects() {
     return (
       <div className="p-4">
         {open && <ProjectModal show />}
+
+        {/** Title */}
+        <StatsCard stats={{ desc: "Projects", amount: 45, change: 43.23 }} />
+
         <div className="flex flex-row justify-between mb-4">
           <h3 className="text-xl font-semibold">Projects</h3>
           <Button size="sm" func={() => setOpen(true)}>
@@ -42,6 +48,10 @@ export default function Projects() {
         <section className="grid grid-cols-2 gap-4">
           {data.data.map((d: Project, i: React.Key) => {
             return <ProjectBlock objective={project} project={d} key={i} />;
+          })}
+
+          {data.data.map((d: Project, i: React.Key) => {
+            return <ProjectSinkCard project={d} key={i} />;
           })}
         </section>
       </div>
