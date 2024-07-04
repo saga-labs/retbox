@@ -150,7 +150,7 @@ export const AgentTaskCard: React.FC<{ agent: Agent }> = ({ agent }) => {
                 progress >= 0 && progress < 10 && "bg-red-500", // Applied when 0 <= progress < 10
                 progress >= 10 && progress < 30 && "bg-yellow-500", // Applied when 10 <= progress < 30
                 progress >= 30 && progress < 60 && "bg-blue-500", // Applied when 30 <= progress < 60
-                progress >= 60 && progress < 90 && "bg-indigo-600", // Applied when 60 <= progress < 90
+                progress >= 60 && progress < 90 && "bg-blue-600", // Applied when 60 <= progress < 90
                 progress >= 90 && "bg-green-500" // Applied when progress >= 90
               )}
               style={{ width: `${progress}%` }}

@@ -119,7 +119,7 @@ export default function Dashboard() {
       ))}
 
       {/** Integrations */}
-      <div className="col-span-12 flex flex-row justify-between">
+      <div className="col-span-12 flex flex-row justify-between items-end">
         <h3 className="text-lg text-blue-700">Integrations</h3>
         <Button size="sm" func={() => setValue(btoa(TAVILY!))}>
           See more

@@ -16,20 +16,20 @@ export const View: React.FC<Props> = ({ project, status }) => {
       <article className="cursor-pointer  border-b p-4 sm:p-6 lg:p-8">
         <div className="flex items-start sm:gap-8">
           <div
-            className="hidden sm:grid sm:size-20 sm:shrink-0 sm:place-content-center sm:rounded-full sm:border-2 sm:border-indigo-500"
+            className="hidden sm:grid sm:size-20 sm:shrink-0 sm:place-content-center sm:rounded-full sm:border-2 sm:border-blue-500"
             aria-hidden="true"
           >
             <div className="flex items-center gap-1">
-              <span className="h-8 w-0.5 rounded-full bg-indigo-500"></span>
-              <span className="h-6 w-0.5 rounded-full bg-indigo-500"></span>
-              <span className="h-4 w-0.5 rounded-full bg-indigo-500"></span>
-              <span className="h-6 w-0.5 rounded-full bg-indigo-500"></span>
-              <span className="h-8 w-0.5 rounded-full bg-indigo-500"></span>
+              <span className="h-8 w-0.5 rounded-full bg-blue-500"></span>
+              <span className="h-6 w-0.5 rounded-full bg-blue-500"></span>
+              <span className="h-4 w-0.5 rounded-full bg-blue-500"></span>
+              <span className="h-6 w-0.5 rounded-full bg-blue-500"></span>
+              <span className="h-8 w-0.5 rounded-full bg-blue-500"></span>
             </div>
           </div>
 
           <div>
-            <strong className="rounded border border-indigo-500 bg-indigo-500 px-3 py-1.5 text-[10px] font-medium text-white">
+            <strong className="rounded border border-blue-500 bg-blue-500 px-3 py-1.5 text-[10px] font-medium text-white">
               Active
             </strong>
 

@@ -7,8 +7,6 @@ import "./globals.css";
 const inter = Montserrat({ subsets: ["latin"] });
 
 // components
-import MenuBar from "@/components/layout/menu-bar";
-import { Navigation } from "@/components/layout/navigation";
 import { useLocalStorage } from "usehooks-ts";
 
 // export const metadata: Metadata = {
@@ -23,11 +21,7 @@ export default function RootLayout({
 }>) {
   const [theme] = useLocalStorage("theme", "");
 
-  if (
-    theme === "dark" ||
-    (!("theme" in localStorage) &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches)
-  ) {
+  if (theme === "dark") {
     return (
       <html lang="en" className="dark">
         <body className={inter.className}>{children}</body>
@@ -41,3 +35,7 @@ export default function RootLayout({
     </html>
   );
 }
+
+// ! missing check on theme key
+// (!("theme" in localStorage) &&
+// window.matchMedia("(prefers-color-scheme: dark)").matches)

@@ -28,9 +28,10 @@ import { INITIAL_TASKS } from "./mock/tasks";
 
 import { Pane } from "./components/pane";
 import { Task } from "./components/task";
+import { MagicPane } from "./components/magic-pane";
 
 export default function Kanban() {
-  const tasks = INITIAL_TASKS; 
+  const tasks = INITIAL_TASKS;
   const initialBoardSections = initializeBoard(INITIAL_TASKS, []); //? load tasks from mongodb
   const [boardSections, setBoardSections] =
     React.useState<BoardSectionsType>(initialBoardSections);
@@ -147,7 +148,22 @@ export default function Kanban() {
       onDragOver={handleDragOver}
       onDragEnd={handleDragEnd}
     >
-      <div className="mt-4 grid grid-cols-4 space-x-2 overflow-auto grow">
+      <div className="mt-4 grid grid-cols-5 gap-x-2 overflow-scroll grow">
+        {/** AI Task Generation Pane*/}
+        <MagicPane
+          id="00"
+          title="Magic"
+          tasks={[
+            {
+              id: "b2fe1167-4e40-4fc6-9c28-5c2632be8d5q",
+              title: "Pick Up Birtday Cake",
+              description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a lorem eu dolor pulvinar tempor. Nunc lobortis lobortis turpis. Donec eros odio, sagittis ac cursus eget, porta at sapien. Nunc nec odio sem. Etiam tempus augue est, condimentum porta est rhoncus at. Vivamus quam purus, mollis et rutrum ac, ornare vel libero.",
+              status: "Done",
+            },
+          ]}
+        />
+
+        {/** User-Defined Panes */}
         {Object.keys(boardSections).map((boardSectionKey) => (
           <Pane
             id={boardSectionKey}
@@ -157,30 +173,7 @@ export default function Kanban() {
           />
         ))}
 
-        {/* <Pane title="backlog" amount={tasks.length}>
-          {tasks.map((task, index) => (
-            <Card key={index} task={task} index={index + 0} />
-          ))}
-        </Pane> */}
-
-        {/* <Pane title="progress" amount={inProgress.length}>
-          {inProgress.map((task, index) => (
-            <Card key={index} task={task} index={index + 100} />
-          ))}
-        </Pane> */}
-
-        {/* <Pane title="done" amount={done.length}>
-          {done.map((task, index) => (
-            <Card key={index} task={task} index={index + 200} />
-          ))}
-        </Pane> */}
-
-        {/* <Pane title="blocking" amount={tasks.length}>
-          {tasks.map((task, index) => (
-            <Card key={index} task={task} index={index + 300} />
-          ))}
-        </Pane> */}
-
+        {/** DND-KIT Overlay */}
         <DragOverlay dropAnimation={{ ...defaultDropAnimation }}>
           {task ? <Task task={task} /> : null}
         </DragOverlay>

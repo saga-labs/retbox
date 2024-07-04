@@ -58,7 +58,7 @@ export default function ProjectsEpicDetail({ params }: Props) {
             {/* Header */}
             <div className="flex h-10 flex-shrink-0 items-center px-2">
               <span className="block text-sm font-semibold">Members</span>
-              <span className="ml-2 flex h-5 w-5 items-center justify-center rounded text-sm font-semibold tracking-widest text-indigo-500">
+              <span className="ml-2 flex h-5 w-5 items-center justify-center rounded text-sm font-semibold tracking-widest text-blue-500">
                 2
               </span>
             </div>
