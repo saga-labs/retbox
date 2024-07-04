@@ -16,8 +16,8 @@ import agents from "@/mock/agents.json";
 
 export default function Agents() {
   return (
-    <>
-      <section className="bg-blue-100/70 text-blue-700">
+    <div className="p-4 space-y-4">
+      <section className="bg-blue-100/70 text-blue-700 rounded">
         <div className="p-8 md:p-12 lg:px-16 lg:py-24">
           <div className="mx-auto max-w-lg text-center">
             <h2 className="text-2xl font-bold text-blue-700 md:text-3xl">
@@ -56,7 +56,7 @@ export default function Agents() {
         </div>
       </section>
 
-      <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-8 py-8">
+      <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {agents.map((agent: Agent, index: number) => (
           <div className="relative grayscale" key={index}>
             <span className="absolute right-0 top-0 whitespace-nowrap rounded-bl-sm rounded-tr-md bg-purple-100 dark:bg-neutral-600 px-2.5 py-0.5 text-sm text-purple-700 dark:text-blue-700">
@@ -67,6 +67,6 @@ export default function Agents() {
           </div>
         ))}
       </section>
-    </>
+    </div>
   );
 }

@@ -177,7 +177,7 @@ const UserMenu = () => {
           justifyContent: "space-between",
         }}
       >
-        <span className="text-green-400 text-[15px] leading-[25px]">
+        <span className="text-blue-400 text-[15px] leading-[25px]">
           @peduarte starred 3 repositories
         </span>
         <Collapsible.Trigger asChild>

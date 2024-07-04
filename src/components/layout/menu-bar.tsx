@@ -33,22 +33,9 @@ const MenuBar: React.FC = () => {
             <li>
               <a
                 href="/projects/01j0c82ay5pmhk09vxw61s12np"
-                className="block text-blue-600 transition hover:text-gray-700"
-              >
-                spring-webshop-2024
-              </a>
-            </li>
-
-            <li className="rtl:rotate-180">
-              <ChevronRightIcon className="size-4" />
-            </li>
-
-            <li>
-              <a
-                href="/projects/01j0c82ay5pmhk09vxw61s12np/epic/01j0c82ay5pmhk09vxw61s12np"
                 className="block transition hover:text-gray-700"
               >
-                tasks
+                spring-webshop-2024
               </a>
             </li>
           </ol>

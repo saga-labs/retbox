@@ -23,7 +23,7 @@ export const Select: React.FC<props> = ({ descriptor, values }) => (
 
     <RadixSelect.Portal>
       <RadixSelect.Content className="overflow-hidden rounded-md shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)]">
-        <RadixSelect.ScrollUpButton className="flex h-[25px] cursor-default items-center justify-center text-green-300">
+        <RadixSelect.ScrollUpButton className="flex h-[25px] cursor-default items-center justify-center text-blue-300">
           <ChevronUpIcon />
         </RadixSelect.ScrollUpButton>
 
@@ -37,7 +37,7 @@ export const Select: React.FC<props> = ({ descriptor, values }) => (
               <RadixSelect.Item
                 key={key}
                 value={value}
-                className="text-green-300data-[disabled]:text-mauve8 data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1 relative flex h-[25px] select-none items-center rounded-[3px] pl-[25px] pr-[35px] text-[13px] leading-none data-[disabled]:pointer-events-none data-[highlighted]:outline-none"
+                className="text-blue-300data-[disabled]:text-mauve8 data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1 relative flex h-[25px] select-none items-center rounded-[3px] pl-[25px] pr-[35px] text-[13px] leading-none data-[disabled]:pointer-events-none data-[highlighted]:outline-none"
               >
                 <RadixSelect.ItemText>{text}</RadixSelect.ItemText>
                 <RadixSelect.ItemIndicator className="absolute left-0 inline-flex w-[25px] items-center justify-center">
@@ -48,7 +48,7 @@ export const Select: React.FC<props> = ({ descriptor, values }) => (
           </RadixSelect.Group>
         </RadixSelect.Viewport>
 
-        <RadixSelect.ScrollDownButton className="text-green-300flex h-[25px] cursor-default items-center justify-center">
+        <RadixSelect.ScrollDownButton className="text-blue-300flex h-[25px] cursor-default items-center justify-center">
           <ChevronDownIcon />
         </RadixSelect.ScrollDownButton>
       </RadixSelect.Content>

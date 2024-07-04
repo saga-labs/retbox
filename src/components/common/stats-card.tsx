@@ -15,7 +15,7 @@ interface Props {
 
 export const StatsCard: React.FC<Props> = ({ stats }) => {
   return (
-    <article className="flex items-end justify-between rounded-lg border border-gray-50 dark:border-0 bg-blue-100/70 dark:bg-blue-700 p-6">
+    <article className="flex w-full items-end justify-between rounded-lg border border-gray-50 dark:border-0 bg-blue-100/70 dark:bg-blue-700 p-6">
       <div>
         <p className="text-xs text-blue-700 dark:text-blue-100  font-normal mb-2">
           {stats.desc}
