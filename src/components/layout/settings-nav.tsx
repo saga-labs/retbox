@@ -11,25 +11,25 @@ type LinkType = {
 
 const links: LinkType[] = [
   {
-    text: "Settings",
+    text: "General",
     route: "/settings",
   },
   {
-    text: "Tenants",
+    text: "Integrations",
     route: "/settings/tenants",
-  },
-  {
-    text: "Billing",
-    route: "/settings/billing",
   },
   {
     text: "Notications",
     route: "/settings/notifications",
   },
+  {
+    text: "Billing",
+    route: "/settings/billing",
+  },
 ];
 
 export const SettingsNav = ({ path }: { path: string }) => {
-  const tabStyle = "shrink-0 rounded-lg px-4 py-2 text-sm font-medium hover:underline hover:underline-offset-4";
+  const tabStyle = "shrink-0 rounded px-4 py-1 text-sm font-medium hover:underline hover:underline-offset-4";
   return (
     <nav className="flex gap-6" aria-label="Tabs">
       {links.map((link: LinkType, i: React.Key) => {
@@ -37,7 +37,7 @@ export const SettingsNav = ({ path }: { path: string }) => {
           <Link
             key={i}
             href={link.route}
-            className={cn(tabStyle, path == link.route ? "bg-blue-100/70  text-blue-700" : "text-gray-500")}
+            className={cn(tabStyle, path == link.route ? "bg-blue-700  text-blue-100" : "text-gray-500")}
           >
             {link.text}
           </Link>
