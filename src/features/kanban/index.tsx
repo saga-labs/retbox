@@ -152,12 +152,13 @@ export default function Kanban() {
         {/** AI Task Generation Pane*/}
         <MagicPane
           id="00"
-          title="Magic"
+          title="AI"
           tasks={[
             {
               id: "b2fe1167-4e40-4fc6-9c28-5c2632be8d5q",
               title: "Pick Up Birtday Cake",
-              description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a lorem eu dolor pulvinar tempor. Nunc lobortis lobortis turpis. Donec eros odio, sagittis ac cursus eget, porta at sapien. Nunc nec odio sem. Etiam tempus augue est, condimentum porta est rhoncus at. Vivamus quam purus, mollis et rutrum ac, ornare vel libero.",
+              description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a lorem eu dolor pulvinar tempor. Nunc lobortis lobortis turpis. Donec eros odio, sagittis ac cursus eget, porta at sapien. Nunc nec odio sem. Etiam tempus augue est, condimentum porta est rhoncus at. Vivamus quam purus, mollis et rutrum ac, ornare vel libero.",
               status: "Done",
             },
           ]}

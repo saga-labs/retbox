@@ -35,7 +35,7 @@ const MenuBar: React.FC = () => {
                 href="/projects/01j0c82ay5pmhk09vxw61s12np"
                 className="block transition hover:text-gray-700"
               >
-                spring-webshop-2024
+                summer-party-2026
               </a>
             </li>
           </ol>

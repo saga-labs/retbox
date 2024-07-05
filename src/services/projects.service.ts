@@ -18,9 +18,20 @@ const getProjects = async () => {
   }
 };
 
+const getProjectById = async (id: string) => {
+  try {
+    const result = await axios.get(`${URL}/v1/projects/${id}`);
+    return result.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const getDashboardProjects = async () => {
   try {
-    const result = await axios.get(`${URL}/v1/projects/?key=updated_at&limit=10`);
+    const result = await axios.get(
+      `${URL}/v1/projects/?key=updated_at&limit=10`
+    );
     return result.data;
   } catch (error) {
     console.log(error);
@@ -30,7 +41,8 @@ const getDashboardProjects = async () => {
 // freeze the object to prevent modifications
 const ProjectsService = Object.freeze({
   getProjects,
-  getDashboardProjects
+  getProjectById,
+  getDashboardProjects,
 });
 
 export default ProjectsService;
