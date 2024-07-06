@@ -11,7 +11,8 @@ import { ArrowRightIcon } from "@heroicons/react/24/solid";
 export const MagicTask: React.FC<{ task: TaskType }> = ({ task }) => {
   return (
     <div
-      className="group relative flex cursor-pointer flex-col items-start bg-neutral-100 rounded-lg border bg-opacity-90 p-4 hover:bg-opacity-100"
+      className="group relative flex cursor-pointer flex-col items-start rounded-lg border bg-opacity-90 p-4 hover:bg-opacity-100
+      dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800"
       draggable="true"
       onClick={() => console.log("hello")}
     >
@@ -21,8 +22,10 @@ export const MagicTask: React.FC<{ task: TaskType }> = ({ task }) => {
       <span className="flex items-center rounded py-1 px-2 text-xs font-semibold  bg-blue-100 dark:bg-blue-700 text-blue-700 dark:text-blue-100">
         XL
       </span>
+      
       <h4 className="mt-3 text-sm font-medium">{task.title}</h4>
       <p className="text-xs text-neutral-400 line-clamp-2  break-words">{task.description}</p>
+
       <div className="mt-3 flex w-full items-center text-xs font-medium text-gray-400 justify-between">
         <div className="flex items-center">
           <span className="ml-1 font-normal leading-none">Dec 12</span>

@@ -26,7 +26,7 @@ export const Pane: React.FC<Props> = ({ id, title, tasks }) => {
   return (
     <div
       ref={setNodeRef}
-      className={"flex flex-shrink-0 grow flex-col rounded-md border p-2"}
+      className={"flex flex-shrink-0 grow flex-col rounded-md border p-2 dark:border-neutral-700 overflow-y-scroll"}
     >
       {/* Header */}
       <div className="flex h-10 flex-shrink-0 items-center px-2 justify-between">
@@ -48,7 +48,7 @@ export const Pane: React.FC<Props> = ({ id, title, tasks }) => {
         strategy={verticalListSortingStrategy}
       >
         <div
-          className="flex flex-col space-y-2 overflow-auto pb-2"
+          className="flex flex-col space-y-2 overflow-y-scroll pb-2"
           ref={setNodeRef}
         >
           {tasks.map((task) => (

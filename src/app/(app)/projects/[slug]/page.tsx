@@ -18,6 +18,7 @@ import {
 } from "@heroicons/react/24/solid";
 import { Project } from "@/features/project-block/types/request";
 import Head from "next/head";
+import { EyeIcon } from "@heroicons/react/24/outline";
 
 interface Props {
   params: { slug: string };
@@ -41,27 +42,27 @@ export default function ProjectsDetail({ params }: Props) {
         <Header project={data.data} />
 
         <section className="flex flex-row justify-between mt-4 w-full">
-          <div className="flex flex-row space-x-4">
-            <span className="text-xs inline-flex rounded bg-neutral-100 dark:bg-neutral-500/70 p-1 text-neutral-600 dark:text-blue-50">
-              <LockClosedIcon className="size-4 mr-2" /> Private Project
+          <div className="flex flex-row space-x-2">
+            <span className="text-xs inline-flex items-center rounded bg-neutral-100 dark:bg-neutral-600/70 px-2 py-1 text-neutral-600 dark:text-blue-50">
+              <LockClosedIcon className="size-3 mr-2" /> Private Project
             </span>
 
-            <span className="text-xs inline-flex rounded bg-neutral-100 dark:bg-blue-500/70 p-1 text-neutral-600 dark:text-blue-50">
-              <ShareIcon className="size-4 mr-2" /> Share
+            <span className="text-xs inline-flex items-center rounded bg-neutral-100 dark:bg-neutral-600/70 px-2 py-1 text-neutral-600 dark:text-blue-50">
+              <ShareIcon className="size-3 mr-2" /> Share
             </span>
 
-            <p className="text-xs text-neutral-600 p-1">
+            <p className="text-xs text-neutral-600 dark:text-neutral-500 p-1">
               Last updated: {new Date(data.data.updated_at).toDateString()}
             </p>
           </div>
 
-          <div className="flex flex-row space-x-4">
-            <span className="text-xs inline-flex rounded bg-neutral-100 dark:bg-blue-500/70 p-1 text-neutral-600 dark:text-blue-50">
-              <AdjustmentsVerticalIcon className="size-4 mr-2" /> Filter
+          <div className="flex flex-row space-x-2">
+            <span className="text-xs inline-flex items-center rounded bg-neutral-100 dark:bg-neutral-600/70 px-2 py-1 text-neutral-600 dark:text-blue-50">
+              <AdjustmentsVerticalIcon className="size-3 mr-2" /> Filter
             </span>
 
-            <span className="text-xs inline-flex rounded bg-neutral-100 dark:bg-blue-500/70 p-1 text-neutal-600 dark:text-blue-50">
-              <ShareIcon className="size-4 mr-2" /> View
+            <span className="text-xs inline-flex items-center rounded bg-neutral-100 dark:bg-neutral-600/70 px-2 py-1 text-neutal-600 dark:text-blue-50">
+              <EyeIcon className="size-3 mr-2" /> View
             </span>
           </div>
         </section>

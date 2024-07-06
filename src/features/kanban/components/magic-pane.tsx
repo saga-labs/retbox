@@ -30,7 +30,7 @@ export const MagicPane: React.FC<Props> = ({ id, title, tasks }) => {
   return (
     <div
       ref={setNodeRef}
-      className={"flex flex-shrink-0 grow flex-col rounded-md border p-2"}
+      className={"flex flex-shrink-0 grow flex-col rounded-md border p-2 dark:border-neutral-700"}
     >
       {/* Header */}
       <div className="flex h-10 flex-shrink-0 items-center px-2 justify-between">
@@ -42,7 +42,7 @@ export const MagicPane: React.FC<Props> = ({ id, title, tasks }) => {
         </div>
         <button
           onClick={OpenAIServices.generateTask}
-          className="flex h-6 w-6 items-center justify-center rounded bg-blue-100/70 text-blue-700 hover:bg-blue-500 hover:text-blue-100"
+          className="flex h-6 w-6 items-center justify-center rounded bg-blue-100/70 dark:bg-blue-700/70 text-blue-700 dark:text-blue-100 hover:bg-blue-500 hover:text-blue-100"
         >
           <MagicWandIcon className="size-4" />
         </button>
