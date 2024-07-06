@@ -8,6 +8,7 @@ import { FingerPrintIcon, FireIcon } from "@heroicons/react/24/solid";
 
 import { cn } from "@/utils/cn";
 import { Project } from "@/features/project-block/types/request";
+import Link from "next/link";
 
 export const ProjectCard = ({}) => {
   const progress = Math.round(Math.random() * 100);
@@ -75,66 +76,70 @@ export const ProjectCard = ({}) => {
 };
 
 export const ProjectSinkCard: React.FC<{ project: Project }> = ({
-  project
+  project,
 }) => {
   const progress = Math.round(Math.random() * 100);
   return (
-    <article className="flex flex-col space-y-6 rounded-lg border dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 p-6">
-      {/** Header */}
-      <div className="flex flex-col justify-between">
-        <div className="flex flex-row items-center justify-between mb-4">
-          <p className="text-xl font-medium text-neutral-700 dark:text-blue-100 mb-2">
-            {project.title}
+    <Link href={`/projects/${project._id}`}>
+      <article className="flex flex-col space-y-6 rounded-lg border dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 p-6">
+        {/** Header */}
+        <div className="flex flex-col justify-between">
+          <div className="flex flex-row items-center justify-between mb-4">
+            <p className="text-xl font-medium text-neutral-700 dark:text-blue-100 mb-2">
+              {project.title}
+            </p>
+            <Avatars />
+          </div>
+
+          <p className="text-xs text-blue-700 dark:text-blue-400 font-normal line-clamp-2">
+            {project.description}
           </p>
-          <Avatars />
         </div>
 
-        <p className="text-xs text-blue-700 dark:text-blue-400 font-normal line-clamp-2">
-          {project.description}
-        </p>
-      </div>
-
-      {/** Project Stats */}
-      <div className="flex justify-between align-top">
-        <div className="inline-flex gap-1 rounded bg-blue-100 dark:bg-blue-700 py-1 px-2 text-blue-600 dark:text-blue-100">
-          <FireIcon className="size-4" />
-          <span className="text-xs font-medium">{project.epics.length} Epics</span>
+        {/** Project Stats */}
+        <div className="flex justify-between align-top">
+          <div className="inline-flex gap-1 rounded bg-blue-100 dark:bg-blue-700 py-1 px-2 text-blue-600 dark:text-blue-100">
+            <FireIcon className="size-4" />
+            <span className="text-xs font-medium">
+              {project.epics.length} Epics
+            </span>
+          </div>
         </div>
-      </div>
 
-      {/** Progress Tracker*/}
-      <section className="mt-3 w-full">
-        <div>
-          <span id="ProgressLabel" className="sr-only">
-            Loading
-          </span>
+        {/** Progress Tracker*/}
+        <section className="mt-3 w-full">
+          <div>
+            <span id="ProgressLabel" className="sr-only">
+              Loading
+            </span>
 
-          <span
-            role="progressbar"
-            aria-labelledby="ProgressLabel"
-            aria-valuenow={progress}
-            className="block rounded-full bg-gray-200"
-          >
             <span
-              className={cn(
-                "block h-2 rounded-full",
-                progress >= 0 && progress < 10 && "bg-blue-300", // Applied when 0 <= progress < 10
-                progress >= 10 && progress < 30 && "bg-blue-400", // Applied when 10 <= progress < 30
-                progress >= 30 && progress < 60 && "bg-blue-500", // Applied when 30 <= progress < 60
-                progress >= 60 && progress < 90 && "bg-blue-600", // Applied when 60 <= progress < 90
-                progress >= 90 && "bg-blue-700" // Applied when progress >= 90
-              )}
-              style={{ width: `${progress}%` }}
-            ></span>
-          </span>
-        </div>
+              role="progressbar"
+              aria-labelledby="ProgressLabel"
+              aria-valuenow={progress}
+              className="block rounded-full bg-gray-200"
+            >
+              <span
+                className={cn(
+                  "block h-2 rounded-full",
+                  progress >= 0 && progress < 10 && "bg-blue-300", // Applied when 0 <= progress < 10
+                  progress >= 10 && progress < 30 && "bg-blue-400", // Applied when 10 <= progress < 30
+                  progress >= 30 && progress < 60 && "bg-blue-500", // Applied when 30 <= progress < 60
+                  progress >= 60 && progress < 90 && "bg-blue-600", // Applied when 60 <= progress < 90
+                  progress >= 90 && "bg-blue-700" // Applied when progress >= 90
+                )}
+                style={{ width: `${progress}%` }}
+              ></span>
+            </span>
+          </div>
 
-        <div className="flex justify-between font-light text-sm mt-2 dark:text-blue-200">
-          <span>Progress</span>
-          <span>{progress} %</span>
-        </div>
-      </section>
-    </article>
+          <div className="flex justify-between font-light text-sm mt-2 dark:text-blue-200">
+            <span>Progress</span>
+            <span>{progress} %</span>
+          </div>
+        </section>
+      </article>
+    </Link>
   );
 };
 

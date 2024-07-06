@@ -2,6 +2,7 @@
 
 import React from "react";
 import useSWR from "swr";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
 
 // Services
 import ProjectsService from "@/services/projects.service";
@@ -39,17 +40,13 @@ export default function Projects() {
         {/** Title */}
         <StatsCard stats={{ desc: "Projects", amount: 45, change: 43.23 }} />
 
-        <div className="flex flex-row justify-between mb-4">
+        <div className="flex flex-row justify-between my-4">
           <h3 className="text-xl font-semibold">Projects</h3>
           <Button size="sm" func={() => setOpen(true)}>
             Add New
           </Button>
         </div>
         <section className="grid grid-cols-2 gap-4">
-          {data.data.map((d: Project, i: React.Key) => {
-            return <ProjectBlock objective={project} project={d} key={i} />;
-          })}
-
           {data.data.map((d: Project, i: React.Key) => {
             return <ProjectSinkCard project={d} key={i} />;
           })}

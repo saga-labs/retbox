@@ -3,20 +3,26 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useUser } from "@auth0/nextjs-auth0/client";
+
+// components
 import * as Collapsible from "@radix-ui/react-collapsible";
+
+// utils
+import { cn } from "@/utils/cn";
+
+// types
+import type { Link as LinkType } from "@/types/nav-link";
 
 // icons
 import { ExitIcon, GearIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
-
 import {
   BeakerIcon,
   UserGroupIcon,
   FlagIcon,
 } from "@heroicons/react/24/outline";
-import { cn } from "@/utils/cn";
-
-import type { Link as LinkType } from "@/types/nav-link";
 import { ChevronUpDownIcon, XMarkIcon } from "@heroicons/react/24/solid";
+import { profile } from "console";
 
 const links: LinkType[] = [
   {
@@ -44,6 +50,7 @@ const links: LinkType[] = [
 export const Navigation: React.FC = () => {
   const [wide, setWide] = React.useState(false);
   const pathname = usePathname();
+  const { user, error, isLoading } = useUser();
 
   const handleKeyDown = React.useCallback(
     (event: KeyboardEvent) => {
@@ -59,6 +66,9 @@ export const Navigation: React.FC = () => {
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [handleKeyDown]);
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>{error.message}</div>;
 
   return (
     <nav
@@ -128,6 +138,18 @@ export const Navigation: React.FC = () => {
           <MagnifyingGlassIcon className="h-4 w-4" />
           <p className={cn("ml-2 text-sm", !wide && "hidden")}>Search</p>
         </button>
+
+        <a
+          type="button"
+          href="/api/auth/logout"
+          className={cn(
+            "flex h-10 w-full items-center rounded text-neutral-600 bg-neutral-200/70 dark:text-neutral-500 dark:bg-neutral-800/70 hover:bg-neutral-400 hover:text-neutral-50",
+            wide ? "justify-start px-2" : "justify-center"
+          )}
+        >
+          <ExitIcon className="h-4 w-4" />
+          <p className={cn("ml-2 text-sm overflow-x-hidden break-keep", !wide && "hidden")}>{user?.name}</p>
+        </a>
 
         <Collapsible.Root className="w-full">
           <Collapsible.Trigger className="w-full">

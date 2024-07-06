@@ -11,19 +11,19 @@ type LinkType = {
 
 const links: LinkType[] = [
   {
-    text: "General",
+    text: "general",
     route: "/settings",
   },
   {
-    text: "Integrations",
+    text: "integrations",
+    route: "/settings/integrations",
+  },
+  {
+    text: "tenants",
     route: "/settings/tenants",
   },
   {
-    text: "Notications",
-    route: "/settings/notifications",
-  },
-  {
-    text: "Billing",
+    text: "billing",
     route: "/settings/billing",
   },
 ];

@@ -3,6 +3,7 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import { UserProvider } from "@auth0/nextjs-auth0/client";
 
 const inter = Montserrat({ subsets: ["latin"] });
 
@@ -24,14 +25,18 @@ export default function RootLayout({
   if (theme === "dark") {
     return (
       <html lang="en" className="dark">
-        <body className={inter.className}>{children}</body>
+        <UserProvider>
+          <body className={inter.className}>{children}</body>
+        </UserProvider>
       </html>
     );
   }
 
   return (
-    <html lang="en" className="dark">
-      <body className={inter.className}>{children}</body>
+    <html lang="en">
+      <UserProvider>
+        <body className={inter.className}>{children}</body>
+      </UserProvider>
     </html>
   );
 }

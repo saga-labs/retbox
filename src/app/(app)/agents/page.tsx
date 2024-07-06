@@ -13,8 +13,9 @@ import { Agent } from "@/types/agent";
 
 // mock data
 import agents from "@/mock/agents.json";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
 
-export default function Agents() {
+export default withPageAuthRequired(function Agents() {
   return (
     <div className="p-4 space-y-4">
       <section className="bg-blue-100/70 text-blue-700 rounded">
@@ -69,4 +70,4 @@ export default function Agents() {
       </section>
     </div>
   );
-}
+});
