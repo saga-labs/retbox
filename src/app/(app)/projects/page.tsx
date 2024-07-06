@@ -2,7 +2,6 @@
 
 import React from "react";
 import useSWR from "swr";
-import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
 
 // Services
 import ProjectsService from "@/services/projects.service";
