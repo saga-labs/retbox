@@ -22,7 +22,6 @@ import {
   FlagIcon,
 } from "@heroicons/react/24/outline";
 import { ChevronUpDownIcon, XMarkIcon } from "@heroicons/react/24/solid";
-import { profile } from "console";
 
 const links: LinkType[] = [
   {
@@ -148,41 +147,15 @@ export const Navigation: React.FC = () => {
           )}
         >
           <ExitIcon className="h-4 w-4" />
-          <p className={cn("ml-2 text-sm overflow-x-hidden break-keep", !wide && "hidden")}>{user?.name}</p>
+          <p
+            className={cn(
+              "ml-2 text-sm overflow-x-hidden break-keep",
+              !wide && "hidden"
+            )}
+          >
+            {user?.name}
+          </p>
         </a>
-
-        <Collapsible.Root className="w-full">
-          <Collapsible.Trigger className="w-full">
-            <div
-              className={cn(
-                "flex h-10 w-full items-center rounded text-neutral-600 bg-neutral-200/70 dark:text-neutral-500 dark:bg-neutral-800/70 hover:bg-neutral-400 hover:text-neutral-50",
-                wide ? "justify-start px-2" : "justify-center"
-              )}
-              onClick={() => console.log("hello")}
-            >
-              <ExitIcon className="h-4 w-4" />
-              <p className={cn("ml-2 text-sm", !wide && "hidden")}>User</p>
-            </div>
-          </Collapsible.Trigger>
-
-          <Collapsible.Content>
-            <div className="bg-white rounded my-[10px] p-[10px] shadow-[0_2px_10px] shadow-blackA4">
-              <span className="text-violet11 text-[15px] leading-[25px]">
-                @radix-ui/primitives
-              </span>
-            </div>
-            <div className="bg-white rounded my-[10px] p-[10px] shadow-[0_2px_10px] shadow-blackA4">
-              <span className="text-violet11 text-[15px] leading-[25px]">
-                @radix-ui/primitives
-              </span>
-            </div>
-            <div className="bg-white rounded my-[10px] p-[10px] shadow-[0_2px_10px] shadow-blackA4">
-              <span className="text-violet11 text-[15px] leading-[25px]">
-                @radix-ui/primitives
-              </span>
-            </div>
-          </Collapsible.Content>
-        </Collapsible.Root>
       </section>
     </nav>
   );

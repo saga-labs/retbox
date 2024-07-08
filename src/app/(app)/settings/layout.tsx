@@ -11,9 +11,9 @@ import { usePathname } from "next/navigation";
 
 export default function SettingsLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   const open = useIntegrationStore((s) => s.open);
   const setOpen = useIntegrationStore((s) => s.setOpen);
   const pathname = usePathname();

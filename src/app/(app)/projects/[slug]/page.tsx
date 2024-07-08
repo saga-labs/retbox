@@ -11,6 +11,7 @@ import Kanban from "@/features/kanban";
 // import { StatsCard } from "@/components/common/stats-card";
 import {
   AdjustmentsVerticalIcon,
+  ChevronDoubleLeftIcon,
   ChevronDownIcon,
   ChevronUpIcon,
   LockClosedIcon,
@@ -19,12 +20,14 @@ import {
 import { Project } from "@/features/project-block/types/request";
 import Head from "next/head";
 import { EyeIcon } from "@heroicons/react/24/outline";
+import { Navigation } from "@/components/layout/navigation";
 
 interface Props {
   params: { slug: string };
 }
 
 export default function ProjectsDetail({ params }: Props) {
+  const [details, setDetails] = React.useState(true);
   const { data, error, isLoading } = useSWR(
     params.slug,
     ProjectsService.getProjectById
@@ -64,11 +67,25 @@ export default function ProjectsDetail({ params }: Props) {
             <span className="text-xs inline-flex items-center rounded bg-neutral-100 dark:bg-neutral-600/70 px-2 py-1 text-neutal-600 dark:text-blue-50">
               <EyeIcon className="size-3 mr-2" /> View
             </span>
+
+            <span className="text-xs inline-flex items-center rounded bg-neutral-100 dark:bg-neutral-600/70 px-2 py-1 text-neutal-600 dark:text-blue-50">
+              <ChevronDoubleLeftIcon className="size-3" />{" "}
+              <p className="sr-only">Details</p>
+            </span>
           </div>
         </section>
 
-        {/** Task Board Content*/}
+        {/** Task Board Content */}
         <Kanban />
+
+        {/** ! Show Project Details & Epics */}
+        {details && (
+          <nav className="group flex flex-shrink-0 flex-col items-center justify-between border-r transition dark:border-neutral-700">
+            <section className="flex w-full flex-col items-center group-hover:justify-start">
+              bandit
+            </section>
+          </nav>
+        )}
       </section>
     </div>
   );
