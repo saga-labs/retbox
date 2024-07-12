@@ -10,7 +10,6 @@ interface Props {
 }
 
 export const View: React.FC<Props> = ({ project, status }) => {
-  console.log(project.objective, status);
   return (
     <a href="/projects/01j0ebhv9w2y7ma8eb1rkdcmpq">
       <article className="cursor-pointer  border-b p-4 sm:p-6 lg:p-8">

@@ -17,7 +17,10 @@ import ProjectBlock from "@/features/project-block";
 import { StatsCard } from "@/components/common/stats-card";
 import { Button } from "@/components/common/button";
 import { IntegrationCard } from "@/components/common/integration-card";
-import { ProjectCard } from "@/components/dashboard/project-card";
+import {
+  ProjectCard,
+  ProjectSinkCard,
+} from "@/components/dashboard/project-card";
 
 // mock
 import integrations from "@/mock/integrations.json";
@@ -103,15 +106,13 @@ export default function Dashboard() {
       </div>
 
       {/** Projects: sorted by updated_at & limited to three */}
-
       {projects.data.map((project: Project) => (
         <section className="col-span-4" key={project._id}>
-          <ProjectCard />
+          <ProjectSinkCard project={project} />
         </section>
       ))}
 
       {/** Projects: display empty state for remainders */}
-
       {[...Array(3 - projects.data.length)].map((i: React.Key) => (
         <section className="col-span-4" key={i}>
           <Empty />

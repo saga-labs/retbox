@@ -28,13 +28,10 @@ type Timeline = {
 type FormValues = {
   title: string;
   description: string;
-  status: Status;
-  timeline: Timeline;
-  epics: [];
 };
 
 export default function ProjectModal({ show }: { show: boolean }) {
-  const { register, handleSubmit } = useForm<FormValues>();
+  const { register, handleSubmit } = useForm<FormValues>({});
 
   // modal handlers
   const step = useProjectStore((s) => s.step);
@@ -43,7 +40,7 @@ export default function ProjectModal({ show }: { show: boolean }) {
   const setOpen = useProjectStore((s) => s.setOpen);
 
   // form handler
-  const onSubmit = handleSubmit((data: FormValues) => console.log(data));
+  const onSubmit = handleSubmit((data) => console.log(data));
 
   return (
     <div className="fixed inset-0 z-50 backdrop-blur-sm bg-neutral-900/70 flex items-center justify-center">
@@ -68,7 +65,10 @@ export default function ProjectModal({ show }: { show: boolean }) {
             </section>
 
             {/** Form Slot */}
-            <form className="grow py-4 px-4 flex flex-col divide-y">
+            <form
+              className="grow py-4 px-4 flex flex-col divide-y"
+              onSubmit={onSubmit}
+            >
               {/** 1. Project Information */}
               <div className="py-3 space-y-3">
                 <h3 className="text-sm font-semibold">
@@ -76,7 +76,9 @@ export default function ProjectModal({ show }: { show: boolean }) {
                 </h3>
 
                 <small className="text-xs font-light text-neutral-500">
-                  Provide a meaningful title for your project
+                  A repository contains all project files, including the
+                  revision history. Already have a project repository elsewhere?
+                  Import a repository.
                 </small>
 
                 <div className="relative">
@@ -110,7 +112,7 @@ export default function ProjectModal({ show }: { show: boolean }) {
 
                   <textarea
                     id="describe"
-                    placeholder=""
+                    placeholder="Project description..."
                     className="w-full rounded-md bg-gray-50 py-2 pl-2.5 pr-10 sm:text-sm"
                     {...register("description")}
                   />
@@ -131,7 +133,10 @@ export default function ProjectModal({ show }: { show: boolean }) {
                     Describe
                   </label>
 
-                  <select {...register("status")} defaultValue={Status.Delayed} className="w-full">
+                  <select
+                    defaultValue={Status.Delayed}
+                    className="w-full rounded-md bg-gray-50 py-2 px-2.5 sm:text-sm"
+                  >
                     <option value={Status.Open}>Open</option>
                     <option value={Status.Archived}>Paused</option>
                     <option value={Status.Delayed}>Delayed</option>
@@ -143,7 +148,8 @@ export default function ProjectModal({ show }: { show: boolean }) {
               <div className="py-3">
                 <h3 className="text-sm font-semibold">2. Project Timeline</h3>
                 <small className="text-xs font-light text-neutral-500">
-                Estimate a timeline for your project? (dont worry you can always extend)
+                  Estimate a timeline for your project? (dont worry you can
+                  always extend)
                 </small>
 
                 <div className="relative">
@@ -152,21 +158,11 @@ export default function ProjectModal({ show }: { show: boolean }) {
                   </label>
 
                   <input
-                    type="text"
+                    type="datetime-local"
                     id="Search"
                     placeholder="Search for..."
-                    className="w-full rounded-md bg-gray-50 py-2 pl-2.5 pr-10 sm:text-sm"
+                    className="w-full rounded-md bg-gray-50 py-2 px-2.5 sm:text-sm"
                   />
-
-                  <span className="absolute inset-y-0 end-0 grid w-10 place-content-center">
-                    <button
-                      type="button"
-                      className="text-gray-600 hover:text-gray-700"
-                    >
-                      <span className="sr-only">Search</span>
-                      <EllipsisVerticalIcon className="size-4" />
-                    </button>
-                  </span>
                 </div>
 
                 <small className="text-xs font-light text-neutral-500">
@@ -179,52 +175,11 @@ export default function ProjectModal({ show }: { show: boolean }) {
                   </label>
 
                   <input
-                    type="text"
+                    type="date"
                     id="Search"
                     placeholder="Search for..."
-                    className="w-full rounded-md bg-gray-50 py-2 pl-2.5 pr-10 sm:text-sm"
+                    className="w-full rounded-md bg-gray-50 py-2 px-2.5 sm:text-sm"
                   />
-
-                  <span className="absolute inset-y-0 end-0 grid w-10 place-content-center">
-                    <button
-                      type="button"
-                      className="text-gray-600 hover:text-gray-700"
-                    >
-                      <span className="sr-only">Search</span>
-                      <HashtagIcon className="size-3" />
-                    </button>
-                  </span>
-                </div>
-              </div>
-
-              {/** 3. Select API-Key */}
-              <div className="py-3">
-                <h3 className="text-sm font-semibold">3. Select API-Key</h3>
-                <small className="text-xs font-light text-neutral-500">
-                  Authenticate with your Slack Workspace
-                </small>
-
-                <div className="relative">
-                  <label htmlFor="Search" className="sr-only">
-                    Search
-                  </label>
-
-                  <input
-                    type="text"
-                    id="Search"
-                    placeholder="Search for..."
-                    className="w-full rounded-md bg-gray-50 py-2 pl-2.5 pr-10 sm:text-sm"
-                  />
-
-                  <span className="absolute inset-y-0 end-0 grid w-10 place-content-center">
-                    <button
-                      type="button"
-                      className="text-gray-600 hover:text-gray-700"
-                    >
-                      <span className="sr-only">Search</span>
-                      <EllipsisVerticalIcon className="size-4" />
-                    </button>
-                  </span>
                 </div>
               </div>
             </form>
@@ -251,8 +206,7 @@ export default function ProjectModal({ show }: { show: boolean }) {
 
               <button
                 className="inline-block rounded border border-blue-600 bg-blue-600 px-4 py-1 text-sm font-medium text-white hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500"
-                type="button"
-                onClick={increase}
+                type="submit"
               >
                 Next
               </button>
